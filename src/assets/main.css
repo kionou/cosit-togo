@@ -1,0 +1,8 @@
+@import './base.css';
+
+:root {
+    --color-default: #222222;
+    --color-primary: #e02b29;
+    --color-secondary: #F9D310;
+    --color-blanc: #Fff;
+  }
