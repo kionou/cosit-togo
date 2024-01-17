@@ -38,7 +38,7 @@
                                     <li><a target="_blank" href="terms-condition.html">Terms & Condition</a></li>
                                 </ul>
                             </li>
-                            <li><a href="about.html" target="_blank">Contact</a></li>
+                            <li>  <router-link to="/contact">Contact</router-link> </li>
                            
                           
                            
@@ -46,7 +46,7 @@
                     </nav>
                 </div>
 
-                <button class="c-button c-button--gooey"> 
+                <button class="c-button c-button--gooey" > 
                     <i class="bi bi-box-arrow-in-right"></i>
                     Se Connecter
                         <div class="c-button__blobs">
