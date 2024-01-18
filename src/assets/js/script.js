@@ -5,6 +5,9 @@ Version:        1.0
 Author:         
 
 -------------------------------------------------------------------------------- */
+// import $ from 'jquery';
+
+
 (function() {
 
 	"use strict";
@@ -19,7 +22,7 @@ Author:
 				this.Saasiopreloader();
 				this.BackgroundImage();
 				this.SaaSioOnePageNav();
-				this.counterUp();
+				// this.counterUp();
 				this.EiStickyMenu();
 				this.EiscreenSlider();
 				this.EiscrollTop();
@@ -161,21 +164,21 @@ Author:
 					});
 				}			
 			},	
-			counterUp: function (){
-				if ($(".odometer").length) {
-					$('.odometer').appear();
-					$(document.body).on('appear', '.odometer', function(e) {
-						var odo = $(".odometer");
-						odo.each(function() {
-							var countNumber = $(this).attr("data-count");
-							$(this).html(countNumber);
-						});
-						window.odometerOptions = {
-							format: 'd',
-						};
-					});
-				}
-			},
+			// counterUp: function (){
+			// 	if ($(".odometer").length) {
+			// 		$('.odometer').appear();
+			// 		$(document.body).on('appear', '.odometer', function(e) {
+			// 			var odo = $(".odometer");
+			// 			odo.each(function() {
+			// 				var countNumber = $(this).attr("data-count");
+			// 				$(this).html(countNumber);
+			// 			});
+			// 			window.odometerOptions = {
+			// 				format: 'd',
+			// 			};
+			// 		});
+			// 	}
+			// },
 			
 			EiscreenSlider: function (){
 				if ($('.ei-appScreenshotCarousel-container').length) {
