@@ -13384,7 +13384,7 @@ Sticky Menu
 .dia-section-title span,
 .dia-banner-section .dia-banner-content .dia-banner-tag {
   font-weight: 700;
-  background-image: linear-gradient(81deg, #ff6600 0%, #ff9903 75%, #ffcb05 100%);
+  background-image: linear-gradient(81deg, #e02b29 0%, #ff0303ed 75%, #ff3505 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -13579,8 +13579,9 @@ div#preloader {
 .dia-main-header {
   z-index: 5;
   width: 100%;
-  padding-top: 15px;
+  
   position: absolute;
+  background-color: var(--color-blanc);
 }
 
 .dia-main-header .dia-logo {
@@ -13707,7 +13708,7 @@ div#preloader {
   margin: 0 auto;
   position: absolute;
   transition: 0.5s all ease-in-out;
-  background-image: linear-gradient(81deg, #ff6600 0%, #ff9903 75%, #ffcb05 100%);
+  background-image: linear-gradient(81deg, #e02b29 0%, #ff0303ed 75%, #ff3505 100%);
 }
 
 .dia-main-header .dia-main-navigation li a:hover:before, 
@@ -13792,7 +13793,7 @@ div#preloader {
 }
 
 .dia-mobile_menu_content .m-brand-logo {
-  width: 160px;
+  width: 60px;
   margin: 0 auto;
   margin-bottom: 30px;
 }

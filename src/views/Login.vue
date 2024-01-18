@@ -5,7 +5,7 @@
         <div class="hero-mask opacity-4 bg-secondary">
 
         </div>
-        <div class="hero-bg hero-bg-scroll" style="background-image:url('https://www.agenceemploijeunes.ci/site/themes/refonteaej/assets/images/login/group-jeune-1.jpg');"></div>
+        <div class="hero-bg hero-bg-scroll" style="background-image:url('../assets/site/apps2.png');"></div>
         <div class="hero-content mx-auto w-100 h-100">
             <div class="container">
                 <div class="row no-gutters min-vh-100">
@@ -13,13 +13,9 @@
                     <div class="col-md-7 d-flex flex-column">
                         <div class="row no-gutters my-auto">
                             <div class="col-10 col-lg-9 mx-auto text-center">
-                                <div class="logo mt-5 mb-3"> <a href="https://www.agenceemploijeunes.ci/site" title="Agence Emploi Jeune"><img src="https://www.agenceemploijeunes.ci/site/themes/refonteaej/assets/images/logo_ft.png" alt="Oxyy"></a> </div>
-                                <h1 class="text-5 font-weight-700 text-white mb-5">
-                                    Guichet Unique pour l’Emploi des Jeunes En Côte d’Ivoire
-                                </h1>
-                                <!--<h1 class="text-5 font-weight-400 text-white mb-5">Connectez-vous pour accéder à votre espace jeunes.
-                                </h1>
-                                <p class="text-white mb-0">Nous sommes heureux de vous revoir ! </p>-->
+                                <div class="logo mt-5 mb-3"><img src="../assets/site/logo1.png" alt="Oxyy"> </div>
+                               
+                              
                             </div>
                         </div>
                     </div>
@@ -30,14 +26,15 @@
                                 <div class="col-11 col-lg-11 mx-auto">
                                     <h3 class="text-9 font-weight-600 text-center mt-2 mb-3 text-color-orange">S'identifier</h3>
                                     <p class="text-center mb-4">Vous êtes nouveau
-                                        <a class="btn-link" href="demandeur_inscription">
-                                            <u>Créer un compte</u>
-                                        </a>
+                                        <router-link to="/">
+                                            <u style="color:#007bff !important ;">Créer un compte</u>
+                                        </router-link>
+                                        
                                     </p>
                                     <form data-request="onSignin" class="login_form">
                                                                                 <div class="form-group">
                                             <label class="font-weight-600 text-color-orange" for="emailAddress">Email ou Telephone</label>
-                                            <input class="form-control rounded-0" type="text" id="emailAddress" name="email_name" placeholder="Entrez votre Email ou Numero Téléphone">
+                                            <input class="form-control rounded-0" type="text" id="emailAddress" name="email_name" placeholder="Entrez votre Email ">
                                         </div>
                                         <div class="form-group">
                                             <label class="font-weight-600 text-color-orange" for="loginPassword">Mot de passe</label>
@@ -50,12 +47,10 @@
                                         <button type="submit" class="btn btn-success btn-block rounded-0 my-4" data-attach-loading="">Connexion</button>
                                     </form>
                                     <p class="text-center">
-                                        <a class="btn-link" href="https://www.agenceemploijeunes.ci/site">
-                                            <u>Retourner à la page d'accueil</u>
-                                        </a> ou
-                                        <a class="btn-link" href="mot_de_passe_oublie">
-                                            <u>Mot de passe oublié?</u>
-                                        </a>
+                                        <router-link to="/">
+                                            <u style="color:#007bff !important ;">Mot de passe oublié?</u>
+                                        </router-link>
+                                        
                                     </p>
                                 </div>
                             </div>
@@ -148,7 +143,7 @@ export default {
     font-size: 2.25rem !important;
 }
 .text-color-orange {
-    color: #F8941E;
+    color: var(--color-primary);
 }
 
 .oxyy-login-register .text-primary, .oxyy-login-register .btn-link {
@@ -161,12 +156,16 @@ form {
     display: inline;
 }
 
+.form-group {
+    margin-bottom: 1rem;
+}
+
 .oxyy-login-register .font-weight-600 {
     font-weight: 600 !important;
 }
 
 .text-color-orange {
-    color: #F8941E;
+    color: var(--color-primary);
 }
 
 .oxyy-login-register .form-control:not(.form-control-sm) {
@@ -177,7 +176,7 @@ form {
 .oxyy-login-register .form-control, .oxyy-login-register .custom-select {
     border-color: #dae1e3;
     font-size: 16px;
-    color: #656565;
+    color: var(--color-defaut);
 }
 
 .oxyy-login-register .btn:not(.btn-link) {

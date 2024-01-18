@@ -1058,22 +1058,22 @@ Author:
 				})
 			},
 			Animation: function (){
-				AOS.init({
-					once:true,
-					duration:1000,
-				});
-				if($('.wow').length){
-					var wow = new WOW(
-					{
-						boxClass:     'wow',
-						animateClass: 'animated',
-						offset:       0,
-						mobile:       true,
-						live:         true
-					}
-					);
-					wow.init();
-				}
+				// AOS.init({
+				// 	once:true,
+				// 	duration:1000,
+				// });
+				// if($('.wow').length){
+				// 	var wow = new WOW(
+				// 	{
+				// 		boxClass:     'wow',
+				// 		animateClass: 'animated',
+				// 		offset:       0,
+				// 		mobile:       true,
+				// 		live:         true
+				// 	}
+				// 	);
+				// 	wow.init();
+				// }
 			},
 			ProjectFilterJS: function (){
 				if($('.grid').length){

@@ -1,54 +1,39 @@
-<template lang="">
+<template >
     <div>
         <header id="dia-header" class="dia-main-header">
             <div class="w-100">
                 <div class="dia-main-header-content clearfix">
 
                     <div class="dia-logo float-left">
-                        <a href="#"><img src="@/assets/site/logo.jpeg" alt=""></a>
+                        <router-link to="/">
+                            <img src="@/assets/site/logo.jpeg" alt="">
+                        </router-link>
+                       
                     </div>
 
                     <div class="dia-logo1 float-left">
-                        <a href="#"><img src="@/assets/site/logo1.jpeg" alt=""></a>
+                        <router-link to="/">
+                            <img src="@/assets/site/logo1.jpeg" alt="">
+                        </router-link>
+                            
                     </div>
                     <div class="dia-main-menu-item float-right">
                         <nav class="dia-main-navigation  clearfix ul-li">
                             <ul id="main-nav" class="navbar-nav text-capitalize clearfix">
-                              <li class="side-demo position-relative"><router-link to="/" ></router-link>Accueil </li>
-                              <li><a href="about.html" target="_blank">A propos</a></li>
-                              <li class="dropdown">
-                                <a href="#">Services</a>
-                                <ul class="dropdown-menu clearfix">
-                                    <li><router-link to="#">Team Page</router-link></li>
-                                    <li><a target="_blank" href="service.html">Service 1</a></li>
-                                    <li><a target="_blank" href="service-2.html">Service 2</a></li>
-                                    <li><a target="_blank" href="faq.html">FAQ Page</a></li>
-                                    <li><a target="_blank" href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a target="_blank" href="terms-condition.html">Terms & Condition</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#">Formations</a>
-                                <ul class="dropdown-menu clearfix">
-                                    <li><router-link to="#">Team Page</router-link></li>
-                                    <li><a target="_blank" href="service.html">Service 1</a></li>
-                                    <li><a target="_blank" href="service-2.html">Service 2</a></li>
-                                    <li><a target="_blank" href="faq.html">FAQ Page</a></li>
-                                    <li><a target="_blank" href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a target="_blank" href="terms-condition.html">Terms & Condition</a></li>
-                                </ul>
-                            </li>
-                            <li>  <router-link to="/contact">Contact</router-link> </li>
-                           
-                          
+                              <li>  <router-link to="/">Accueil</router-link></li>
+                              <li>  <router-link to="/apropos">A propos</router-link> </li>
+                              <li>  <router-link to="/services">Services</router-link> </li>
+                              <li>  <router-link to="/formations">Formation</router-link> </li>
+                              <li>  <router-link to="/contact">Contact</router-link> </li>
+                              
                            
                         </ul>
                     </nav>
                 </div>
 
-                <button class="c-button c-button--gooey" > 
+                <button class="c-button c-button--gooey"  @click="$router.push({ path: '/connexion' })" > 
                     <i class="bi bi-box-arrow-in-right"></i>
-                    Se Connecter
+                       Se Connecter
                         <div class="c-button__blobs">
                         <div></div>
                         <div></div>
@@ -77,46 +62,17 @@
                             <i class="far fa-times-circle"></i>
                         </div>
                         <div class="m-brand-logo text-center">
-                            <a href="%21.html#"><img src="@/assets/img/d-agency/logo/logo.png" alt=""></a>
+                            <router-link to="/">
+                            <img src="@/assets/site/logo1.jpeg" alt="">
+                        </router-link>
                         </div>
                         <nav class="dia-mobile-main-navigation  clearfix ul-li">
                          <ul id="m-main-nav" class="navbar-nav text-capitalize clearfix">
-                          <li class="side-demo position-relative"><a href="#!">Demos</a></li>
-                          <li><a href="about.html" target="_blank">About</a></li>
-                          <li class="dropdown">
-                            <a href="#">Pages</a>
-                            <ul class="dropdown-menu clearfix">
-                                <li><a target="_blank" href="team.html">Team Page</a></li>
-                                <li><a target="_blank" href="service.html">Service 1</a></li>
-                                <li><a target="_blank" href="service-2.html">Service 2</a></li>
-                                <li><a target="_blank" href="faq.html">FAQ Page</a></li>
-                                <li><a target="_blank" href="privacy-policy.html">Privacy Policy</a></li>
-                                <li><a target="_blank" href="terms-condition.html">Terms & Condition</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#">Contact</a>
-                            <ul class="dropdown-menu clearfix">
-                                <li><a target="_blank" href="contact.html">Contact 1</a></li>
-                                <li><a target="_blank" href="contact-2.html">Contact 2</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#">Portfolio</a>
-                            <ul class="dropdown-menu clearfix">
-                                <li><a target="_blank" href="portfolio.html">Portfolio Filter</a></li>
-                                <li><a target="_blank" href="portfolio-2.html">Portfolio Page 2</a></li>
-                                <li><a target="_blank" href="project-single.html">Portfolio Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#">Blog</a>
-                            <ul class="dropdown-menu clearfix">
-                                <li><a target="_blank" href="blog.html">Blog Page</a></li>
-                                <li><a target="_blank" href="blog-grid.html">Blog Page</a></li>
-                                <li><a target="_blank" href="blog-single.html">Blog Details</a></li>
-                            </ul>
-                        </li>
+                            <li>  <router-link to="/">Accueil</router-link></li>
+                              <li>  <router-link to="/apropos">A propos</router-link> </li>
+                              <li>  <router-link to="/services">Services</router-link> </li>
+                              <li>  <router-link to="/formations">Formation</router-link> </li>
+                              <li>  <router-link to="/contact">Contact</router-link> </li>
                     </ul>
                 </nav>
             </div>

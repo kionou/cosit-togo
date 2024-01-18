@@ -331,9 +331,9 @@
         <section id="dia-team" class="dia-team-section">
             <div class="container">
                 <div class="dia-section-title text-center text-capitalize pera-content dia-headline">
-                    <span>Our Experts</span>
+                    <span>Nos Experts</span>
                     <h2>Leading Online Marketing Development Company</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                    <p>Notre équipe propose les solutions personnalisées les plus récentes et les plus adaptées à vos besoins . Ils travaillent avec détermination pour vous offrir le meilleur.</p>
                 </div>
                 <div id="dia-team-slide" class="dia-team-content owl-carousel">
                     <div class="dia-team-pic-text wow fadeFromLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
@@ -463,8 +463,8 @@
             <div class="tst-side-shape position-absolute" data-parallax='{"y" : 50}'> <img src="@/assets/img/d-agency/shape/tsts1.png" alt=""></div>
             <div class="container">
                 <div class="dia-section-title text-center text-capitalize dia-headline">
-                    <span>Client’s Testimonials</span>
-                    <h2>Client’s review for our work satisfaction.</h2>
+                    <span>Témoignages Des Clients</span>
+                    <h2>Avis du client pour notre satisfaction au travail.</h2>
                 </div>
                 <div  class="dia-testimonial_slider-area position-relative">
                     <div class="test-shape1 position-absolute wow fadeFromRight" data-wow-delay="300ms" data-wow-duration="1500ms"> <img src="@/assets/img/d-agency/shape/tbg1.png" alt=""></div>
@@ -581,9 +581,12 @@
         <section id="dia-blog" class="dia-blog-section">
             <div class="container">
                 <div class="dia-section-title text-left text-capitalize pera-content dia-headline">
-                    <span>Our Blogs</span>
-                    <h2>Our blog & articale</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                    <span>Nos Blogs</span>
+                    <h2>Notre Blog Et Article</h2>
+                    <p>
+Nous avons complètement mis à jour notre travail, ce qui vous permet de trouver 
+plus facilement les informations dont vous avez besoin. 
+Consultez nos actualités récentes et apprenez-en plus sur nos innovations.</p>
                 </div>
                 <div class="dia-blog-content">
                     <div class="row">
@@ -680,21 +683,21 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="dia-newslatter-text dia-headline pera-content">
-                                <h3>Like our service? Subscribe us</h3>
-                                <p>As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
+                                <h3>Vous aimez notre service ? Abonnez-vous</h3>
+                                <p>Contacez-nous pour ne rien manquer nos dernières mise à jour, nos nouvelles applications et nos offres spéciales.</p>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="dia-newslatter-form  relative-position">
                                 <form action="#">
-                                    <input  name="email" type="email" placeholder="Enter your email address">
+                                    <input  name="email" type="email" placeholder="Entrer votre adresse email ">
                                     <div class="nws-button position-absolute text-capitalize">
-                                        <button class="hover-btn" type="submit" value="Submit"> Subscribe</button>
+                                        <button class="hover-btn" type="submit" value="Submit"> S'abonner</button>
                                     </div>
-                                    <div class="dia-newslatter-checkbox">
+                                    <!-- <div class="dia-newslatter-checkbox">
                                         <input  name="#" type="checkbox" value="#">
                                         <label>Don’t provide any promotional message.</label>
-                                    </div>
+                                    </div> -->
                                 </form>
                             </div>
                         </div>

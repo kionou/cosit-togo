@@ -6,6 +6,7 @@
 
 
 <script>
+
   import AOS from "aos/dist/aos"
 
 // import "@/assets/vendor/aos/aos.css"
@@ -18,7 +19,7 @@ import "aos/dist/aos.css"
    import "@/assets/css/owl.carousel.css"
    import "@/assets/css/side-demo.css"
    import "@/assets/css/style.css"
-
+   
   import "@/assets/js/jquery.js"
   // import "@/assets/js/popper.min.js"
   import "@/assets/js/appear-2.js"
@@ -51,9 +52,9 @@ import "aos/dist/aos.css"
     },
     $route(to,) {
       const name = to.name.toLowerCase()
-      const title = name === 'formation'
-        ? `${name} (${to.href.split('/')[2].toLowerCase()})`
-        : name
+      const title = name 
+        // ? `${name} (${to.href.split('/')[2].toLowerCase()})`
+        // : name
       document.title = `cosit-Togo - ${title}`
 
       window.scrollTo({ top: 0, behavior: 'smooth' })
