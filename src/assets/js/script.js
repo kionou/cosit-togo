@@ -6,67 +6,69 @@ Author:
 
 -------------------------------------------------------------------------------- */
 // import $ from 'jquery';
-
+import $ from 'jquery';
+window.$ = $;
 
 (function() {
-
 	"use strict";
 
 	var SaaSio = {
 		init: function() {
+console.log('rrrxx');
+
 			this.Basic.init();  
 		},
 
 		Basic: {
 			init: function() {
-				this.Saasiopreloader();
-				this.BackgroundImage();
-				this.SaaSioOnePageNav();
+				// this.Saasiopreloader();
+				// this.BackgroundImage();
+				// this.SaaSioOnePageNav();
 				// this.counterUp();
-				this.EiStickyMenu();
-				this.EiscreenSlider();
+				// this.EiStickyMenu();
+				// this.EiscreenSlider();
 				this.EiscrollTop();
-				this.EiTeamSlide();
+				// this.EiTeamSlide();
 				this.faqBg();
-				this.EiScroller();
+				// this.EiScroller();
 				this.EiServiceSLider();
-				this.EiTestimonialSlider();
-				this.EiPartnerSlider();
+				// this.EiTestimonialSlider();
+				// this.EiPartnerSlider();
 				this.APPSeoHeader();
 				this.AppSeoSideInner();
 				this.AppSeoMobileMenu();
 				this.APSeoVideoPopUp();
-				this.AppSeoPartner();
-				this.AppSeoTestimonial();
-				this.SaaSMscroller();
+				// this.AppSeoPartner();
+				// this.AppSeoTestimonial();
+				// this.SaaSMscroller();
 				this.SaaSMMobileMenu();
 				this.SaaSMOnePageNav();
 				this.SaaSCMobileMenu();
-				this.SaaSCmemberSLider();
+				// this.SaaSCmemberSLider();
 				this.SaaSCOnePageNav();
-				this.StrFeatureSlide();
-				this.StrPortfolioSlide();
-				this.StrBannerSlide();
+				// this.StrFeatureSlide();
+				// this.StrPortfolioSlide();
+				// this.StrBannerSlide();
 				this.StrProgressBar();
 				this.StrMobileMenu();
 				this.StrOnePageNav();
 				this.StrTestimonial();
-				this.StrPartnerSlider();
-				this.StrBlogSlide();
-				this.StrTeamSlide();
+				// this.StrPartnerSlider();
+				// this.StrBlogSlide();
+				// this.StrTeamSlide();
 				this.DiaHeader();
 				this.DiaSkillProgress();
 				this.DiaMobileMenu();
-				this.DiaPortSlider();
+				// this.DiaPortSlider();
 				this.DiaTeamSlide();
 				this.DiaTestimonial();
-				this.DiaCounterUp();
+				// this.DiaCounterUp();
 				this.DiaScrollImg();
 				this.PmBlog();
 				this.PmStickymenu();
 				this.PmMobileMenu();
 				this.PmScrollTop();
-				this.PmPartnerSlider();
+				// this.PmPartnerSlider();
 				this.Animation();
 				this.ProjectFilterJS();
 			},

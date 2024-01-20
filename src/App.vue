@@ -12,13 +12,21 @@
 // import "@/assets/vendor/aos/aos.css"
 import "aos/dist/aos.css"
   //  import "@/assets/css/bootstrap.min.css"
-  //  import "@/assets/css/fontawesome-all.css"
+   import "@/assets/css/fontawesome-all.css"
    import "@/assets/css/animate.css"
-   import "@/assets/css/jquery.fancybox.min.css"
-   import "@/assets/css/odometer-theme-default.css"
+  //  import Popper from '@popperjs/core';
+
+// Votre code TypeScript utilisant Popper ici
+
+  //  import "@/assets/css/jquery.fancybox.min.css"
+  //  import "@/assets/css/odometer-theme-default.css"
    import "@/assets/css/owl.carousel.css"
    import "@/assets/css/side-demo.css"
    import "@/assets/css/style.css"
+   import "@/assets/fruit/css/style.css"
+
+   import "@/assets/fruit/js/main.js"
+
    
   // import "@/assets/js/jquery.js"
   // import "@/assets/js/popper.min.js"

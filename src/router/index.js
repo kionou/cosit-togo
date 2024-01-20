@@ -5,7 +5,9 @@ import Layout from '@/views/Layout.vue'
 import Accueil from '@/views/Accueil.vue'
 import Apropos from '@/views/Apropos.vue'
 import Service from '@/views/Service.vue'
+import Actualite from '@/views/Actualite.vue'
 import Formation from '@/views/Formation.vue'
+import Realisation from '@/views/Realisation.vue'
 import Contact from '@/views/Contact.vue'
 import Login   from '@/views/Login.vue'
 
@@ -20,7 +22,9 @@ const router = createRouter({
         { path: '/', name: 'accueil', component: Accueil},
         { path: '/apropos', name: 'apropos', component: Apropos},
         { path: '/services', name: 'services', component: Service},
+        { path: '/actualites', name: 'actualites', component: Actualite},
         { path: '/formations', name: 'formations', component: Formation},
+        { path: '/nos-realisations', name: 'nos-realisations', component: Realisation},
         { path: '/contact', name: 'contact', component: Contact},
         { path: '/connexion', name: 'connexion', component: Login},
 

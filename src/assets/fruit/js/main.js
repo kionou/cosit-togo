@@ -1,0 +1,74 @@
+
+import $ from 'jquery';
+window.$ = $;
+(function ($) {
+    "use strict";
+
+    // Spinner
+  
+
+
+    // Fixed Navbar
+    $(window).scroll(function () {
+        if ($(window).width() < 992) {
+            if ($(this).scrollTop() > 55) {
+                $('.fixed-top').addClass('shadow');
+            } else {
+                $('.fixed-top').removeClass('shadow');
+            }
+        } else {
+            if ($(this).scrollTop() > 55) {
+                $('.fixed-top').addClass('shadow').css('top', 0);
+            } else {
+                $('.fixed-top').removeClass('shadow').css('top', 0);
+            }
+        } 
+    });
+    
+    
+   // Back to top button
+   $(window).scroll(function () {
+    if ($(this).scrollTop() > 300) {
+        $('.back-to-top').fadeIn('slow');
+    } else {
+        $('.back-to-top').fadeOut('slow');
+    }
+    });
+    $('.back-to-top').click(function () {
+        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        return false;
+    });
+   
+
+
+    // Testimonial carousel
+   
+   
+
+    // vegetable carousel
+   
+
+
+    // Modal Video
+   
+
+
+
+    // Product Quantity
+    $('.quantity button').on('click', function () {
+        var button = $(this);
+        var oldValue = button.parent().parent().find('input').val();
+        if (button.hasClass('btn-plus')) {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            if (oldValue > 0) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+        button.parent().parent().find('input').val(newVal);
+    });
+
+})(jQuery);
+

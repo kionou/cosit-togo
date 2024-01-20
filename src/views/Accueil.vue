@@ -4,7 +4,7 @@
         ============================================= -->    
         <section id="dia-banner" class="dia-banner-section position-relative">
             <div class="banner-side-img banner-img1 position-absolute"><img src="@/assets/img/d-agency/banner/ns2.png" alt=""></div>
-            <div class="banner-side-img banner-img2 position-absolute"><img src="@/assets/img/d-agency/banner/ns1.png" alt=""></div>
+            <div class="banner-side-img banner-img2 position-absolute"><img src="@/assets/site/img.jpg" alt=""></div>
             <div class="container">
                 <div class="dia-banner-content dia-headline pera-content">
                     <!-- <span class="dia-banner-tag">We are SaaSio</span> -->
@@ -466,209 +466,95 @@
                     <span>Témoignages Des Clients</span>
                     <h2>Avis du client pour notre satisfaction au travail.</h2>
                 </div>
-                <div  class="dia-testimonial_slider-area position-relative">
-                    <div class="test-shape1 position-absolute wow fadeFromRight" data-wow-delay="300ms" data-wow-duration="1500ms"> <img src="@/assets/img/d-agency/shape/tbg1.png" alt=""></div>
-                    <div class="test-shape2 position-absolute wow fadeFromLeft" data-wow-delay="300ms" data-wow-duration="1500ms"> <img src="@/assets/img/d-agency/shape/tbg2.png" alt=""></div>
-                    <div id="dia-testimonial_slide" class="carousel slide" data-ride="carousel" >
-                        <div class="dia-testimonial_indicator relative-position">
-                            <ol class="carousel-indicators">
-                                <li data-target="#dia-testimonial_slide" data-slide-to="0" class="active">
-                                    <img src="@/assets/img/d-agency/testimonial/tst1.png" alt="">
-                                </li>
-                                <li data-target="#dia-testimonial_slide" data-slide-to="1">
-                                    <img src="@/assets/img/d-agency/testimonial/tst2.png" alt="">
-                                </li>
-                                <li data-target="#dia-testimonial_slide" data-slide-to="2">
-                                    <img src="@/assets/img/d-agency/testimonial/tst3.png" alt="">
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="carousel_preview">
-                            <div class="carousel-inner relative-position">
-                                <div class="carousel-item active">
-                                    <div class="dia-testimonial_content">
-                                        <div class="dia-testimonial_rating ul-li">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                        <div class="dia-testimonial_text relative-position pera-content dia-headline">
-                                            <p>Give your team the ability to quickly create, send, and track docs within an approval system that works for everyone. And will be very easy to work with SaaSio that workflow will work only for your benefit. From to quickly create, send, and track docs within an approval.
-                                            </p>
-                                        </div>
-                                        <div class="dia-testimonial_name_designation">
-                                            <div class="dia-testimonial_meta dia-headline pera-content">
-                                                <h4>Nepoli Dewan</h4>
-                                                <p>SEO Manager</p>
-                                            </div>
-                                        </div>
+                <div class="container-fluid testimonial py-5">
+            <div class="container py-5">
+               
+                 <div class="owl-carousel testimonial-carousel">
+                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                        <div class="position-relative">
+                            <i class="bi bi-quote text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                            <div class="mb-4 pb-4 border-bottom border-secondary">
+                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                </p>
+                            </div>
+                            <div class="d-flex align-items-center flex-nowrap">
+                                <div class="bg-secondary rounded">
+                                    <img src="@/assets/fruit/img/testimonial-1.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                                </div>
+                                <div class="ms-4 d-block">
+                                    <h4 class="text-dark">Client Name</h4>
+                                    <p class="m-0 pb-3">Profession</p>
+                                    <div class="d-flex pe-5">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star"></i>
                                     </div>
                                 </div>
-                                <!-- /slide item -->
-                                <div class="carousel-item">
-                                    <div class="dia-testimonial_content">
-                                        <div class="dia-testimonial_rating ul-li">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                        <div class="dia-testimonial_text relative-position pera-content dia-headline">
-                                            <p>Give your team the ability to quickly create, send, and track docs within an approval system that works for everyone. And will be very easy to work with SaaSio that workflow will work only for your benefit. From to quickly create, send, and track docs within an approval.
-                                            </p>
-                                        </div>
-                                        <div class="dia-testimonial_name_designation">
-                                            <div class="dia-testimonial_meta dia-headline pera-content">
-                                                <h4>Nepoli Dewan</h4>
-                                                <p>SEO Manager</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /slide item -->
-                                <div class="carousel-item">
-                                    <div class="dia-testimonial_content">
-                                        <div class="dia-testimonial_rating ul-li">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                        <div class="dia-testimonial_text relative-position pera-content dia-headline">
-                                            <p>Give your team the ability to quickly create, send, and track docs within an approval system that works for everyone. And will be very easy to work with SaaSio that workflow will work only for your benefit. From to quickly create, send, and track docs within an approval.
-                                            </p>
-                                        </div>
-                                        <div class="dia-testimonial_name_designation">
-                                            <div class="dia-testimonial_meta dia-headline pera-content">
-                                                <h4>Nepoli Dewan</h4>
-                                                <p>SEO Manager</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /slide item -->
                             </div>
                         </div>
-                        <div class="dia-testimonial_indicator-dot">
-                            <ol class="carousel-indicators2">
-                                <li data-target="#dia-testimonial_slide" data-slide-to="0" class="active">
-                                </li>
-                                <li data-target="#dia-testimonial_slide" data-slide-to="1">
-                                </li>
-                                <li data-target="#dia-testimonial_slide" data-slide-to="2">
-                                </li>
-                            </ol>
+                    </div>
+                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                        <div class="position-relative">
+                            <i class="bi bi-quote text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                            <div class="mb-4 pb-4 border-bottom border-secondary">
+                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                </p>
+                            </div>
+                            <div class="d-flex align-items-center flex-nowrap">
+                                <div class="bg-secondary rounded">
+                                    <img src="@/assets/fruit/img/testimonial-1.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                                </div>
+                                <div class="ms-4 d-block">
+                                    <h4 class="text-dark">Client Name</h4>
+                                    <p class="m-0 pb-3">Profession</p>
+                                    <div class="d-flex pe-5">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                        <div class="position-relative">
+                            <i class="bi bi-quote text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                            <div class="mb-4 pb-4 border-bottom border-secondary">
+                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                </p>
+                            </div>
+                            <div class="d-flex align-items-center flex-nowrap">
+                                <div class="bg-secondary rounded">
+                                    <img src="@/assets/fruit/img/testimonial-1.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                                </div>
+                                <div class="ms-4 d-block">
+                                    <h4 class="text-dark">Client Name</h4>
+                                    <p class="m-0 pb-3">Profession</p>
+                                    <div class="d-flex pe-5">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
             </div>
         </section>
     <!-- End of testimonial section
         ============================================= --> 
 
-         <!-- Start of blog section
-        ============================================= -->
-        <section id="dia-blog" class="dia-blog-section">
-            <div class="container">
-                <div class="dia-section-title text-left text-capitalize pera-content dia-headline">
-                    <span>Nos Blogs</span>
-                    <h2>Notre Blog Et Article</h2>
-                    <p>
-Nous avons complètement mis à jour notre travail, ce qui vous permet de trouver 
-plus facilement les informations dont vous avez besoin. 
-Consultez nos actualités récentes et apprenez-en plus sur nos innovations.</p>
-                </div>
-                <div class="dia-blog-content">
-                    <div class="row">
-                        <div class="col-lg-4 wow fadeFromUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <div class="dia-blog-img-text">
-                                <div class="dia-blog-img">
-                                    <img src="@/assets/img/d-agency/blog/b1.jpg" alt="">
-                                </div>
-                                <div class="dia-blog-text">
-                                    <span class="dia-blog-tag"><a href="#">Creavive Agency</a></span>
-                                    <h3><a href="#">10 Secrets About 10 Simple Steps for Blogs Post.</a></h3>
-                                </div>
-                                <div class="dia-blog-meta">
-                                    <div class="dia-author-area d-inline-block">
-                                        <div class="dia-athur-img float-left">
-                                            <img src="@/assets/img/d-agency/blog/ba1.jpg" alt="">
-                                        </div>
-                                        <div class="dia-author-name">
-                                            <span>Posted By <a href="#">Rinnah</a></span>
-                                        </div>
-                                    </div>
-                                    <div class="dia-date-meta float-right">
-                                        <a href="#">8 Aug, 2021</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 wow fadeFromUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-                            <div class="dia-blog-img-text">
-                                <div class="dia-blog-img">
-                                    <img src="@/assets/img/d-agency/blog/b2.jpg" alt="">
-                                </div>
-                                <div class="dia-blog-text">
-                                    <span class="dia-blog-tag"><a href="#">Creavive Agency</a></span>
-                                    <h3><a href="#">10 Secrets About 10 Simple Steps for Blogs Post.</a></h3>
-                                </div>
-                                <div class="dia-blog-meta">
-                                    <div class="dia-author-area d-inline-block">
-                                        <div class="dia-athur-img float-left">
-                                            <img src="@/assets/img/d-agency/blog/ba1.jpg" alt="">
-                                        </div>
-                                        <div class="dia-author-name">
-                                            <span>Posted By <a href="#">Rinnah</a></span>
-                                        </div>
-                                    </div>
-                                    <div class="dia-date-meta float-right">
-                                        <a href="#">8 Aug, 2021</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 wow fadeFromUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="dia-blog-img-text">
-                                <div class="dia-blog-img">
-                                    <img src="@/assets/img/d-agency/blog/b3.jpg" alt="">
-                                </div>
-                                <div class="dia-blog-text">
-                                    <span class="dia-blog-tag"><a href="#">Creavive Agency</a></span>
-                                    <h3><a href="#">10 Secrets About 10 Simple Steps for Blogs Post.</a></h3>
-                                </div>
-                                <div class="dia-blog-meta">
-                                    <div class="dia-author-area d-inline-block">
-                                        <div class="dia-athur-img float-left">
-                                            <img src="@/assets/img/d-agency/blog/ba1.jpg" alt="">
-                                        </div>
-                                        <div class="dia-author-name">
-                                            <span>Posted By <a href="#">Rinnah</a></span>
-                                        </div>
-                                    </div>
-                                    <div class="dia-date-meta float-right">
-                                        <a href="#">8 Aug, 2021</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    <!-- End of Blog section
-        ============================================= -->  
-
+    
          <!-- Start of newslatter section
         ============================================= -->                  
         <section id="dia-newslatter" class="dia-newslatter-section position-relative">
@@ -710,8 +596,51 @@ Consultez nos actualités récentes et apprenez-en plus sur nos innovations.</p>
     </div>
 </template>
 <script>
+ import $ from 'jquery';
+ window.$ = $;
+ import 'owl.carousel';
+ import 'owl.carousel/dist/assets/owl.carousel.css';
+
 export default {
-    
+    data() {
+        return {
+            
+        }
+    },
+
+    mounted() {
+        $(".testimonial-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 2000,
+        center: false,
+        dots: true,
+        loop: true,
+        margin: 25,
+        nav : true,
+        navText : [
+            '<i class="bi bi-arrow-left"></i>',
+            '<i class="bi bi-arrow-right"></i>'
+        ],
+        responsiveClass: true,
+        responsive: {
+            0:{
+                items:1
+            },
+            576:{
+                items:1
+            },
+            768:{
+                items:1
+            },
+            992:{
+                items:2
+            },
+            1200:{
+                items:2
+            }
+        }
+    });
+    },
 }
 </script>
 <style lang="css" scoped>
@@ -720,5 +649,13 @@ export default {
 
     font-size:30px;
 }
+
+.owl-carousel .owl-nav button.owl-next{
+
+padding: 5px 25px !important;
+
+}
+
+
     
 </style>

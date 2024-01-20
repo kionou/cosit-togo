@@ -13919,14 +13919,14 @@ div#preloader {
 }
 
 .dia-banner-section .banner-side-img.banner-img1 {
-  opacity: 0;
+  /* opacity: 0; */
   right: -300px;
   transition-delay: 200ms;
   transition: all 1200ms ease;
 }
 
 .dia-banner-section .banner-side-img.banner-img2 {
-  opacity: 0;
+  /* opacity: 0; */
   right: -300px;
   transition-delay: 500ms;
   transition: all 1500ms ease;

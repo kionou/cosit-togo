@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Navbar from '@/components/Layouts/navbar.vue';
+import Navbar from '@/components/Layouts/navbar1.vue';
 import Footer from '@/components/Layouts/footer.vue';
 
 export default {

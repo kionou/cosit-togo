@@ -84,7 +84,105 @@
     </div>
 </template>
 <script>
+import $ from 'jquery';
+window.$ = $;
 export default {
+    data() {
+        return {
+            
+        }
+    },
+    mounted() {
+        this.SaaSioOnePageNav()
+        this.EiStickyMenu()
+    },
+    methods: {
+        SaaSioOnePageNav: function (){
+            
+				$('.saasio_one_click ul li a').on("click", function(){
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name="DCSext.Level"' + this.hash.slice(1) +']');
+						if (target.length) {
+							$('html, body').animate({
+								scrollTop: target.offset().top -0
+							}, 1000);
+							return false;
+						}
+					}
+				});
+				$('.appseo-main-navigation ul li a').on("click", function(){
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name="DCSext.Level"' + this.hash.slice(1) +']');
+						if (target.length) {
+							$('html, body').animate({
+								scrollTop: target.offset().top -50
+							}, 1000);
+							return false;
+						}
+					}
+				});
+				$('.s2-main-navigation ul li a').on("click", function(){
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name="DCSext.Level"' + this.hash.slice(1) +']');
+						if (target.length) {
+							$('html, body').animate({
+								scrollTop: target.offset().top -50
+							}, 1000);
+							return false;
+						}
+					}
+				});
+				$('.str-main-navigation ul li a').on("click", function(){
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name="DCSext.Level"' + this.hash.slice(1) +']');
+						if (target.length) {
+							$('html, body').animate({
+								scrollTop: target.offset().top -50
+							}, 1000);
+							return false;
+						}
+					}
+				});
+				$('.pm-main-navigation ul li a').on("click", function(){
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name="DCSext.Level"' + this.hash.slice(1) +']');
+						if (target.length) {
+							$('html, body').animate({
+								scrollTop: target.offset().top -50
+							}, 1000);
+							return false;
+						}
+					}
+				});
+				
+			},
+			EiStickyMenu: function (){
+				jQuery(window).on('scroll', function() {
+					if (jQuery(window).scrollTop() > 100) {
+						jQuery('.main-header-eight').addClass('eisticky-menu-bg-overlay ')
+					} else {
+						jQuery('.main-header-eight').removeClass('eisticky-menu-bg-overlay ')
+					}
+				})
+				$('.appi-ei-open_mobile_menu').on("click", function() {
+					$('.appi-ei-mobile_menu_wrap').toggleClass("mobile_menu_on");
+				});
+				$('.appi-ei-open_mobile_menu').on('click', function () {
+					$('body').toggleClass('mobile_menu_overlay_on');
+				});
+				if($('.appi-ei-mobile_menu li.dropdown ul').length){
+					$('.appi-ei-mobile_menu li.dropdown').append('<div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>');
+					$('.appi-ei-mobile_menu li.dropdown .dropdown-btn').on('click', function() {
+						$(this).prev('ul').slideToggle(500);
+					});
+				}			
+			},	
+    },
     
 }
 </script>
