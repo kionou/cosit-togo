@@ -3,8 +3,12 @@
          <!-- Start of Banner section
         ============================================= -->    
         <section id="dia-banner" class="dia-banner-section position-relative">
-            <!-- <div class="banner-side-img banner-img1 position-absolute"><img src="@/assets/img/d-agency/banner/ns2.png" alt=""></div> -->
-            <div class="banner-side-img banner-img2 position-absolute"><img src="@/assets/site/img.jpg" alt=""></div>
+            <div class="banner-side-img banner-img1 position-absolute">
+        <img src="@/assets/img/d-agency/banner/ns2.png" alt="" />
+      </div>
+      <div class="banner-side-img banner-img2 position-absolute">
+        <img src="@/assets/img/d-agency/banner/ns1.png" alt="" />
+      </div>
             <div class="container">
                 <div class="dia-banner-content dia-headline pera-content">
                     <!-- <span class="dia-banner-tag">We are SaaSio</span> -->
@@ -613,8 +617,6 @@ export default {
             itemsToShow: 3,
             snapAlign: 'center',
           },
-         
-        
          
         },
       },
