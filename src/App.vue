@@ -21,7 +21,7 @@ import "aos/dist/aos.css"
    import "@/assets/css/style.css"
 
    import "@/assets/fruit/css/style.css"
-   import "@/assets/fruit/js/main.js"
+  //  import "@/assets/fruit/js/main.js"
    
   // import "@/assets/js/jquery.js"
   // import "@/assets/js/popper.min.js"
