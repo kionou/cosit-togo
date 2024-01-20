@@ -335,7 +335,35 @@
                     <h2>Leading Online Marketing Development Company</h2>
                     <p>Notre équipe propose les solutions personnalisées les plus récentes et les plus adaptées à vos besoins . Ils travaillent avec détermination pour vous offrir le meilleur.</p>
                 </div>
-                <div id="dia-team-slide" class="dia-team-content owl-carousel">
+
+                <Carousel  v-bind="carouselSettings" :breakpoints="breakpoints"  >
+    <Slide v-for="slide in 5" :key="slide">
+        <div class="dia-team-pic-text wow fadeFromLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
+                        <div class="dia-team-img position-relative">
+                            <div class="team-mem-img-ei text-center position-relative">
+                                <img src="@/assets/img/d-agency/team/tm1.png" alt="">
+                                <span class="mshape-bg shape-bg1"><img src="@/assets/img/d-agency/team/msbg1.png" alt=""></span>
+                                <span class="mshape-bg shape-bg2"><img src="@/assets/img/d-agency/team/msbg2.png" alt=""></span>
+                            </div>
+                            <div class="dia-team-social">
+                                <a href="#"><i class="fab fa-facebook-f "></i></a>
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                        <div class="dia-team-text dia-headline text-center pera-content">
+                            <h3><a href="#">John Doe</a></h3>
+                            <p>Android Developer</p>
+                        </div>
+                    </div>
+    </Slide>
+
+    <template #addons>
+      <Navigation />
+    </template>
+  </Carousel>
+                <!-- <div id="dia-team-slide" class="dia-team-content owl-carousel">
                     <div class="dia-team-pic-text wow fadeFromLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
                         <div class="dia-team-img position-relative">
                             <div class="team-mem-img-ei text-center position-relative">
@@ -450,7 +478,7 @@
                             <p>Windows Developer</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
      <!-- End of Team section
@@ -470,7 +498,7 @@
                 <div class="container py-5">
                
                <div class="testimonial-carousel">
-                <Carousel >
+                <Carousel  >
             <Slide v-for="image in 3" :key="image.id">
                 <div class="testimonial-item img-border-radius bg-light rounded p-4">
                       <div class="position-relative">
@@ -565,11 +593,34 @@ import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 
 import 'vue3-carousel/dist/carousel.css'
 export default {
-    components: { Carousel,
-    Slide,
-    Pagination,
-    Navigation, },
-}
+  components: { Carousel, Slide, Pagination, Navigation },
+  data() {
+    return {
+      carouselSettings: {
+        itemsToShow: 3,
+        snapAlign: 'center',
+        // breakpoints sont définis ici
+        breakpoints: {
+            320: {
+            itemsToShow: 1,
+            // snapAlign: 'start',
+          },
+          700: {
+            itemsToShow: 2,
+            // snapAlign: 'start',
+          },
+          940: {
+            itemsToShow: 3,
+            snapAlign: 'center',
+          },
+         
+        
+         
+        },
+      },
+    };
+  },
+};
 </script>
 <style lang="css" scoped>
 
