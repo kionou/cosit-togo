@@ -85,6 +85,93 @@
 </template>
 <script>
 export default {
+    data() {
+        return {
+            
+        }
+    },
+    mounted() {
+        
+    },
+
+    methods: {
+        DiaMobileMenu: function (){
+				$('.dia-open_mobile_menu').on("click", function() {
+					$('.dia-mobile_menu_wrap').toggleClass("mobile_menu_on");
+				});
+				$('.dia-open_mobile_menu').on('click', function () {
+					$('body').toggleClass('mobile_menu_overlay_on');
+				});
+				if($('.dia-mobile_menu li.dropdown ul').length){
+					$('.dia-mobile_menu li.dropdown').append('<div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>');
+					$('.dia-mobile_menu li.dropdown .dropdown-btn').on('click', function() {
+						$(this).prev('ul').slideToggle(500);
+					});
+				}
+			},
+    },
+
+    DiaHeader: function (){
+				jQuery(window).on('scroll', function() {
+					if (jQuery(window).scrollTop() > 100) {
+						jQuery('.dia-main-header').addClass('dia-sticky-menu')
+					} else {
+						jQuery('.dia-main-header').removeClass('dia-sticky-menu')
+					}
+				})
+				$('.dia-main-navigation ul li a').on("click", function(){
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name="DCSext.Level"' + this.hash.slice(1) +']');
+						if (target.length) {
+							$('html, body').animate({
+								scrollTop: target.offset().top -0
+							}, 1000);
+							return false;
+						}
+					}
+				});
+
+                
+			},
+
+            StrOnePageNav: function (){
+				jQuery(window).on('scroll', function() {
+					if (jQuery(window).scrollTop() > 100) {
+						jQuery('.str-main-header').addClass('str-sticky-menu')
+					} else {
+						jQuery('.str-main-header').removeClass('str-sticky-menu')
+					}
+				})
+			},
+            StrMobileMenu: function (){
+				$('.str-open_mobile_menu').on("click", function() {
+					$('.str-mobile_menu_wrap').toggleClass("mobile_menu_on");
+				});
+				$('.str-open_mobile_menu').on('click', function () {
+					$('body').toggleClass('mobile_menu_overlay_on');
+				});
+				if($('.str-mobile_menu li.dropdown ul').length){
+					$('.str-mobile_menu li.dropdown').append('<div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>');
+					$('.str-mobile_menu li.dropdown .dropdown-btn').on('click', function() {
+						$(this).prev('ul').slideToggle(500);
+					});
+				}
+			},
+            SaaSCMobileMenu: function (){
+				$('.s2-open_mobile_menu').on("click", function() {
+					$('.s2-mobile_menu_wrap').toggleClass("mobile_menu_on");
+				});
+				$('.s2-open_mobile_menu').on('click', function () {
+					$('body').toggleClass('mobile_menu_overlay_on');
+				});
+				if($('.s2-mobile_menu li.dropdown ul').length){
+					$('.s2-mobile_menu li.dropdown').append('<div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>');
+					$('.s2-mobile_menu li.dropdown .dropdown-btn').on('click', function() {
+						$(this).prev('ul').slideToggle(500);
+					});
+				}
+			},
     
 }
 </script>

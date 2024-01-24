@@ -424,7 +424,11 @@
     width: 70px;
     height: 40px;
 }
+.testimonial-item{
 
+    width: 500px;
+    height: 300px;
+}
 .testimonial .owl-nav .owl-prev:hover {
     background: var(--color-primary);
     color: var(--color-blanc) !important;
@@ -514,4 +518,7 @@
     line-height: 35px;
 }
 /*** Footer End ***/
+
+
+
 

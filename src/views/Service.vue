@@ -1,32 +1,43 @@
 <template >
     <div>
         
-    <!-- Start of breadcurmb section
-        ============================================= -->
-        <section id="saasio-breadcurmb" class="saasio-breadcurmb-section">
-            <div class="container">
-                <div class="breadcurmb-title text-center">
-                    <h2>Service</h2>
-                </div>
-                <div class="breadcurmb-item-list text-center ul-li">
-                   <ul class="saasio-page-breadcurmb">
-                       <li><a href="#">Home</a></li>
-                       <li><a href="#">Service</a></li>
-                   </ul>
-               </div>
-           </div>
-       </section>
+          <!-- Start of breadcurmb section
+    	============================================= -->
+		<div id="banner-area" class="banner-area">
+            <div class="banner-text">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="banner-heading">
+                                <h1 class="banner-title">Services</h1>
+                                <nav aria-label="breadcrumb">
+
+                                    <ol class="breadcrumb justify-content-center">
+                                        <li class="breadcrumb-item"><router-link to="/" >Services</router-link></li>
+                                        <li class="breadcrumb-item active" aria-current="page"><router-link to="/services" >A propos</router-link></li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div><!-- Col end -->
+                    </div><!-- Row end -->
+                </div><!-- Container end -->
+            </div><!-- Banner text end -->
+        </div>
     <!-- End of breadcurmb section
-        ============================================= --> 
+    	============================================= -->  
 
     <!-- Start of Service page section
         ============================================= -->
         <section id="saas_two_service" class="saas_two_service_section">
             <div class="container">
                 <div class="saas_two_section_title saas2-headline text-center">
-                    <span class="title_tag">Our awesome services</span>
-                    <h2>We  give <span>best facilites
-                    </span> </h2>
+                    <div class="saas_two_section_title saas2-headline text-center">
+        			
+					<p>
+						Découvrez notre gamme complète de services conçus pour répondre à vos besoins spécifiques. De la conception à la mise 
+                        en œuvre, nous offrons des solutions adaptées à chaque étape de votre parcours.
+					</p>
+				</div>
                 </div>
                 <!-- /section title -->
                 <div class="service_content">
@@ -133,281 +144,13 @@
                             <!-- /service-content -->
                         </div>
                     </div>
-                    <div class="service_read_more text-center">
-                        <a href="%21.html#">Want to download this app? </a>
-                    </div>
+                    
                 </div>
             </section>
     <!-- End of Service section
         ============================================= --> 
 
-    <!-- Start of App Download  section
-        ============================================= -->
-        <section id="ei-appdownload" class="ei-appdownload-section position-relative" data-background="@/assets/img/app-landing/background/appbg1.png">
-            <div class="container">
-                <div class="ei-appdownload-content">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="ei-app-mockup-img  wow fadeFromRight" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                <img src="@/assets/img/app-landing/mockup/amu1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="ei-app-down-text wow fadeFromLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
-                                <div class="eight-section-title appeight-headline pera-content text-left">
-                                    <span class="eg-title-tag">
-                                        App Download<i class="square-shape"><i></i><i></i><i></i><i></i></i>
-                                    </span>
-                                    <h2>This app is available for
-                                        <span>your smart phone.</span>
-                                    </h2>
-                                    <p>As a SAAS web crawler expert, I help organizations adjust to the expanding significance of internet promoting.</p>
-                                </div>
-                                <!-- /title -->
-                                <div class="app-down-btn">
-                                    <a href="#"><img src="@/assets/img/app-landing/shape/btn1.png" alt=""></a>
-                                    <a href="#"><img src="@/assets/img/app-landing/shape/btn2.png" alt=""></a>
-                                </div>
-                                <div class="ei-download-btn pera-content">
-                                    <div class="download-icon float-left"><i class="flaticon-idea"></i></div>
-                                    <p>Are you interested for this app?</p>
-                                    <a href="#">Learn More </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="ei-appdownloaad-shape app-shape1" data-parallax='{"y" : -100}'><img src="@/assets/img/app-landing/background/apps1.png" alt=""></div>
-            <div class="ei-appdownloaad-shape app-shape2" data-parallax='{"x" : -120}'><img src="@/assets/img/app-landing/background/apps2.png" alt=""></div>
-            <div class="ei-appdownloaad-shape app-shape3" data-parallax='{"y" : -100}'><img src="@/assets/img/app-landing/background/apps3.png" alt=""></div>
-        </section>
-    <!-- End of App Download section
-        ============================================= -->
-
-     <!-- Start of testimonial section
-        ============================================= -->
-        <section id="testimonial" class="testimonial_section">
-            <div class="container">
-                <div class="section_title text-center">
-                    <div class="title_tag">
-                        <div class="tag_icon float-left">
-                            <i class="flaticon-diamond"></i>
-                        </div>
-                        Client’s testimonials
-                    </div>
-                    <div class="section_title_text saas-modern-headline pera-content">
-                        <h2>We serve<span> our clients</span></h2>
-                        <p>As a Saas developer or web crawler expert, I help
-                        organizations adjust to the expanding significance.</p>
-                    </div>
-                </div>
-                <!-- /section-title -->
-                <div  class="testimonial_slider">
-                    <div id="testimonial_slide" class="carousel slide" data-ride="carousel" >
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <div class="testimonial_indicator relative-position">
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#testimonial_slide" data-slide-to="0" class="active">
-                                            <img src="@/assets/img/saas-m/testimonial/tst1.png" alt="">
-                                        </li>
-                                        <li data-target="#testimonial_slide" data-slide-to="1">
-                                            <img src="@/assets/img/saas-m/testimonial/tst2.png" alt="">
-                                        </li>
-                                        <li data-target="#testimonial_slide" data-slide-to="2">
-                                            <img src="@/assets/img/saas-m/testimonial/tst3.png" alt="">
-                                        </li>
-                                        <li data-target="#testimonial_slide" data-slide-to="3">
-                                            <img src="@/assets/img/saas-m/testimonial/tst4.png" alt="">
-                                        </li>
-                                        <li data-target="#testimonial_slide" data-slide-to="4">
-                                            <img src="@/assets/img/saas-m/testimonial/tst5.png" alt="">
-                                        </li>
-                                        <li data-target="#testimonial_slide" data-slide-to="5">
-                                            <img src="@/assets/img/saas-m/testimonial/tst6.png" alt="">
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="carousel_preview">
-                                    <div class="carousel-inner relative-position">
-                                        <div class="carousel-item active">
-                                            <div class="testimonial_content">
-                                                <div class="testimonial_text relative-position pera-content">
-                                                    <p>Lorem ipsum dolor sit amet consecter tony adipiscing elitsed do eiusmodi tempor roar incididunt ut laboreet dolore magna as the opposed to using. Type of partnership or Malta. The limited todot liability.</p>
-                                                    <div class="testimonial_rating ul-li">
-                                                        <ul>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="qoute_mark relative-position"></div>
-                                                <div class="testimonial_name_designation">
-                                                    <div class="testimonial_img float-left">
-                                                        <img src="@/assets/img/saas-m/testimonial/tst1.png" alt="">
-                                                    </div>
-                                                    <div class="testimonial_meta saas-modern-headline pera-content">
-                                                        <h4>Nepoli Dewan</h4>
-                                                        <p>SEO Manager</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /slide item -->
-                                        <div class="carousel-item">
-                                            <div class="testimonial_content">
-                                                <div class="testimonial_text relative-position pera-content">
-                                                    <p>Lorem ipsum dolor sit amet consecter tony adipiscing elitsed do eiusmodi tempor roar incididunt ut laboreet dolore magna as the opposed to using. Type of partnership or Malta. The limited todot liability.</p>
-                                                    <div class="testimonial_rating ul-li">
-                                                        <ul>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="qoute_mark relative-position"></div>
-                                                <div class="testimonial_name_designation">
-                                                    <div class="testimonial_img float-left">
-                                                        <img src="@/assets/img/saas-m/testimonial/tst2.png" alt="">
-                                                    </div>
-                                                    <div class="testimonial_meta saas-modern-headline pera-content">
-                                                        <h4>Rameli Andrea</h4>
-                                                        <p>SEO Manager</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /slide-item -->
-                                        <div class="carousel-item">
-                                            <div class="testimonial_content">
-                                                <div class="testimonial_text relative-position pera-content">
-                                                    <p>Lorem ipsum dolor sit amet consecter tony adipiscing elitsed do eiusmodi tempor roar incididunt ut laboreet dolore magna as the opposed to using. Type of partnership or Malta. The limited todot liability.</p>
-                                                    <div class="testimonial_rating ul-li">
-                                                        <ul>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="qoute_mark relative-position"></div>
-                                                <div class="testimonial_name_designation">
-                                                    <div class="testimonial_img float-left">
-                                                        <img src="@/assets/img/saas-m/testimonial/tst1.png" alt="">
-                                                    </div>
-                                                    <div class="testimonial_meta saas-modern-headline pera-content">
-                                                        <h4>Nepoli Dewan</h4>
-                                                        <p>SEO Manager</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /slide item -->
-                                        <div class="carousel-item">
-                                            <div class="testimonial_content">
-                                                <div class="testimonial_text relative-position pera-content">
-                                                    <p>Lorem ipsum dolor sit amet consecter tony adipiscing elitsed do eiusmodi tempor roar incididunt ut laboreet dolore magna as the opposed to using. Type of partnership or Malta. The limited todot liability.</p>
-                                                    <div class="testimonial_rating ul-li">
-                                                        <ul>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="qoute_mark relative-position"></div>
-                                                <div class="testimonial_name_designation">
-                                                    <div class="testimonial_img float-left">
-                                                        <img src="@/assets/img/saas-m/testimonial/tst3.png" alt="">
-                                                    </div>
-                                                    <div class="testimonial_meta saas-modern-headline pera-content">
-                                                        <h4>Nepoli Dewan</h4>
-                                                        <p>SEO Manager</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /slide item -->
-                                        <div class="carousel-item">
-                                            <div class="testimonial_content">
-                                                <div class="testimonial_text relative-position pera-content">
-                                                    <p>Lorem ipsum dolor sit amet consecter tony adipiscing elitsed do eiusmodi tempor roar incididunt ut laboreet dolore magna as the opposed to using. Type of partnership or Malta. The limited todot liability.</p>
-                                                    <div class="testimonial_rating ul-li">
-                                                        <ul>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="qoute_mark relative-position"></div>
-                                                <div class="testimonial_name_designation">
-                                                    <div class="testimonial_img float-left">
-                                                        <img src="@/assets/img/saas-m/testimonial/tst4.png" alt="">
-                                                    </div>
-                                                    <div class="testimonial_meta saas-modern-headline pera-content">
-                                                        <h4>Nepoli Dewan</h4>
-                                                        <p>SEO Manager</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /slide item -->
-                                        <div class="carousel-item">
-                                            <div class="testimonial_content">
-                                                <div class="testimonial_text relative-position pera-content">
-                                                    <p>Lorem ipsum dolor sit amet consecter tony adipiscing elitsed do eiusmodi tempor roar incididunt ut laboreet dolore magna as the opposed to using. Type of partnership or Malta. The limited todot liability.</p>
-                                                    <div class="testimonial_rating ul-li">
-                                                        <ul>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                            <li><i class="fas fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="qoute_mark relative-position"></div>
-                                                <div class="testimonial_name_designation">
-                                                    <div class="testimonial_img float-left">
-                                                        <img src="@/assets/img/saas-m/testimonial/tst5.png" alt="">
-                                                    </div>
-                                                    <div class="testimonial_meta saas-modern-headline pera-content">
-                                                        <h4>Nepoli Dewan</h4>
-                                                        <p>SEO Manager</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /slide item -->
-                                    </div>
-                                    <a class="carousel-control-prev" href="#testimonial_slide" role="button" data-slide="prev"></a>
-                                    <a class="carousel-control-next" href="#testimonial_slide" role="button" data-slide="next"></a>
-                                    <!-- /carosel arrow -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    <!-- End of testimonial section
-        ============================================= -->    
+      
     </div>
 </template>
 <script>
@@ -416,5 +159,9 @@ export default {
 }
 </script>
 <style lang="css" scoped>
+.banner-area {
+   
+   background-image: url('../assets/site/banner2.jpg'); 
+}
     
 </style>

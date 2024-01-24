@@ -14,8 +14,7 @@ TABLE OF CONTENTS:
 >> Mixin
 >> Preloader
 --------------------------------------------------------------*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;display=swap");
+
 ::-moz-selection {
   color: #ffffff;
   background-color: #b956fe;
@@ -35,21 +34,7 @@ TABLE OF CONTENTS:
   max-width: 1240px;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 
-ul li {
-  list-style: none;
-}
-
-[data-background] {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
 
 a {
   color: inherit;
@@ -58,14 +43,7 @@ a {
   transition: .3s all ease-in-out;
 }
 
-a:hover, a:focus {
-  text-decoration: none;
-}
 
-img {
-  width: auto;
-  height: auto;
-}
 
 section {
   overflow: hidden;
@@ -1196,9 +1174,9 @@ select:visited {
   font-weight: 400;
 }
 
-.applghu-border-left-none {
+/* .applghu-border-left-none {
   border-left: 0 !important;
-}
+} */
 
 @media (max-width: 767.98px) {
   .applghu-border-left-none {
@@ -1713,11 +1691,11 @@ select:visited {
 
 .applghu-service-area {
   background: #ffffff;
-  padding: 105px 0 80px;
+  padding: 50px 0 80px;
 }
 
 .applghu-service-area .applghu-single-service {
-  padding: 40px 30px 70px;
+  padding: 40px 20px 70px;
   background: #ffffff;
   border: 1px solid #b1b1b1;
   margin: 0 -15px 30px -15px;
@@ -1737,23 +1715,15 @@ select:visited {
 .applghu-service-area .applghu-single-service .applghu-service-icon-box {
   width: 80px;
   height: 80px;
-  background: -webkit-gradient(linear, left top, right bottom, from(#f6e9fb), to(#fdeff1));
-  background: linear-gradient(to bottom right, #f6e9fb, #fdeff1);
-  line-height: 80px;
+ border: 1px solid red;
+
   text-align: center;
   display: inline-block;
   border-radius: 5px;
   margin-bottom: 24px;
 }
 
-.applghu-service-area .applghu-single-service .applghu-service-icon-box i {
-  font-size: 48px;
-  background: -webkit-gradient(linear, left top, right bottom, from(#ac31d1), to(#e5617d));
-  background: linear-gradient(to bottom right, #ac31d1, #e5617d);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
 
 .applghu-service-area .applghu-single-service h3 {
   font-size: 20px;
@@ -1765,7 +1735,7 @@ select:visited {
 }
 
 .applghu-service-area .applghu-single-service p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   color: #777777;
   font-weight: 400;
@@ -1784,6 +1754,10 @@ select:visited {
   position: absolute;
   right: 30px;
   bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
@@ -1791,7 +1765,7 @@ select:visited {
 .applghu-service-area .applghu-single-service .applghu-service-btn i {
   font-size: 20px;
   background: -webkit-gradient(linear, left top, right bottom, from(#ac31d1), to(#e5617d));
-  background: linear-gradient(to bottom right, #ac31d1, #e5617d);
+  background: linear-gradient(81deg, #e02b29 0%, #ff0303ed 75%, #ff3505 100%);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1811,7 +1785,7 @@ select:visited {
 
 .applghu-service-area .applghu-single-service:hover .applghu-service-btn {
   background: -webkit-gradient(linear, left top, right bottom, from(#ac31d1), to(#e5617d));
-  background: linear-gradient(to bottom right, #ac31d1, #e5617d);
+  background: linear-gradient(81deg, #e02b29 0%, #ff0303ed 75%, #ff3505 100%);
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg);
 }

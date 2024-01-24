@@ -15,15 +15,15 @@
                 <h3 class="dia-widget-title">Contact:</h3>
                 <div>
                   <i class="fas fa-phone"></i>
-                  <b>Appelez-nous: (+228) 90 92 35 76 <span> (24/7) </span></b>
+                  <b>Appelez-nous: (+228) 92 67 91 05 <span> (24/7) </span></b>
                 </div>
                 <div>
                   <i class="fas fa-phone"></i>
-                  <b>Rue : AGOE NYIVE </b>
+                  <b>Rue : Lomé, Qt Agoè-Fiovi, proche du CCL ; Camp FIR </b>
                 </div>
                 <div>
                   <i class="fas fa-phone"></i>
-                  <b>Email : support@cosit-togo.com </b>
+                  <b>Email : cosittogo@gmail.com </b>
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@
           </div>
         </div>
         <div class="dia-footer-shape3 position-absolute">
-          <img src="@/assets/img/d-agency/shape/diamap.png" alt="" />
+          <img src="@/assets/img/d-agency/shape/diamap.png" alt="" style="width: auto; !important" />
         </div>
       </section>
     </div>

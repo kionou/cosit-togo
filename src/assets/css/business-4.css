@@ -70,10 +70,6 @@ a:focus {
   text-decoration: none;
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
 
 section {
   overflow: hidden;
@@ -128,7 +124,6 @@ select:visited {
 .apbc-headline h4,
 .apbc-headline h5,
 .apbc-headline h6 {
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
   text-transform: capitalize;
   line-height: 1.25;
@@ -1210,7 +1205,7 @@ select:visited {
 }
 
 .apbc-about-section {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 .apbc-about-left {
@@ -1716,7 +1711,7 @@ select:visited {
 }
 
 .apbc-project-section {
-  padding: 150px 0 100px 0;
+  padding: 50px 0 ;
 }
 
 .apbc-project-section .apbc-title-area span.apbc-subtitle::after {
@@ -1958,15 +1953,35 @@ select:visited {
   margin: 0 -15px;
 }
 
+.apbc-team-content{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .apbc-team-content .slick-slide {
   margin: 0 15px;
 }
 
+.apbc-team-single{
+  width: 270px;
+  /* height: 330px; */
+}
+.apbc-img-wrapper{
+  /* height: 290px; */
+  width: 100%;
+}
+.apbc-img-wrapper img{
+  height: 100%;
+}
+
 .apbc-team-content .apbc-team-single {
-  -webkit-box-shadow: -3.119px 14.672px 60px 0px rgba(90, 90, 90, 0.15);
+  /* -webkit-box-shadow: -3.119px 14.672px 60px 0px rgba(90, 90, 90, 0.15);
   box-shadow: -3.119px 14.672px 60px 0px rgba(90, 90, 90, 0.15);
-  -webkit-box-shadow: 0.881px 5.672px 12px 0px rgba(90, 90, 90, 0.15);
-  box-shadow: 0.881px 5.672px 12px 0px rgba(90, 90, 90, 0.15);
+  -webkit-box-shadow: 0.881px 5.672px 12px 0px rgba(90, 90, 90, 0.15); */
+  /* box-shadow: 0.881px 5.672px 12px 0px rgba(90, 90, 90, 0.15); */
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;

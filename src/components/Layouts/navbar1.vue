@@ -65,6 +65,8 @@
             </div>
         </div>
     </div>
+    <div class="haut"></div>
+
 </template>
 <script>
 export default {
@@ -72,6 +74,7 @@ export default {
 }
 </script>
 <style lang="css" scoped>
+
 
 .dia-logo {
 

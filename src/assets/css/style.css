@@ -8557,7 +8557,9 @@ Sticky Menu
 
 .saas_two_section_title {
   margin: 0 auto;
-  max-width: 465px;
+  max-width: 650px;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
 .saas_two_section_title .title_tag {
@@ -9150,7 +9152,7 @@ Sticky Menu
   border-radius: 10px;
   position: absolute;
   transition: 0.5s all ease-in-out;
-  background-image: linear-gradient(45deg, #fc01fd 32%, #6b2c94 100%);
+  background-image: var(--linear);
 }
 
 .saas_two_service_section .service_content_box:after {
@@ -9195,7 +9197,7 @@ Sticky Menu
 .saas_two_service_section .service_content_box .service_icon_box .lower_icon svg {
   width: 45px;
   height: 45px;
-  fill: #c4a2fc;
+  fill: #f7442c;
 }
 
 .saas_two_service_section .service_content_box .service_text_box h3 {
@@ -9727,27 +9729,31 @@ Sticky Menu
   }
 }
 .s2-pricing_section {
-  padding: 120px 0px 100px;
+  padding: 50px 0px 100px;
 }
 
 .s2-pricing_section .s2-pricing_content {
-  padding-top: 80px;
+  /* padding-top: 80px; */
+  margin: 0 10px 10px 0;
 }
 
 .s2-pricing_section .s2-pricing_item {
   margin: 0 auto;
   overflow: hidden;
-  max-width: 330px;
+  max-width: 300px;
   border-radius: 15px;
   transition: 0.4s all ease-in-out;
-  box-shadow: 0px 23px 43px 0px rgba(0, 0, 0, 0.13);
+ 
 }
 
 .s2-pricing_section .s2-pricing_item .s2-pricing_price {
-  background-color: #818181;
-  padding: 40px 50px 25px;
-  margin-bottom: 25px;
+  /* background-color: #818181; */
+
+  height: 200px;
+  margin-bottom: 5px;
+  padding: 5px;
   z-index: 1;
+  position: relative;
 }
 
 .s2-pricing_section .s2-pricing_item .s2-pricing_price .pricing_icon {
@@ -9787,6 +9793,9 @@ Sticky Menu
 .s2-pricing_section .s2-pricing_item .s2-pricing_price .s2-pricing_text {
   font-family: "Poppins";
   color: #fff;
+  position: absolute;
+    bottom: 31px;
+    left: 36px;
 }
 
 .s2-pricing_section .s2-pricing_item .s2-pricing_price .s2-pricing_text span {
@@ -9796,7 +9805,7 @@ Sticky Menu
 }
 
 .s2-pricing_section .s2-pricing_item .s2-pricing_price .s2-pricing_text strong {
-  font-size: 50px;
+  font-size: 30px;
   line-height: 1;
   font-weight: 700;
 }
@@ -9820,10 +9829,13 @@ Sticky Menu
 
 .s2-pricing_section .s2-pricing_item .s2-pricing_list li {
   border-bottom: 1px solid #e6e8e9;
-  padding: 18px 25px 16px 45px;
+  padding: 12px;
   font-family: "Poppins";
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .s2-pricing_section .s2-pricing_item .s2-pricing_list li:last-child {
@@ -9839,7 +9851,7 @@ Sticky Menu
   border-radius: 100%;
   line-height: 22px;
   position: relative;
-  box-shadow: 0px 6px 18px 0px rgba(0, 197, 0, 0.5);
+  /* box-shadow: 0px 6px 18px 0px rgba(0, 197, 0, 0.5); */
   background-image: linear-gradient(0deg, #00f500 1%, #00db00 53%, #00c000 100%);
 }
 
@@ -9898,9 +9910,7 @@ Sticky Menu
   margin-right: 8px;
 }
 
-.s2-pricing_section .s2-pricing_item:hover {
-  box-shadow: 0px 23px 43px 0px rgba(0, 0, 0, 0.26);
-}
+
 
 .s2-pricing_section .s2-pricing_item:hover .s2-icon_bg {
   opacity: 1;
@@ -13919,14 +13929,14 @@ div#preloader {
 }
 
 .dia-banner-section .banner-side-img.banner-img1 {
-  /* opacity: 0; */
+  opacity: 0;
   right: -300px;
   transition-delay: 200ms;
   transition: all 1200ms ease;
 }
 
 .dia-banner-section .banner-side-img.banner-img2 {
-  /* opacity: 0; */
+  opacity: 0;
   right: -300px;
   transition-delay: 500ms;
   transition: all 1500ms ease;
@@ -14039,6 +14049,11 @@ div#preloader {
   height: 27px;
   position: absolute;
   background-color: #282350;
+}
+
+.typed-cursor{
+
+  display: none !important;
 }
 
 .dia-banner-section .cd-headline.clip b {
@@ -15784,7 +15799,12 @@ div#preloader {
 /*** Start Of blog Section ***/
 .saasio-breadcurmb-section {
   background-color: #6c2b95;
-  padding: 260px 0px 150px
+  height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 .breadcurmb-title h2 {
   margin: 0;

@@ -10,6 +10,7 @@ import Formation from '@/views/Formation.vue'
 import Realisation from '@/views/Realisation.vue'
 import Contact from '@/views/Contact.vue'
 import Login   from '@/views/Login.vue'
+import SignUp  from '@/views/SignUp.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,7 @@ const router = createRouter({
         { path: '/nos-realisations', name: 'nos-realisations', component: Realisation},
         { path: '/contact', name: 'contact', component: Contact},
         { path: '/connexion', name: 'connexion', component: Login},
+        { path: '/inscription', name: 'inscription', component: SignUp},
 
       ]
     },

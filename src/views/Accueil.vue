@@ -14,12 +14,15 @@
                     <!-- <span class="dia-banner-tag">We are SaaSio</span> -->
                     <h1 class="cd-headline clip is-full-width">  <span> SOLUTIONS</span>
                         TECHNOLOGIQUES
-                        <span class="cd-words-wrapper">
+                        <span ref="typedText" class="cd-words-wrapper">
+
+                        </span>
+                        <!-- <span class="cd-words-wrapper">
                             
                             <b class="is-visible">Solutions d'Archivage Electronique et GED.</b>
                             <b>Création d'Applications mobiles de Suivi des Dépenses  et Recettes.</b>
                             <b>Création d'Applications en ligne de gestion et de suivi-évaluation  des	projets des et programmes.</b>
-                        </span>
+                        </span> -->
                     </h1>
                     
                     <p>
@@ -95,14 +98,17 @@
 
 
 
+     
          <!-- Start of Fun fact section
         ============================================= -->           
         <section id="dia-fun-fact" class="dia-fun-fact-section">
             <div class="container">
                 <div class="dia-fun-fact-content">
                     <div class="dia-fun-fact-title text-center dia-headline">
-                        <h2>Digital Marketing Agency & Software Development
-                        Company Website Design Full Services.</h2>
+                        <h2>
+                            Entreprise numérique de développement de logiciels 
+                            Services complets de conception de sites Web.
+                        </h2>
                     </div>
                     <div class="dia-fun-fact-counter">
                         <div class="row">
@@ -110,27 +116,32 @@
                                 <div class="dia-fun-fact-item dia-headline pera-content text-center">
                                     <span class="fun-fact-tag text-uppercase">clients</span>
                                     <div class="fun-fact-number d-flex">
-                                        <h3 class="odometer" data-count="28">0</h3><span>k</span>
+                                        <!-- <h3 class="odometer" data-count="28">0</h3><span>k</span> -->
+                                        <span data-purecounter-start="0" :data-purecounter-end="200" data-purecounter-duration="1" class="purecounter">+</span>
+
                                     </div>
-                                    <p>We are focused on specific goals of our client with multiple outcomes towards profits.</p>
+                                  
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="dia-fun-fact-item dia-headline pera-content text-center">
-                                    <span class="fun-fact-tag text-uppercase">Team Members</span>
+                                    <span class="fun-fact-tag text-uppercase">MEMBRES DE L'ÉQUIPE</span>
                                     <div class="fun-fact-number d-flex">
-                                        <h3 class="odometer" data-count="220">0</h3><span>+</span>
+                                        <span data-purecounter-start="0" :data-purecounter-end="100" data-purecounter-duration="1" class="purecounter">+</span>
+                                        <!-- <h3 class="odometer" data-count="220">0</h3><span>+</span> -->
                                     </div>
-                                    <p>We are focused on specific goals of our client with multiple outcomes towards profits.</p>
+                                    
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="dia-fun-fact-item dia-headline pera-content text-center">
-                                    <span class="fun-fact-tag text-uppercase">Active Work</span>
+                                    <span class="fun-fact-tag text-uppercase">TRAVAIL ACTIF</span>
                                     <div class="fun-fact-number d-flex">
-                                        <h3 class="odometer" data-count="54">0</h3><span>k</span>
+                                        <!-- <h3 class="odometer" data-count="54">0</h3><span>k</span> -->
+                                        <h3 data-purecounter-start="0" :data-purecounter-end="300" data-purecounter-duration="1" class="purecounter"></h3> <span>k</span>
+
                                     </div>
-                                    <p>We are focused on specific goals of our client with multiple outcomes towards profits.</p>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -502,7 +513,7 @@
                 <div class="container py-5">
                
                <div class="testimonial-carousel">
-                <Carousel  >
+                <Carousel  v-bind="testimonial" :breakpoints="breakpoints1"   >
             <Slide v-for="image in 3" :key="image.id">
                 <div class="testimonial-item img-border-radius bg-light rounded p-4">
                       <div class="position-relative">
@@ -593,13 +604,19 @@
     </div>
 </template>
 <script>
-import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 
+
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
+
+import Typed from 'typed.js';
 export default {
-  components: { Carousel, Slide, Pagination, Navigation },
+  components: { Carousel, Slide, Pagination, Navigation ,
+  
+},
   data() {
     return {
+        number:100, 
       carouselSettings: {
         itemsToShow: 3,
         snapAlign: 'center',
@@ -620,7 +637,94 @@ export default {
          
         },
       },
+
+      testimonial: {
+        itemsToShow: 2,
+        snapAlign: 'center',
+        // breakpoints sont définis ici
+        breakpoints1: {
+            320: {
+            itemsToShow: 1,
+            // snapAlign: 'start',
+          },
+          700: {
+            itemsToShow: 2,
+            // snapAlign: 'start',
+          },
+          940: {
+            itemsToShow: 3,
+            snapAlign: 'center',
+          },
+         
+        },
+      },
     };
+  },
+
+ async mounted() {
+    window.addEventListener('scroll', this.handleScroll());
+
+// Exécuter la vérification initiale lors du chargement du document
+ document.addEventListener('DOMContentLoaded', function () {
+    this.handleScroll;
+});
+ this.initTyped();
+ new PureCounter();
+
+  },
+
+  methods: {
+// Fonction pour vérifier si un élément est visible à l'écran
+ isVisible(element, partial) {
+    var viewTop = window.scrollY,
+        viewBottom = viewTop + window.innerHeight,
+        elementTop = element.offsetTop,
+        elementBottom = elementTop + element.offsetHeight,
+        compareTop = partial === true ? elementBottom : elementTop,
+        compareBottom = partial === true ? elementTop : elementBottom;
+
+    return compareBottom <= viewBottom && compareTop >= viewTop;
+},
+
+// Fonction pour traiter les éléments au défilement
+handleScroll() {
+        var bannerElements = document.querySelectorAll(".banner-img1, .banner-img2");
+
+        bannerElements.forEach((el) => {
+            if (this.isVisible(el, true)) {
+                el.classList.add("view-on");
+            } else {
+                el.classList.remove("view-on");
+            }
+        });
+    },
+
+    initTyped() {
+      // Options de configuration de Typed.js
+      const options = {
+        strings: [
+            "Solutions d'Archivage Electronique et GED.", 
+            "Création d'Applications mobiles de Suivi des Dépenses  et Recettes.",
+            "Création d'Applications en ligne de gestion et de suivi-évaluation  des projets des et programmes."
+        ],
+        typeSpeed: 50, // Vitesse de frappe
+        backSpeed: 25, // Vitesse de retour en arrière
+        backDelay: 1000, // Délai avant le retour en arrière
+        startDelay: 500, // Délai avant le démarrage
+        showCursor: false, // Afficher le curseur
+         cursorChar: ':', // Caractère du curseur
+        loop: true, // Répéter indéfiniment
+      };
+
+      // Initialiser Typed.js avec les options
+      this.typed = new Typed(this.$refs.typedText, options);
+    },
+},
+beforeDestroy() {
+    // Détruire l'instance de Typed.js avant la destruction du composant
+    if (this.typed) {
+      this.typed.destroy();
+    }
   },
 };
 </script>

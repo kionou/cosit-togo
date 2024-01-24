@@ -5,4 +5,123 @@
     --color-primary: #e02b29;
     --color-secondary: #F9D310;
     --color-blanc: #Fff;
+    --box-shadow: 0px 0px 10px #888;
+    --shadow-small: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
+    --shadow-medium: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
+    --linear:linear-gradient(81deg, #e02b29 0%, #ff0303ed 75%, #ff3505 100%);
   }
+
+  .nws-button{
+    text-align: center;
+  
+  }
+  .nws-button button {
+    color: #fff;
+    height: 50px;
+    width: 140px;
+    border: none;
+    font-weight: 700;
+    border-radius: 5px;
+    font-family: "Poppins";
+      margin: 10px;
+    background-image: linear-gradient(81deg, #e02b29 0%, #ff0303ed 75%, #ff3505 100%);
+  }
+  .nws-button button:hover{
+
+    color: var(--color-blanc);
+    background-image: linear-gradient(81deg, #fff 0%, #fff 75%, #fff 100%);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .section-header {
+    padding: 30px 0;
+
+}
+
+/* debut banier */
+.banner-area {
+    position: relative;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #266486;
+    height: 50vh;
+   
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 10%);
+
+}
+
+.banner-area:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .45);
+}
+
+.breadcrumb-item,
+.breadcrumb-item a {
+    color: #fff !important;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    max-width: 1170px;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 1;
+    /* -webkit-transform: translateY(-50%); */
+    transform: translateY(-50%);
+}
+
+.banner-heading {
+    text-align: center;
+}
+
+.banner-title {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.breadcrumb {
+    padding: 0;
+    background: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #fff !important;
+}
+
+@media (max-width: 992px) {
+    .banner-title {
+
+        font-size: 40px;
+
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-title {
+
+        font-size: 30px;
+
+    }
+}
+
+@media (max-width: 500px) {
+    .banner-title {
+
+        font-size: 25px;
+
+    }
+}
+
+/* fin banier */

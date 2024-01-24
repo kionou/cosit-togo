@@ -5,7 +5,7 @@
         <div class="hero-mask opacity-4 bg-secondary">
 
         </div>
-        <div class="hero-bg hero-bg-scroll" style="background-image:url('../assets/site/apps2.png');"></div>
+        <div class="hero-bg hero-bg-scroll" ></div>
         <div class="hero-content mx-auto w-100 h-100">
             <div class="container">
                 <div class="row no-gutters min-vh-100">
@@ -21,12 +21,12 @@
                     </div>
                     <!-- Welcome Text End  Login Form ========================= -->
                     <div class="col-md-5 d-flex align-items-center py-5">
-                        <div class="container my-auto py-4 shadow-lg bg-white">
+                        <div class="container my-auto py-4  bg-white" id="container">
                             <div class="row">
                                 <div class="col-11 col-lg-11 mx-auto">
                                     <h3 class="text-9 font-weight-600 text-center mt-2 mb-3 text-color-orange">S'identifier</h3>
                                     <p class="text-center mb-4">Vous êtes nouveau
-                                        <router-link to="/">
+                                        <router-link to="/inscription">
                                             <u style="color:#007bff !important ;">Créer un compte</u>
                                         </router-link>
                                         
@@ -34,17 +34,16 @@
                                     <form data-request="onSignin" class="login_form">
                                                                                 <div class="form-group">
                                             <label class="font-weight-600 text-color-orange" for="emailAddress">Email ou Telephone</label>
-                                            <input class="form-control rounded-0" type="text" id="emailAddress" name="email_name" placeholder="Entrez votre Email ">
+                                            <MazInput v-model="inputValue"  no-radius color="warning"/>
                                         </div>
                                         <div class="form-group">
                                             <label class="font-weight-600 text-color-orange" for="loginPassword">Mot de passe</label>
-                                            <input class="form-control rounded-0" type="password" id="loginPassword" name="password" placeholder="Entrez votre Mot de Passe">
+                                            <MazInput v-model="inputValue"  no-radius type="password" color="warning"/>
                                         </div>
 
-                                        <!-- <button class="btn btn-success btn-block rounded-0 my-4" type="submit" style="margin-right: 10px" data-attach-loading>
-                                            Connexion
-                                        </button> -->
-                                        <button type="submit" class="btn btn-success btn-block rounded-0 my-4" data-attach-loading="">Connexion</button>
+                                        <div class="nws-button  text-capitalize">
+                                        <button class="hover-btn" @click="handleCodeQr"> S'inscrir</button>
+                                    </div>
                                     </form>
                                     <p class="text-center">
                                         <router-link to="/">
@@ -71,6 +70,19 @@ export default {
 </script>
 <style lang="css" scoped>
 
+.hero-content{
+
+background-image:url('../assets/img/d-marketing/img/bg/pr-bg.png');  
+background-repeat: no-repeat;
+/* background-size: cover; */
+}
+
+#container{
+  
+    box-shadow: var(--shadow-medium);
+    border: 1px solid #d9d9d9;
+}
+
 #main-wrapper.oxyy-login-register {
     background: #fff;
 }
@@ -92,7 +104,7 @@ export default {
     width: 100%;
 }
 .oxyy-login-register .bg-secondary {
-    background-color: #0c2f55 !important;
+    background-color: #fff !important;
 }
 .oxyy-login-register .opacity-4 {
     opacity: 0.4;

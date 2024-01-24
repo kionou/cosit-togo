@@ -1,115 +1,133 @@
 <template >
     <div>
-       <!-- Start of breadcurmb section
-        	============================================= -->
-        	<section id="saasio-breadcurmb" class="saasio-breadcurmb-section">
-        		<div class="container">
-        			<div class="breadcurmb-title text-center">
-        				<h2>Actualites</h2>
-        			</div>
-        			<div class="breadcurmb-item-list text-center ul-li">
-        				<ul class="saasio-page-breadcurmb">
-        					<li><a href="#">Home</a></li>
-        					<li><a href="#">About</a></li>
-        				</ul>
-        			</div>
-        		</div>
-        	</section>
-        <!-- End of breadcurmb section
-        	============================================= --> 
-
-                <!-- Start of blog section
-        ============================================= -->
-        <section id="dia-blog" class="dia-blog-section">
-            <div class="container">
-                <div class="dia-section-title text-left text-capitalize pera-content dia-headline">
-                    <span>Nos Blogs</span>
-                    <h2>Notre Blog Et Article</h2>
-                    <p>
-Nous avons complètement mis à jour notre travail, ce qui vous permet de trouver 
-plus facilement les informations dont vous avez besoin. 
-Consultez nos actualités récentes et apprenez-en plus sur nos innovations.</p>
-                </div>
-                <div class="dia-blog-content">
+      <!-- Start of breadcurmb section
+    	============================================= -->
+		<div id="banner-area" class="banner-area">
+            <div class="banner-text">
+                <div class="container">
                     <div class="row">
-                        <div class="col-lg-4 wow fadeFromUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <div class="dia-blog-img-text">
-                                <div class="dia-blog-img">
-                                    <img src="@/assets/img/d-agency/blog/b1.jpg" alt="">
-                                </div>
-                                <div class="dia-blog-text">
-                                    <span class="dia-blog-tag"><a href="#">Creavive Agency</a></span>
-                                    <h3><a href="#">10 Secrets About 10 Simple Steps for Blogs Post.</a></h3>
-                                </div>
-                                <div class="dia-blog-meta">
-                                    <div class="dia-author-area d-inline-block">
-                                        <div class="dia-athur-img float-left">
-                                            <img src="@/assets/img/d-agency/blog/ba1.jpg" alt="">
-                                        </div>
-                                        <div class="dia-author-name">
-                                            <span>Posted By <a href="#">Rinnah</a></span>
-                                        </div>
-                                    </div>
-                                    <div class="dia-date-meta float-right">
-                                        <a href="#">8 Aug, 2021</a>
-                                    </div>
-                                </div>
+                        <div class="col-lg-12">
+                            <div class="banner-heading">
+                                <h1 class="banner-title">Actualités</h1>
+                                <nav aria-label="breadcrumb">
+
+                                    <ol class="breadcrumb justify-content-center">
+                                        <li class="breadcrumb-item"><router-link to="/" >Accueil</router-link></li>
+                                        <li class="breadcrumb-item active" aria-current="page"><router-link to="/formations" >Actualités</router-link></li>
+                                    </ol>
+                                </nav>
                             </div>
-                        </div>
-                        <div class="col-lg-4 wow fadeFromUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-                            <div class="dia-blog-img-text">
-                                <div class="dia-blog-img">
-                                    <img src="@/assets/img/d-agency/blog/b2.jpg" alt="">
-                                </div>
-                                <div class="dia-blog-text">
-                                    <span class="dia-blog-tag"><a href="#">Creavive Agency</a></span>
-                                    <h3><a href="#">10 Secrets About 10 Simple Steps for Blogs Post.</a></h3>
-                                </div>
-                                <div class="dia-blog-meta">
-                                    <div class="dia-author-area d-inline-block">
-                                        <div class="dia-athur-img float-left">
-                                            <img src="@/assets/img/d-agency/blog/ba1.jpg" alt="">
-                                        </div>
-                                        <div class="dia-author-name">
-                                            <span>Posted By <a href="#">Rinnah</a></span>
-                                        </div>
-                                    </div>
-                                    <div class="dia-date-meta float-right">
-                                        <a href="#">8 Aug, 2021</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 wow fadeFromUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="dia-blog-img-text">
-                                <div class="dia-blog-img">
-                                    <img src="@/assets/img/d-agency/blog/b3.jpg" alt="">
-                                </div>
-                                <div class="dia-blog-text">
-                                    <span class="dia-blog-tag"><a href="#">Creavive Agency</a></span>
-                                    <h3><a href="#">10 Secrets About 10 Simple Steps for Blogs Post.</a></h3>
-                                </div>
-                                <div class="dia-blog-meta">
-                                    <div class="dia-author-area d-inline-block">
-                                        <div class="dia-athur-img float-left">
-                                            <img src="@/assets/img/d-agency/blog/ba1.jpg" alt="">
-                                        </div>
-                                        <div class="dia-author-name">
-                                            <span>Posted By <a href="#">Rinnah</a></span>
-                                        </div>
-                                    </div>
-                                    <div class="dia-date-meta float-right">
-                                        <a href="#">8 Aug, 2021</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    <!-- End of Blog section
-        ============================================= -->  
+                        </div><!-- Col end -->
+                    </div><!-- Row end -->
+                </div><!-- Container end -->
+            </div><!-- Banner text end -->
+        </div>
+    <!-- End of breadcurmb section
+    	============================================= --> 
+
+        	<!-- Blog Section -->
+	<section class="aplpg-blog-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2">
+					<div class="aplpg-title-area text-center wow fadeInUp">
+						
+						<div class="saas_two_section_title saas2-headline text-center">
+        			
+						<p>
+							Découvrez les dernières actualités et restez informé(e) sur nos événements, nouveautés et réussites.
+						</p>
+        			</div>
+					</div>
+				</div>
+			</div>
+			<div class="aplpg-blog-content">
+				<div class="aplpg-blog-slider">
+					<div class="col-lg-3">
+						<div class="aplpg-blog-column">
+							<div class="aplpg-img-wrapper">
+								<img src="@/assets/img/app-landing-2/blog/01.jpg" alt="">
+							</div>
+							<div class="aplpg-blog-meta">
+							
+								<span><i class="fas fa-calendar-alt"></i>June5,2021</span>
+							</div>
+							<div class="aplg-blog-column-txt">
+								<div class="aplpg-headline">
+									<a href="#"><h6>Aerial Photograhpy of Snowy Mountain Ranges</h6></a>
+								</div>
+								<div class="aplpg-pera-txt">
+									<p>iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="aplpg-blog-column">
+							<div class="aplpg-img-wrapper">
+								<img src="@/assets/img/app-landing-2/blog/02.jpg" alt="">
+							</div>
+							<div class="aplpg-blog-meta">
+								
+								<span><i class="fas fa-calendar-alt"></i>June5,2021</span>
+							</div>
+							<div class="aplg-blog-column-txt">
+								<div class="aplpg-headline">
+									<a href="#"><h6>Journeys are Best Measured in New Friends</h6></a>
+								</div>
+								<div class="aplpg-pera-txt">
+									<p>iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="aplpg-blog-column">
+							<div class="aplpg-img-wrapper">
+								<img src="@/assets/img/app-landing-2/blog/03.jpg" alt="">
+							</div>
+							<div class="aplpg-blog-meta">
+								
+								<span><i class="fas fa-calendar-alt"></i>June5,2021</span>
+							</div>
+							<div class="aplg-blog-column-txt">
+								<div class="aplpg-headline">
+									<a href="#"><h6>Assorted Color Buildings and Sea in Riomaggiore</h6></a>
+								</div>
+								<div class="aplpg-pera-txt">
+									<p>iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="aplpg-blog-column">
+							<div class="aplpg-img-wrapper">
+								<img src="@/assets/img/app-landing-2/blog/03.jpg" alt="">
+							</div>
+							<div class="aplpg-blog-meta">
+							
+								<span><i class="fas fa-calendar-alt"></i>June5,2021</span>
+							</div>
+							<div class="aplg-blog-column-txt">
+								<div class="aplpg-headline">
+									<a href="#"><h6>Aerial Photograhpy of Snowy Mountain Ranges</h6></a>
+								</div>
+								<div class="aplpg-pera-txt">
+									<p>iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Blog Section End --> 
     </div>
 </template>
 <script>
@@ -118,5 +136,10 @@ export default {
 }
 </script>
 <style lang="css" scoped>
+
+.banner-area {
+   
+   background-image: url('../assets/site/banner2.jpg'); 
+}
     
 </style>

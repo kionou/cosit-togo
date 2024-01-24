@@ -2,8 +2,10 @@
     <div>
        
         <Navbar />
+        <div class="haut"></div>
+
         <RouterView />
-        <footer id="footer" class="footer  ">
+        <footer v-if="!isPageConnexion && !isPageInscription" id="footer" class="footer  ">
             <Footer />
         </footer>
 
@@ -22,12 +24,20 @@ export default {
 
     data() {
         return {
-
+            isPageConnexion: false,
+            isPageInscription: false,
         };
     },
-
+    watch: {
+        // Observer le changement de route pour déterminer si la page est celle de connexion ou d'inscription
+        $route(to, from) {
+            this.isPageConnexion = to.name === 'connexion';
+            this.isPageInscription = to.name === 'inscription';
+        },
+    },
     mounted() {
-
+        this.isPageConnexion = this.$route.name === 'connexion';
+        this.isPageInscription = this.$route.name === 'inscription';
     },
 
     methods: {
@@ -36,4 +46,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped>
+.haut{
+
+    margin-bottom: 80px;
+}</style>
