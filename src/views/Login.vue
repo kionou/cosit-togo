@@ -1,4 +1,5 @@
 <template >
+    <Loading v-if="loading"></Loading>
     <div>
         <div id="main-wrapper" class="oxyy-login-register">
     <div class="hero-wrap d-flex align-items-center h-100">
@@ -25,24 +26,27 @@
                             <div class="row">
                                 <div class="col-11 col-lg-11 mx-auto">
                                     <h3 class="text-9 font-weight-600 text-center mt-2 mb-3 text-color-orange">S'identifier</h3>
-                                    <p class="text-center mb-4">Vous êtes nouveau
+                                    <p class="text-center ">Vous êtes nouveau
                                         <router-link to="/inscription">
                                             <u style="color:#007bff !important ;">Créer un compte</u>
                                         </router-link>
                                         
                                     </p>
+                                    <small>{{ error }}</small>
                                     <form data-request="onSignin" class="login_form">
-                                                                                <div class="form-group">
-                                            <label class="font-weight-600 text-color-orange" for="emailAddress">Email ou Telephone</label>
-                                            <MazInput v-model="inputValue"  no-radius color="warning"/>
+                                         <div class="form-group">
+                                            <label class="font-weight-600 text-color-orange" for="emailAddress">Adresse Email</label>
+                                            <MazInput v-model="step1.email"  no-radius color="warning" type="email"/>
+                                            <small v-if="v$.step1.email.$error">{{v$.step1.email.$errors[0].$message}}</small>
                                         </div>
                                         <div class="form-group">
                                             <label class="font-weight-600 text-color-orange" for="loginPassword">Mot de passe</label>
-                                            <MazInput v-model="inputValue"  no-radius type="password" color="warning"/>
+                                            <MazInput v-model="step1.password"  no-radius type="password" color="warning"/>
+                                            <small v-if="v$.step1.password.$error">{{v$.step1.password.$errors[0].$message}}</small>
                                         </div>
 
                                         <div class="nws-button  text-capitalize">
-                                        <button class="hover-btn" @click="handleCodeQr"> S'inscrir</button>
+                                        <button class="hover-btn" @click.prevent="Hamdlelogin"> Se connecter</button>
                                     </div>
                                     </form>
                                     <p class="text-center">
@@ -64,8 +68,77 @@
     </div>
 </template>
 <script>
+import MazDialog from 'maz-ui/components/MazDialog'
+import useVuelidate from '@vuelidate/core';
+import { require, lgmin, lgmax } from '@/functions/rules';
+import axios from '../lib/axiosConfig.js'
+import Loading from '@/components/others/loading.vue'
 export default {
+    name: 'CositLoginUser',
+  components: {
+      MazDialog , Loading
+  },
+
+  data() {
+    return {
+        isOpen:false,
+        loading:false,
+        step1:{
+            email: '',
+        password: '',
+        },
+       
+        v$: useVuelidate(),
+        error:''
+    }
+  },
+
+  validations: {
+    step1:{
+        email: {
+      require,
+    },
+    password: {
+      require,
+      lgmin: lgmin(8),
+      lgmax: lgmax(20),
+    }
+    }
     
+  },
+  mounted() {
+    
+  },
+  methods: {
+    async Hamdlelogin(){
+
+        this.error = '',
+         this.v$.step1.$touch()
+          if (this.v$.$errors.length == 0 ) {
+            this.loading = true
+            
+      let DataUser = {
+        email:this.step1.email,
+        password:this.step1.password
+      }
+      console.log("eeeee",DataUser);
+      try {
+    //   const response = await axios.post('/login' , DataUser);
+    //   console.log('response.login', response.data); 
+     
+      
+      
+    } catch (error) {
+      this.loading = false
+       return this.error = "L'authentification a échoué"
+    }
+            }else{
+            
+            console.log('pas bon', this.v$.$errors);
+            
+            } 
+    }
+  },
 }
 </script>
 <style lang="css" scoped>

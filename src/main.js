@@ -15,6 +15,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
+import store from './store'
+
 const app = createApp(App)
 
 app.component('MazBtn', MazBtn)
@@ -24,6 +26,7 @@ app.component('MazSelect', MazSelect)
 app.component('MazAvatar', MazAvatar)
 app.component('MazTextarea', MazTextarea)
 
+app.use(store);
 app.use(router)
 
 app.mount('#app')
