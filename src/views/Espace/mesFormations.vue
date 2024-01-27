@@ -1,6 +1,5 @@
-<template >
-    <div>
-        <div class="page-header">
+<template>
+     <div class="page-header">
             <div class="container">
                 <div class="page-header__inner">
                     <h1 class="display-2">Bienvenue Prenom Nom</h1>
@@ -10,106 +9,129 @@
                 </div>
             </div>
         </div>
+    <div class="row gy-4">
 
-        	<!-- Blog Section -->
-	<section class="aplpg-blog-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2">
-					<div class="aplpg-title-area text-center wow fadeInUp">
-						
-						<div class="saas_two_section_title saas2-headline text-center">
-        			
-						<p>
-							Voici la liste des formations auxquelles vous avez souscrit !
-						</p>
-        			</div>
-					</div>
-				</div>
-			</div>
-			<div class="aplpg-blog-content">
-				<div class="aplpg-blog-slider">
-					<div class="col-lg-3">
-						<div class="aplpg-blog-column card">
-							<div class="aplpg-img-wrapper">
-								<img src="@/assets/img/app-landing-2/blog/01.jpg" alt="">
-							</div>
-							<div class="aplpg-blog-meta" style="background-color:red;">
-							
-								<span style="Color:#fff !important">Ternimer</span>
-							</div>
-							<div class="aplg-blog-column-txt">
-								<div class="aplpg-headline">
-									<a href="#"><h6>Aerial Photograhpy of Snowy Mountain Ranges</h6></a>
-								</div>
-								
-							</div>
-							
-						</div>
-					</div>
+        <div class="col-lg-12 col-12 ">
+            <div class="nav-align-top ">
+                <ul class="nav nav-pills class1 " role="tablist">
+                    <li class="nav-item">
+                        <div class="btns active" role="tab" data-bs-toggle="tab"
+                            data-bs-target="#navs-pills-top-home1" aria-controls="navs-pills-top-home1"
+                            aria-selected="true">
+							Cours souscrits
+                        </div>
+                    </li>
 
-                    <div class="col-lg-3">
-						<div class="aplpg-blog-column card">
-							<div class="aplpg-img-wrapper">
-								<img src="@/assets/img/app-landing-2/blog/01.jpg" alt="">
-							</div>
-							<div class="aplpg-blog-meta" style="background-color:rgb(250, 186, 9);">
-							
-								<span style="Color:#fff !important">Debuter</span>
-							</div>
-							<div class="aplg-blog-column-txt">
-								<div class="aplpg-headline">
-									<a href="#"><h6>Aerial Photograhpy of Snowy Mountain Ranges</h6></a>
-								</div>
-								
-							</div>
-							
-						</div>
-					</div>
+                    <li class="nav-item">
+                        <div class="btns" role="tab" data-bs-toggle="tab"
+                            data-bs-target="#navs-pills-top-profile1" aria-controls="navs-pills-top-profile1"
+                            aria-selected="false">
+                            Cours payés
+                        </div>
+                    </li>
+                </ul>
+                <div class="tab-pane fade show active  contenu" id="navs-pills-top-home1" role="tabpanel">
+                    <Souscrir />
 
-                    <div class="col-lg-3">
-						<div class="aplpg-blog-column card">
-							<div class="aplpg-img-wrapper">
-								<img src="@/assets/img/app-landing-2/blog/01.jpg" alt="">
-							</div>
-							<div class="aplpg-blog-meta" style="background-color:rgb(21, 255, 0);">
-							
-								<span style="Color:#fff !important">A venir</span>
-							</div>
-							<div class="aplg-blog-column-txt">
-								<div class="aplpg-headline">
-									<a href="#"><h6>Aerial Photograhpy of Snowy Mountain Ranges</h6></a>
-								</div>
-								
-							</div>
-							
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Blog Section End --> 
+                </div>
+                <div class="tab-pane fade" id="navs-pills-top-profile1" role="tabpanel">
+                  
+                    <Payer />
+
+                </div>
+
+            </div>
+        </div>
     </div>
 </template>
+
 <script>
+import Payer from '../../components/Formation.vue/payer.vue';
+import Souscrir from '../../components/Formation.vue/souscrir.vue';
+
 export default {
-    
+    name: 'DNPMECLFormulaire',
+    components: { Payer ,Souscrir },
+    data() {
+        return {
+
+        };
+    },
+
+    mounted() {
+        
+  const selectHeader = document.querySelector('.class1');
+
+
+if (selectHeader) {
+  let headerOffset = selectHeader.offsetTop;
+  let nextElement = selectHeader.nextElementSibling;
+  console.log('headerOffset',headerOffset);
+  console.log('headerOffset222',nextElement);
+
+  const headerFixed = () => {
+    if ((headerOffset - window.scrollY) <= 0) {
+      selectHeader.classList.add('sticked');
+      if (nextElement) nextElement.classList.add('sticked-header-offset');
+    } else {
+      selectHeader.classList.remove('sticked');
+      if (nextElement) nextElement.classList.remove('sticked-header-offset');
+    }
+  }
+  window.addEventListener('load', headerFixed);
+  document.addEventListener('scroll', headerFixed);
 }
+
+    },
+
+    methods: {
+
+    },
+};
 </script>
+
 <style lang="css" scoped>
-
-.page-header {
-  
-    /* background-image: url('@/assets/img/img1.webp');  */
-   
+.fade:not(.show) {
+    display: none;
+    opacity: 0;
+}
+.class1{
+background-color: #d9d9d9;
+height: 50px;
 
 }
-.aplpg-blog-column{
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+.btns{
+
+    padding: 0 33px;
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
 }
-    
+.btns.active{
+background: var(--color-primary);
+
+
+}
+
+@media (max-width: 768px) {
+  .sticked-header-offset {
+    margin-top: 0 !important;
+     
+
+  }
+
+  .class1{
+
+    margin-top:70px;
+  }
+}
+
+
 </style>

@@ -26,7 +26,11 @@ app.component('MazSelect', MazSelect)
 app.component('MazAvatar', MazAvatar)
 app.component('MazTextarea', MazTextarea)
 
-app.use(store);
-app.use(router)
 
-app.mount('#app')
+
+store.dispatch('user/loadLoggedInUser').then(() => {
+        app.use(store);
+        app.use(router)
+        app.mount('#app')
+    
+    });

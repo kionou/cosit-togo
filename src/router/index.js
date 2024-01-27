@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Layout from '@/views/Layout.vue'
+import store from '../store'
 
 import Accueil from '@/views/Accueil.vue'
 import Apropos from '@/views/Apropos.vue'
@@ -28,15 +29,15 @@ const router = createRouter({
         { path: '/apropos', name: 'apropos', component: Apropos},
         { path: '/services', name: 'services', component: Service},
         { path: '/actualites', name: 'actualites', component: Actualite},
-        { path: '/formations', name: 'formations', component: Formation},
+        { path: '/formations/:id', name: 'formations', component: Formation , props:true},
         { path: '/nos-realisations', name: 'nos-realisations', component: Realisation},
         { path: '/contact', name: 'contact', component: Contact},
         { path: '/panier', name: 'panier', component: Panier},
         { path: '/connexion', name: 'connexion', component: Login},
         { path: '/inscription', name: 'inscription', component: SignUp},
 
-        { path: '/mon-espace', name: 'mon-espace', component: EspaceAccueil},
-        { path: '/mon-espace/mes-formations', name: 'mes-formations', component: Cours},
+        { path: '/mon-espace', name: 'mon-espace', component: EspaceAccueil ,  meta: { requiresAuth: true }},
+        { path: '/mon-espace/mes-formations', name: 'mes-formations', component: Cours ,  meta: { requiresAuth: true }},
 
       ]
     },
@@ -44,4 +45,21 @@ const router = createRouter({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.meta.requiresAuth;
+  const isLoggedIn = store.getters['user/isLoggedIn'];
+console.log('isLoggedIn',isLoggedIn);
+  if (requiresAuth && !isLoggedIn) {
+    // Si la route nécessite une authentification et l'utilisateur n'est pas connecté,
+    // redirigez-le vers la page de connexion
+    next('/connexion');
+  } else if ((to.name === 'inscription' || to.name === 'connexion') && isLoggedIn) {
+    // Si l'utilisateur est connecté et essaie d'accéder aux pages d'inscription ou de connexion,
+    // redirigez-le vers la page mon_espace
+    next('/mon-espace');
+  }
+  else {
+    next();
+  }
+});
 export default router

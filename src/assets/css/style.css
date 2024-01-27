@@ -9140,6 +9140,8 @@ Sticky Menu
   background-color: #fff;
   transition: 0.5s all ease-in-out;
   box-shadow: 0px 20px 81px 0px rgba(8, 0, 20, 0.14);
+  width: 365px;
+  height: 250px;
 }
 
 .saas_two_service_section .service_content_box:before {
@@ -9178,9 +9180,18 @@ Sticky Menu
 
 .saas_two_service_section .service_content_box .service_icon_box {
   width: 60px;
+  height: 60px;
   margin-bottom: 18px;
 }
-
+.saas_two_service_section .service_content_box .service_icon_box {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 18px;
+}.saas_two_service_section .service_content_box .service_icon_box img {
+  width: 100%;
+  height: 100%;
+  
+}
 .saas_two_service_section .service_content_box .service_icon_box .upper_icon svg {
   height: 48px;
   width: 48px;
@@ -9794,7 +9805,7 @@ Sticky Menu
   font-family: "Poppins";
   color: #fff;
   position: absolute;
-    bottom: 31px;
+    bottom: 15px;
     left: 36px;
 }
 
@@ -9805,7 +9816,7 @@ Sticky Menu
 }
 
 .s2-pricing_section .s2-pricing_item .s2-pricing_price .s2-pricing_text strong {
-  font-size: 30px;
+  font-size: 23px;
   line-height: 1;
   font-weight: 700;
 }
@@ -14594,7 +14605,7 @@ div#preloader {
   padding-top: 55px;
 }
 
-.dia-team-section .dia-team-pic-text .dia-team-img:after {
+/* .dia-team-section .dia-team-pic-text .dia-team-img:after {
   width: 236px;
   height: 236px;
   content: "";
@@ -14609,7 +14620,7 @@ div#preloader {
   background-origin: border-box;
   transition: 0.3s all ease-in-out;
   background-clip: content-box, border-box;
-}
+} */
 
 .dia-team-section .dia-team-pic-text .dia-team-img .team-mem-img-ei {
   z-index: 1;

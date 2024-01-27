@@ -3,7 +3,7 @@
         <div class="page-header">
             <div class="container">
                 <div class="page-header__inner">
-                    <h1 class="display-2">Bienvenue Prenom Nom</h1>
+                    <h1 class="display-2">Bienvenue {{ loggedInUser.prenom }} {{ loggedInUser.nom }}</h1>
                     <p>
                         Explorez, personnalisez et suivez votre parcours d'apprentissage. Besoin de mettre à jour vos informations ou
                          de découvrir de nouvelles formations ? Vous êtes au bon endroit.
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="mt-auto text-center">
-                               <router-link class="btnLogin" to="/dossiers">Modifier</router-link>
+                               <router-link class="btnLogin" to="#">Modifier</router-link>
                             </div>
                         </div>
                     </div>
@@ -83,38 +83,40 @@
 
 <script>
  
-export default {
-    name: 'DNPMECLEspace',
-    components: {
-     
-  
-    },
-    computed: {
-   
-   
-  },
-
-    data() {
-        return {
-            
-
-        };
-    },
-
-    mounted() {
+ export default {
+     name: 'CositEspace',
+     components: {
       
-        window.scrollTo({
-                top: 0,
-                behavior: 'smooth',
-            });
-
-    },
-
-    methods: {
-
-    },
+   
+     },
+     computed: {
     
-};
+     loggedInUser() {
+       return this.$store.getters['user/loggedInUser'];
+     },
+   },
+ 
+     data() {
+         return {
+             
+ 
+         };
+     },
+ 
+     mounted() {
+         console.log("dataespace", this.loggedInUser);
+         window.scrollTo({
+                 top: 0,
+                 behavior: 'smooth',
+             });
+ 
+     },
+ 
+     methods: {
+ 
+     },
+    }
+
 </script>
 
 <style lang="css" scoped>

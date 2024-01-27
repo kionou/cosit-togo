@@ -1,4 +1,5 @@
 <template >
+       <Loading v-if="loading" style="z-index: 999999;"></Loading>
     <div>
         <!-- Start of breadcurmb section
     	============================================= -->
@@ -44,118 +45,29 @@
 				<!-- Section Heading End -->
 
 				<div class="row">
-					<div class="col-xl-3 col-md-4">
+					<div v-for="project in projects" :key="project.id" class="col-xl-3 col-md-4">
 						<div class="applghu-single-service wow fadeInUp" data-wow-delay="0.2s">
 							<div class="applghu-service-icon-box">
-								<img src="../assets/site/logo1.jpeg" alt="">
+								<img :src="project.Images" alt="">
 							</div>
-							<h3>Photo Editing</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incisum suspendisse ultrices gravida. </p>
-							<router-link to="#" class="applghu-service-btn">
-								<i class="bi bi-eye-fill"></i>
-
-							</router-link>
+							<h3>{{ project.Name }}</h3>
+							<p> {{ project.Description }} </p>
+							<a :href="project.ProjectOwner" target="blank" class="applghu-service-btn"><i class="bi bi-eye-fill"></i></a>
+							<div v-if="project.ProgressDone === 0" class="ProgressDone cours">
+								En cours...
+							</div>
+							<div v-else class="ProgressDone termine">
+								Terminer
+							</div>
 							
 						</div>
 					</div>
-					<div class="col-xl-3 col-md-4">
-						<div class="applghu-single-service wow fadeInUp" data-wow-delay="0.2s">
-							<div class="applghu-service-icon-box">
-								<img src="../assets/site/logo1.jpeg" alt="">
-							</div>
-							<h3>Photo Editing</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incisum suspendisse ultrices gravida. </p>
-							<router-link to="#" class="applghu-service-btn">
-								<i class="bi bi-eye-fill"></i>
 
-							</router-link>
-							
-						</div>
-					</div>
-					<div class="col-xl-3 col-md-4">
-						<div class="applghu-single-service wow fadeInUp" data-wow-delay="0.2s">
-							<div class="applghu-service-icon-box">
-								<img src="../assets/site/logo1.jpeg" alt="">
-							</div>
-							<h3>Photo Editing</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incisum suspendisse ultrices gravida. </p>
-							<router-link to="#" class="applghu-service-btn">
-								<i class="bi bi-eye-fill"></i>
+					
+					
 
-							</router-link>
-							
-						</div>
-					</div>
-					<div class="col-xl-3 col-md-4">
-						<div class="applghu-single-service wow fadeInUp" data-wow-delay="0.2s">
-							<div class="applghu-service-icon-box">
-								<img src="../assets/site/logo1.jpeg" alt="">
-							</div>
-							<h3>Photo Editing</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incisum suspendisse ultrices gravida. </p>
-							<router-link to="#" class="applghu-service-btn">
-								<i class="bi bi-eye-fill"></i>
-
-							</router-link>
-							
-						</div>
-					</div>
-					<div class="col-xl-3 col-md-4">
-						<div class="applghu-single-service wow fadeInUp" data-wow-delay="0.2s">
-							<div class="applghu-service-icon-box">
-								<img src="../assets/site/logo1.jpeg" alt="">
-							</div>
-							<h3>Photo Editing</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incisum suspendisse ultrices gravida. </p>
-							<router-link to="#" class="applghu-service-btn">
-								<i class="bi bi-eye-fill"></i>
-
-							</router-link>
-							
-						</div>
-					</div>
-					<div class="col-xl-3 col-md-4">
-						<div class="applghu-single-service wow fadeInUp" data-wow-delay="0.2s">
-							<div class="applghu-service-icon-box">
-								<img src="../assets/site/logo1.jpeg" alt="">
-							</div>
-							<h3>Photo Editing</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incisum suspendisse ultrices gravida. </p>
-							<router-link to="#" class="applghu-service-btn">
-								<i class="bi bi-eye-fill"></i>
-
-							</router-link>
-							
-						</div>
-					</div>
-					<div class="col-xl-3 col-md-4">
-						<div class="applghu-single-service wow fadeInUp" data-wow-delay="0.2s">
-							<div class="applghu-service-icon-box">
-								<img src="../assets/site/logo1.jpeg" alt="">
-							</div>
-							<h3>Photo Editing</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incisum suspendisse ultrices gravida. </p>
-							<router-link to="#" class="applghu-service-btn">
-								<i class="bi bi-eye-fill"></i>
-
-							</router-link>
-							
-						</div>
-					</div>
-					<div class="col-xl-3 col-md-4">
-						<div class="applghu-single-service wow fadeInUp" data-wow-delay="0.2s">
-							<div class="applghu-service-icon-box">
-								<img src="../assets/site/logo1.jpeg" alt="">
-							</div>
-							<h3>Photo Editing</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incisum suspendisse ultrices gravida. </p>
-							<router-link to="#" class="applghu-service-btn">
-								<i class="bi bi-eye-fill"></i>
-
-							</router-link>
-							
-						</div>
-					</div>
+					
+					
 				
 				</div>
 			</div>
@@ -164,9 +76,36 @@
     </div>
 </template>
 <script>
+import Loading from '@/components/others/loading.vue';
 export default {
-    
-}
+	components: {
+         Loading
+
+    },
+  data() {
+    return {
+      projects: [],
+	  loading:true,
+    };
+  },
+  mounted() {
+    this.fetchProjects();
+  },
+  methods: {
+    async fetchProjects() {
+      try {
+        await this.$store.dispatch('fetchProjects');
+        const projects = JSON.parse(JSON.stringify(this.$store.getters.getProjects));
+		console.log(projects);
+        this.projects = projects;
+		this.loading = false
+      } catch (error) {
+        console.error("Erreur lors de la récupération des projets :", error.message);
+      }
+    },
+  },
+
+};
 </script>
 <style lang="css" scoped>
 .banner-area {
@@ -179,5 +118,25 @@ export default {
 	height: 100%;
 
 }
+
+.ProgressDone{
+	position: absolute;
+	position: absolute;
+    bottom: 37px;
+	color: #fff;
+    padding: 3px 9px;
+
+}
+
+ .cours{
+
+	background-color: rgb(255, 177, 8);
+}
+
+ .termine{
+	background-color: red;
+
+}
+
     
 </style>

@@ -1,5 +1,5 @@
 <template >
-    <Loading v-if="loading"></Loading>
+    <Loading v-if="loading" style="z-index: 999999;"></Loading>
     <div>
         <div id="main-wrapper" class="oxyy-login-register">
     <div class="hero-wrap d-flex align-items-center h-100">
@@ -65,6 +65,31 @@
         </div>
     </div>
 </div>
+
+<MazDialog v-model="responseEmail" title="Verification du mail">
+      <p>
+        Un code d'authentification vient de vous être envoyé par e-mail. 
+        Veuillez le saisir ci-dessous pour finaliser votre connexion.
+      </p>
+      <form class="form">
+    
+        <div class="form-group">
+            <label class="font-weight-600 text-color-orange" for="loginPassword">Code de Connection</label>
+            <MazInput v-model="step2.code"  no-radius type="password" color="warning"/>
+            <small v-if="v$.step2.code.$error">{{v$.step1.code.$errors[0].$message}}</small>
+             </div>
+        <small v-if="v$.step2.code.$error">{{v$.step2.code.$errors[0].$message}}</small>
+        
+    
+  
+        <div class="nws-button  text-capitalize">
+        <button class="hover-btn" @click.prevent="HamdleOtp">Valider</button>
+        </div>
+   
+  
+  </form>
+     
+    </MazDialog>
     </div>
 </template>
 <script>
@@ -73,6 +98,8 @@ import useVuelidate from '@vuelidate/core';
 import { require, lgmin, lgmax } from '@/functions/rules';
 import axios from '../lib/axiosConfig.js'
 import Loading from '@/components/others/loading.vue'
+import { mapActions } from 'vuex';
+
 export default {
     name: 'CositLoginUser',
   components: {
@@ -83,9 +110,15 @@ export default {
     return {
         isOpen:false,
         loading:false,
+        responseEmail:false,
+        InfoUser:'',
         step1:{
             email: '',
         password: '',
+        },
+
+        step2:{
+            code:'',
         },
        
         v$: useVuelidate(),
@@ -103,13 +136,23 @@ export default {
       lgmin: lgmin(8),
       lgmax: lgmax(20),
     }
-    }
+    },
+    step2:{
+            code:{
+                require,
+      lgmin: lgmin(4),
+      lgmax: lgmax(4),
+            }
+            
+        },
     
   },
   mounted() {
     
   },
   methods: {
+    ...mapActions({  saveVerificationCode: 'saveVerificationCode', }),
+    ...mapActions('user', ['setLoggedInUser']),
     async Hamdlelogin(){
 
         this.error = '',
@@ -123,20 +166,93 @@ export default {
       }
       console.log("eeeee",DataUser);
       try {
-    //   const response = await axios.post('/login' , DataUser);
-    //   console.log('response.login', response.data); 
+      const response = await axios.post('/login' , DataUser);
+      console.log('response.login', response.data); 
+      if (response.data.status === "success") {
+        this.InfoUser = response.data.data
+        this.loading = false
+         this.saveVerificationCode(this.InfoUser);
+         this.SendOtp()
+        
+      } else {
+        
+      }
      
       
       
     } catch (error) {
+      console.log('response.login', error); 
+
       this.loading = false
+      if (error.response.data.status === 'error') {
        return this.error = "L'authentification a échoué"
+        
+      } else {
+        
+      }
     }
             }else{
             
             console.log('pas bon', this.v$.$errors);
             
             } 
+    },
+    async SendOtp(){
+        this.responseEmail = true
+        let DataSend = {
+        email:1,
+        value:this.step1.email
+      }
+        try {
+            const response = await axios.post('/cosit-togo/send-otp', DataSend);
+           console.log(response);
+          } catch (error) {
+            this.loading = false
+            console.error('Erreur postlogin:', error);
+          }
+
+    },
+   async  HamdleOtp(){
+        this.error = '',
+         this.v$.step2.$touch()
+          if (this.v$.$errors.length == 0 ) {
+            this.loading = true
+            
+            let DataUser = {
+            email: true,
+            value: this. step1.email,
+            code: this. step2.code
+        }
+      console.log("eeeee",DataUser);
+      this.setLoggedInUser(this.InfoUser);
+            this.$router.push('/mon-espace');
+           this.loading = false
+      try {
+      const response = await axios.post('/mpme/verification-otp' , DataUser);
+      console.log('response.login', response.data); 
+    //   this.setLoggedInUser(this.InfoUser);
+    //         this.$router.push('/mon-espace');
+    //        this.loading = false
+       
+      
+      
+    } catch (error) {
+      console.log('response.login', error); 
+
+      this.loading = false
+      if (error.response.data.status === 'error') {
+       return this.error = "L'authentification a échoué"
+        
+      } else {
+        
+      }
+    }
+            }else{
+            
+            console.log('pas bon', this.v$.$errors);
+            
+            }
+
     }
   },
 }

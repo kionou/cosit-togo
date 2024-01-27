@@ -213,7 +213,7 @@ export default {
      Nom:this.nom,
      Prenoms:this.prenom,
      Whatsapp:this.phoneNumber,
-     role:4
+     role:null
 
     }
      console.log('data',DataUser);

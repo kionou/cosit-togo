@@ -15,9 +15,7 @@ export default {
         }
     },
     mounted() {
-        setTimeout(()=>{
-window.open("https://medium.com/@nitinmaurya969543")
-},5000) 
+   
     },
     
 }
@@ -62,7 +60,7 @@ window.open("https://medium.com/@nitinmaurya969543")
 }
 .sphere3 {
   animation: sphere 1.2s 0.8s ease-in-out infinite;
-  background: radial-gradient(circle at 30% 30%, #050505, #050505, #050505);
+  background: radial-gradient(circle at 30% 30%, #282350, #282350, #282350);
 
 }
 

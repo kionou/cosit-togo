@@ -1671,13 +1671,14 @@ button {
 }
 
 .applghu-service-area .applghu-single-service {
-  padding: 40px 20px 70px;
+  padding: 30px 20px 60px;
   background: #ffffff;
   border: 1px solid #b1b1b1;
   margin: 0 -15px 30px -15px;
   position: relative;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
+  height: 335px
 }
 
 @media (max-width: 767.98px) {
@@ -1689,9 +1690,9 @@ button {
 }
 
 .applghu-service-area .applghu-single-service .applghu-service-icon-box {
-  width: 80px;
-  height: 80px;
- border: 1px solid red;
+  /* width: 90px; */
+  height: 90px;
+ border: 1px solid rgb(233, 233, 233);
 
   text-align: center;
   display: inline-block;

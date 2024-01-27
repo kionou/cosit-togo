@@ -2217,12 +2217,12 @@ a.aplpg-secondary-btn:hover .aplpg-gradient-border {
 }
 
 .aplpg-blog-content .aplpg-blog-column .aplg-blog-column-txt {
-  padding: 0px 20px 30px 20px;
+  padding: 0px 20px 10px 20px;
   text-align: left;
 }
 
 .aplpg-blog-content .aplpg-blog-column .aplg-blog-column-txt h6 {
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   -webkit-transition: all 0.3s ease-in;
   -o-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;

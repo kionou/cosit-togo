@@ -360,12 +360,12 @@
                                 <span class="mshape-bg shape-bg1"><img src="@/assets/img/d-agency/team/msbg1.png" alt=""></span>
                                 <span class="mshape-bg shape-bg2"><img src="@/assets/img/d-agency/team/msbg2.png" alt=""></span>
                             </div>
-                            <div class="dia-team-social">
+                            <!-- <div class="dia-team-social">
                                 <a href="#"><i class="fab fa-facebook-f "></i></a>
                                 <a href="#"><i class="fab fa-behance"></i></a>
                                 <a href="#"><i class="fab fa-linkedin"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="dia-team-text dia-headline text-center pera-content">
                             <h3><a href="#">John Doe</a></h3>
@@ -514,21 +514,22 @@
                
                <div class="testimonial-carousel">
                 <Carousel  v-bind="testimonial" :breakpoints="breakpoints1"   >
-            <Slide v-for="image in 3" :key="image.id">
-                <div class="testimonial-item img-border-radius bg-light rounded p-4">
+            <Slide v-for="(testimonial,index) in testimonials" :key="index">
+               
+                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
                       <div class="position-relative">
                           <i class="bi bi-quote text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
                           <div class="mb-4 pb-4 border-bottom border-secondary">
-                              <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,
+                              <p class="mb-0">{{ testimonial.Description }}
                               </p>
                           </div>
                           <div class="d-flex align-items-center flex-nowrap">
                               <div class="bg-secondary rounded">
-                                  <img src="@/assets/fruit/img/testimonial-1.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                                  <img :src="testimonial.Photo" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
                               </div>
                               <div class="ms-4 d-block">
-                                  <h4 class="text-dark">Client Name</h4>
-                                  <p class="m-0 pb-3">Profession</p>
+                                  <h4 class="text-dark">{{ testimonial.WitnessName }}</h4>
+                                  
                                   <div class="d-flex pe-5">
                                       <i class="fas fa-star text-primary"></i>
                                       <i class="fas fa-star text-primary"></i>
@@ -540,6 +541,8 @@
                           </div>
                       </div>
                   </div>
+            
+               
       </Slide>
 
     <template #addons>
@@ -617,6 +620,8 @@ export default {
   data() {
     return {
         number:100, 
+        testimonials: [],
+        teams: [],
       carouselSettings: {
         itemsToShow: 3,
         snapAlign: 'center',
@@ -662,6 +667,9 @@ export default {
   },
 
  async mounted() {
+
+    this.fetchTestimonials();
+    this.fetchTeams();
     window.addEventListener('scroll', this.handleScroll());
 
 // Exécuter la vérification initiale lors du chargement du document
@@ -674,7 +682,32 @@ export default {
   },
 
   methods: {
-// Fonction pour vérifier si un élément est visible à l'écran
+
+    async fetchTestimonials() {
+      try {
+        await this.$store.dispatch('fetchTestimonials');
+        const testimonials = JSON.parse(JSON.stringify(this.$store.getters.getTestimonials));
+        console.log(testimonials);
+        this.testimonials = testimonials;
+      } catch (error) {
+        console.error("Erreur lors de la récupération des témoignages :", error.message);
+      }
+    },
+    async fetchTeams() {
+      try {
+        await this.$store.dispatch('fetchTeams');
+        const teams = JSON.parse(JSON.stringify(this.$store.getters.getTeams));
+        console.log(teams);
+
+        this.teams = teams;
+      } catch (error) {
+        console.error("Erreur lors de la récupération des équipes :", error.message);
+      }
+    },
+
+
+
+
  isVisible(element, partial) {
     var viewTop = window.scrollY,
         viewBottom = viewTop + window.innerHeight,

@@ -26,38 +26,43 @@
     	============================================= --> 
 
             <!-- Cart Page Start -->
-            <div class="container-fluid py-5">
-            <div class="container py-5">
-                <div class="table-responsive">
+            <div v-if="cartItems.length === 0" class="noresul my-5">
+                  
+                  <span> Votre panier est vide. </span>
+                </div>
+            <div class="container-fluid py-5" v-else>
+            <div class="">
+                <div class="row">
+                    <div class="table-responsive col-lg-8">
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">Products</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">Formations</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prix</th>
                             <th scope="col">Total</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Suprrimer</th>
                           </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index) in panier" :key="index">
+                            <tr v-for="(item, index) in cartItems" :key="index" >
                                 <th scope="row">
                                     <div class="d-flex align-items-center">
-                                        <img :src="item.images" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                        <img :src="item.Photo" class="img-fluid " style="width: 80px; height: 80px;" alt="">
                                     </div>
                                 </th>
                                 <td>
-                                    <p class="mb-0 mt-4">{{ item.titre }}</p>
+                                    <p class="mb-0 mt-4">{{ item.Name }}</p>
                                 </td>
                                 <td>
-                                    <p class="mb-0 mt-4">2.99 $</p>
+                                    <p class="mb-0 mt-4"> {{ formatCurrency(item.Cost) }}</p>
                                 </td>
                                
                                 <td>
-                                    <p class="mb-0 mt-4">2.99 $</p>
+                                    <p class="mb-0 mt-4">{{ formatCurrency(item.Cost) }}</p>
                                 </td>
                                 <td>
-                                    <button class="btn btn-md rounded-circle bg-light border mt-4" @click="retirerDuPanier(index)">
+                                    <button class="btn btn-md rounded-circle bg-light border mt-4" @click="removeFromCart(index)">
                                         <i class="fa fa-times text-danger"></i>
                                     </button>
                                 </td>
@@ -70,76 +75,83 @@
                     </table>
                 </div>
                
-                <div class="row g-4 justify-content-end">
-                    <div class="col-8"></div>
-                    <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+                <div class="row justify-content-end col-lg-4">
+                    
+                    <div class="">
                         <div class="bg-light rounded">
                             <div class="p-4">
-                                <h1 class="display-6 mb-4">Cart <span class="fw-normal">Total</span></h1>
+                                <h1 class="display-6 mb-4">Total  <span class="fw-normal">du panier</span></h1>
                                 <div class="d-flex justify-content-between mb-4">
-                                    <h5 class="mb-0 me-4">Subtotal:</h5>
-                                    <p class="mb-0">$96.00</p>
+                                    <h5 class="mb-0 me-4">Total:</h5>
+                                    <p class="mb-0">{{ formatCurrency(totalAmount) }} </p>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="mb-0 me-4">Shipping</h5>
-                                    <div class="">
-                                        <p class="mb-0">Flat rate: $3.00</p>
-                                    </div>
-                                </div>
-                                <p class="mb-0 text-end">Shipping to Ukraine.</p>
+                               
+                                
                             </div>
                             <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                                 <h5 class="mb-0 ps-4 me-4">Total</h5>
-                                <p class="mb-0 pe-4">$99.00</p>
+                                <p class="mb-0 pe-4">{{ formatCurrency(totalAmount) }}</p>
                             </div>
-                            <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">Proceed Checkout</button>
+                           
+                            <div class="nws-button  text-capitalize">
+                            <button class="hover-btn" @click="$router.push({ path: '/mon-espace/mes-formations', })">Procéder au paiement </button>
+                                                            
+                            </div>
                         </div>
                     </div>
                 </div>
+                </div>
+                
             </div>
         </div>
         <!-- Cart Page End -->
     </div>
 </template>
 <script>
-import Formation from '@/lib/formation.json';
+
 export default {
     data() {
         return {
-             panier: [],
-            formations:Formation
+            
         };
     },
-    methods: {
-        retirerDuPanier(index) {
-            // Supprimez l'élément du panier à l'index spécifié
-            this.panier.splice(index, 1);
-
-            // Mettez à jour le localStorage
-            localStorage.setItem('panier', JSON.stringify(this.panier));
-        }
+    computed: {
+    cartItems() {
+      return this.$store.getters['panier/cartItems'];
     },
+    totalAmount() {
+      // Calculer la somme totale des prix des articles dans le panier
+      return this.cartItems.reduce((total, item) => total + item.Cost, 0);
+    },
+  },
+ 
+  
     mounted() {
-        console.log(this.formations)
+ 
+},
+    methods: {
+        removeFromCart(index) {
+      this.$store.dispatch('panier/removeFromCart', index);
+    },
 
-      
-        const storedPanierIds = localStorage.getItem('panier');
-
-        if (storedPanierIds) {
-          
-            const panierIds = JSON.parse(storedPanierIds);
-            console.log(panierIds)
-
-          
-            this.panier = panierIds.map(id => {
-                return this.formations.find(formation => formation.id === id.id);
-            });
-            console.log(this.panier)
-
-        }
-    }
+    formatCurrency(amount) {
+      // Formater le montant comme devise avec le symbole F CFA
+      return new Intl.NumberFormat('fr-FR', {
+        style: 'currency',
+        currency: 'XOF', // Code ISO de la devise pour F CFA
+        minimumFractionDigits: 0,
+      }).format(amount);
+    },
+    },
 }
 </script>
 <style lang="css" scoped>
-    
+.nws-button {
+    text-align: left !important;
+}
+.nws-button button{
+
+    width: 210px !important;
+}
+
 </style>

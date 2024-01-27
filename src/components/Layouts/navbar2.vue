@@ -25,39 +25,48 @@
                               <li>  <router-link to="/apropos" class="nav-item nav-link">A propos</router-link> </li>
                               <li>  <router-link to="/services" class="nav-item nav-link">Services</router-link> </li>
                               <li>  <router-link to="/actualites" class="nav-item nav-link">Actualites</router-link> </li>
-                              <li>  <router-link to="/formations" class="nav-item nav-link">Formations</router-link> </li>
+                              <li class="dropdown">
+                                    <router-link to="#">Formations <i class="bi bi-chevron-down dropdown-indicator"></i></router-link>
+                                          <ul  class="dropdown-menu">
+                                            <li v-for="item in Categories" :key="item.id">
+                                              <router-link :to="'/formations/' + item.id">{{ item.Name }}</router-link>
+                                            </li>
+                                               
+                                              </ul>
+                                </li>
                               <li>  <router-link to="/nos-realisations" class="nav-item nav-link">Nos realisations</router-link> </li>
                               <li>  <router-link to="/contact" class="nav-item nav-link">Contact</router-link> </li>
+                              
   
             </ul>
           </nav>
         <div class="second">
             <router-link to="/panier" class="btnCt" style="position: relative;" >
-                <i class="bi bi-cart-fill"></i>
-              <span>{{ nombreElementsPanier }}</span> 
+                <i class="bi bi-cart-fill" style="color: var(--color-secondary) !important;"></i>
+              <span>{{ cartSize }}</span> 
           </router-link>
           <!-- v-if="shouldShowNavbar" -->
     
-          <!-- <div v-if="shouldShowNavbar" >
+          <div v-if="shouldShowNavbar" >
             <div class="btnCt "  role="button" data-bs-toggle="dropdown" aria-expanded="false" >
-          <i class="bi bi-person-fill"></i>
-            <span> Mon compte </span>
+          
+            <div class="nom"> {{ prenom }}{{ nom }} </div>
             
          </div>
                   <ul class="dropdown-menu menu"  >
                <li><router-link to="/mon-espace"  class="dropdown-item d-flex justify-content-around" ><i class="bi bi-postcard pt-0"></i>Mon espace</router-link></li>
-               <li><router-link to="/profil"  class="dropdown-item d-flex justify-content-around" ><i class="bi bi-building"></i>Mon profil</router-link></li>            
+               <!-- <li><router-link to="/#"  class="dropdown-item d-flex justify-content-around" ><i class="bi bi-building"></i>Mon profil</router-link></li>             -->
                <li><span class="dropdown-item d-flex justify-content-around " style="cursor:pointer;" @click="logout" ><i class="bi bi-box-arrow-in-right pt-0"></i>Déconnexion</span></li>
                
              </ul>
-                 </div> -->
-          <router-link to="/connexion" class="btnCt" >
+                 </div>
+          <router-link to="/connexion" class="btnCt" v-else>
             <i class=" bi bi-person-fill-lock"></i>
             
           </router-link>
         </div>
           <i class="mobile-nav-toggle mobile-nav-show bi bi-list">
-            <span>Menu</span>
+            <!-- <span>Menu</span> -->
           </i>
           <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
   
@@ -69,7 +78,7 @@
   </template>
   
   <script>
-//   import { mapGetters } from 'vuex';
+  import { mapGetters } from 'vuex';
   
   
   export default {
@@ -77,46 +86,55 @@
   
    
     
-    // computed: {
-    //   ...mapGetters('user', ['isLoggedIn']),
-    //  shouldShowNavbar() {
-    //   this.$store.dispatch('user/loadLoggedInUser')
-      
-    //     return (
-    //       this.isLoggedIn &&
-    //       this.$route.path !== '/connexion-mpme' &&
-    //       this.$route.path !== '/connexion-mpme/verification'
-    //     );
-    //   },
-    //   loggedInUser() {
-    //     return this.$store.getters['user/loggedInUser'];
-    //   },
-    // },
-    
-    // watch: {
-    //   isLoggedIn(newValue) {
-    //     console.log('User is logged in:', newValue);
-    //   },
-    // },
     computed: {
-    panier() {
-      return this.$store.state.panier;
+      ...mapGetters('user', ['isLoggedIn']),
+     shouldShowNavbar() {
+      this.$store.dispatch('user/loadLoggedInUser')
+      
+        return (
+          this.isLoggedIn &&
+          this.$route.path !== '/connexion' 
+        );
+      },
+      loggedInUser() {
+        return this.$store.getters['user/loggedInUser'];
+      },
+      cartSize() {
+      return this.$store.getters['panier/cartItems'].length;
     },
-  },
+    },
+    
+    watch: {
+      isLoggedIn(newValue) {
+        console.log('User is logged in:', newValue);
+      },
+    },
+    
   
     data() {
       return {
-        // panier:[],
-        nombreElementsPanier: 0
+        nombreElementsPanier: 0,
+        nom:'',
+        prenom:'',
+        Categories:[]
   
       };
     },
    
   
-    mounted() {
-//    console.log("navbarrrr",this.loggedInUser);
+   async mounted() {
+   console.log("navbarrrr",this.loggedInUser);
+  await  this.fetchCategories()
+  if (this.loggedInUser) {
+    this.prenom = this.capitalizeFirstLetterOfEachWord(this.loggedInUser.prenom)
+   this.nom = this.capitalizeFirstLetterOfEachWord(this.loggedInUser.nom)
+   console.log( this.prenom ,  this.nom);
 
-this.mettreAJourNombreElementsPanier();
+  }
+   
+   
+
+
   
       document.querySelectorAll('.dropdown-toggle').forEach(item => {
     item.addEventListener('click', event => {
@@ -222,28 +240,56 @@ this.mettreAJourNombreElementsPanier();
   
 
     },
-    watch: {
-    $route: 'mettreAJourNombreElementsPanier'
-  },
   
-    methods: {
-        mettreAJourNombreElementsPanier() {
-      const panier = JSON.parse(localStorage.getItem('panier')) || [];
-      this.nombreElementsPanier = panier.length;
-    }
-    
-    //   async logout() {
-    //   try {      
-        
-                    
-    //                       await this.$store.dispatch('user/clearLoggedInUser'); // Appel de l'action pour déconnecter l'utilisateur
-    //                      this.$router.push('/connexion-mpme'); // Redirection vers la page de connexion
+   methods: {
+    async fetchCategories() {
+      try {
+        await this.$store.dispatch('fetchCategories');
+        const Categories = JSON.parse(JSON.stringify(this.$store.getters.getCategories));
+        console.log(Categories);
+        this.Categories = Categories;
+      } catch (error) {
+        console.error("Erreur lors de la récupération des cours :", error.message);
+      }
+    },
+   capitalizeFirstLetterOfEachWord(sentence) {
+    // Sépare la phrase en mots
+    const words = sentence.split(' ');
+
+    const firstLetters = words.map(word => {
+        if (word.length > 0) {
+            return word[0].toUpperCase();
+        } else {
+            return '';
+        }
+    });
+
+    // Rejoins les lettres pour former la chaîne finale
+    const result = firstLetters.join('');
+
+    return result;
+},
+
+async logout() {
+    try {      
+        // const response = await axios.post('/auth-user-logout' ,{}, {
+        //             headers: {
+        //                     Authorization: `Bearer ${this.loggedInUser.token}`,
+        //                    'Content-Type': 'application/json',
+        //             },
+        //         });
+                // if (response.status === "success") {
                   
+                        await this.$store.dispatch('user/clearLoggedInUser'); // Appel de l'action pour déconnecter l'utilisateur
+                       this.$router.push('/connexion'); // Redirection vers la page de connexion
+                // }
+
+    } catch (error) {
+      console.error('Erreur lors de la déconnexion :', error);
+    }
+  }
+    
   
-    //   } catch (error) {
-    //     console.error('Erreur lors de la déconnexion :', error);
-    //   }
-    // }
     },
   };
   </script>
@@ -316,7 +362,8 @@ height: 100%;
   position: absolute;
   border-radius: 50%;
     font-size: 25px;
-    top: -11px;
+    top: 6px;
+    left: 5px;
     display: flex;
     width: 40px;
     height: 23px;
@@ -324,8 +371,24 @@ height: 100%;
     align-items: center;
     justify-content: center;
     color: var(--color-default);
-    font-weight: 900;
+   
   }
+
+  .nom{
+
+/* border:1px solid red; */
+border-radius: 50%;
+color: #fff;
+background-color: var(--color-default);
+    font-weight: 900;
+    font-size: 20px;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
   .btnCt:hover{
   /* color: #fff; */
   }
@@ -390,7 +453,9 @@ height: 100%;
     .btnCt span{
   
     font-size: 25px;
-    top: 5px;
+    top: 14px;
+    left: 6px;
+
    
   }
   
@@ -719,6 +784,8 @@ padding: 0 !important;
   align-items: center;
   justify-content: center;
 }
+
+
 .topbar1{
 
 /* border: 1px solid red; */
@@ -1007,6 +1074,8 @@ section {
   background-image: linear-gradient(81deg, #e02b29 0%, #ff0303ed 75%, #ff3505 100%);
 }
 
+
+
 .navbar a:hover:before, 
 .navbar a.active:before {
   width: 100%;
@@ -1064,8 +1133,12 @@ section {
     font-size: 15px;
     text-transform: none;
     font-weight: 600;
-    color: #006a5d;
+    color: var(--color-default);
   }
+  .navbar .dropdown ul a:before{
+
+
+}
 
   .navbar .dropdown ul a i {
     font-size: 12px;
@@ -1073,8 +1146,10 @@ section {
 
   .navbar .dropdown ul a:hover,
   .navbar .dropdown ul .active:hover,
-  .navbar .dropdown ul li:hover>a {
-    color: var(--color-secondary);
+  .navbar .dropdown ul li:hover>a:before {
+    color: var(--color-default);
+background-image: linear-gradient(81deg, transparant 0%, transparant 75%, transparant 100%) !important;
+
   }
 
   .navbar .dropdown:hover>ul {
@@ -1171,8 +1246,13 @@ section {
   .navbar .active,
   .navbar .active:focus,
   .navbar li:hover>a {
-    color: var(--color-default);
+    color: var(--color-primary);
   }
+
+  .navbar a:before {
+
+  background-image: linear-gradient(81deg, transparant 0%, transparant 75%, transparant 100%) !important;
+}
 
   .navbar .getstarted,
   .navbar .getstarted:focus {
@@ -1196,8 +1276,7 @@ section {
     padding: 10px 0;
     margin: 10px 20px;
     transition: all 0.5s ease-in-out;
-    background-color: #007466;
-    border: 1px solid #006459;
+   
   }
 
   .navbar .dropdown>.dropdown-active,
@@ -1246,5 +1325,7 @@ section {
     z-index: 9996;
   }
 }
+
+
  
   </style>
