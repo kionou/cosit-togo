@@ -352,11 +352,11 @@
                 </div>
 
                 <Carousel  v-bind="carouselSettings" :breakpoints="breakpoints"  >
-    <Slide v-for="slide in 5" :key="slide">
+    <Slide v-for="slide in teams" :key="slide.id">
         <div class="dia-team-pic-text wow fadeFromLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
                         <div class="dia-team-img position-relative">
                             <div class="team-mem-img-ei text-center position-relative">
-                                <img src="@/assets/img/d-agency/team/tm1.png" alt="">
+                                <img :src="slide.MemberPhoto" alt="">
                                 <span class="mshape-bg shape-bg1"><img src="@/assets/img/d-agency/team/msbg1.png" alt=""></span>
                                 <span class="mshape-bg shape-bg2"><img src="@/assets/img/d-agency/team/msbg2.png" alt=""></span>
                             </div>
@@ -368,8 +368,8 @@
                             </div> -->
                         </div>
                         <div class="dia-team-text dia-headline text-center pera-content">
-                            <h3><a href="#">John Doe</a></h3>
-                            <p>Android Developer</p>
+                            <h3><a href="#">{{ slide.MemberNames }}</a></h3>
+                            <p>{{ slide.MemberPosition }}</p>
                         </div>
                     </div>
     </Slide>

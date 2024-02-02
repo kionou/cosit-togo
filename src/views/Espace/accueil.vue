@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="mt-auto text-center">
-                               <router-link class="btnLogin" to="#">Modifier</router-link>
+                               <router-link class="btnLogin" to="/mon-espace/profil">Modifier</router-link>
                             </div>
                         </div>
                     </div>

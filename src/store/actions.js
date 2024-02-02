@@ -72,5 +72,16 @@ export default{
           // Gestion des erreurs
         }
       },
+      async fetchActualites({ commit }) {
+        try {
+          const response = await axios.get('/actualites');
+          console.log(response);
+          commit('setActualites', response.data.data.data);
+          // Vous pouvez également effectuer d'autres traitements ici si nécessaire
+        } catch (error) {
+          console.error(error);
+          // Gestion des erreurs
+        }
+      },
 
 }

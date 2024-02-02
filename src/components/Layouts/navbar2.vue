@@ -42,7 +42,7 @@
           </nav>
         <div class="second">
             <router-link to="/panier" class="btnCt" style="position: relative;" >
-                <i class="bi bi-cart-fill" style="color: var(--color-secondary) !important;"></i>
+                <i class="bi bi-cart-fill" style="color: var(--color-primary) !important;"></i>
               <span>{{ cartSize }}</span> 
           </router-link>
           <!-- v-if="shouldShowNavbar" -->
@@ -280,7 +280,7 @@ async logout() {
         //         });
                 // if (response.status === "success") {
                   
-                        await this.$store.dispatch('user/clearLoggedInUser'); // Appel de l'action pour déconnecter l'utilisateur
+                      await this.$store.dispatch('user/clearLoggedInUser'); // Appel de l'action pour déconnecter l'utilisateur
                        this.$router.push('/connexion'); // Redirection vers la page de connexion
                 // }
 
@@ -350,7 +350,7 @@ height: 100%;
       cursor: pointer;
       outline: none;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
   
   }
@@ -359,7 +359,7 @@ height: 100%;
   }
 
   .btnCt span{
-  position: absolute;
+  /* position: absolute; */
   border-radius: 50%;
     font-size: 25px;
     top: 6px;
@@ -445,7 +445,7 @@ background-color: var(--color-default);
     margin-left: 20px;
     }
     .btnCt i{
-  padding-top: 10px;
+  /* padding-top: 10px; */
     
     
     }

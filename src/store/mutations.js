@@ -20,4 +20,7 @@ export default{
       setTeams(state, teams) {
         state.teams = teams;
       },
+      setActualites(state, actualites) {
+        state.actualites = actualites;
+      },
 }

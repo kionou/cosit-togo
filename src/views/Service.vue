@@ -42,8 +42,11 @@
                 </div>
                 <!-- /section title -->
                 <div class="service_content">
-                    <div class="row justify-content-md-center">
-                        <div v-for="service in services" :key="service.id" class="col-lg-4 col-md-6  wow fadeFromUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                  <div v-if="paginatedItems.length === 0" class="noresul">
+                      <span> Il n'y a aucun service disponible </span>
+                      </div> 
+                    <div class="row justify-content-md-center" v-else>
+                        <div v-for="service in paginatedItems" :key="service.id" class="col-lg-4 col-md-6  wow fadeFromUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="service_content_box relative-position">
                                 <div class="service_icon_box relative-position">
                                         <img :src="service.Photos" alt="">
@@ -63,22 +66,45 @@
     <!-- End of Service section
         ============================================= --> 
 
-      
+        <div class="container_pagination">
+  <Pag :current-page="currentPage" :total-pages="totalPages" @page-change="updateCurrentPage" />
+</div>
     </div>
 </template>
 <script>
 import Loading from '@/components/others/loading.vue';
+import Pag from '@/components/others/pagination.vue';
+
+
 export default {
     components: {
-         Loading
+         Loading ,  Pag,
 
     },
   data() {
     return {
       services: [],
       loading:true,
+      currentPage: 1,
+      itemsPerPage: 12,
+      totalPageArray: [], 
+   
     };
   },
+  computed: {
+
+
+totalPages() {
+return Math.ceil(this.services.length / this.itemsPerPage);
+},
+paginatedItems() {
+  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  const endIndex = startIndex + this.itemsPerPage;
+  return this.services.slice(startIndex, endIndex);
+},
+},
+
+  
   mounted() {
     this.fetchServices();
   },
@@ -88,7 +114,8 @@ export default {
         await this.$store.dispatch('fetchServices');
         const services = JSON.parse(JSON.stringify(this.$store.getters.getServices));
         console.log(services);
-        this.services = services;
+        this.services = services.filter(offre => offre.Publish === 1);
+        
         this.loading = false
       } catch (error) {
         console.error("Erreur lors de la récupération des services :", error.message);
@@ -102,6 +129,21 @@ export default {
       }
       return text;
     },
+
+    updateCurrentPage(pageNumber) {
+      this.currentPage = pageNumber;
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth', // Utilisez 'auto' pour un défilement instantané
+      });
+    },
+    updatePaginatedItems() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+     
+      const endIndex = startIndex + this.itemsPerPage;
+      return  this.services.slice(startIndex, endIndex);
+    },
+    
   },
   
 };
@@ -109,14 +151,9 @@ export default {
 <style lang="css" scoped>
 .banner-area {
    
-   background-image: url('../assets/site/banner2.jpg'); 
+   background-image: url('@/assets/site/banner2.jpg'); 
 }
 
-.truncate-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 100%; /* Ajustez la largeur maximale en fonction de votre mise en page */
-}
+
     
 </style>

@@ -198,104 +198,26 @@
 			
 			<div class="apbc-team-content">
 				
-					<div class="apbc-team-single card">
+					<div class="apbc-team-single card" v-for="slide in teams" :key="slide.id" >
 						<div class="apbc-img-wrapper">
 							<span class="apbc-img-shape-1"><img src="@/assets/img/business-4/team/shape-1.png" alt=""></span>
 							<span class="apbc-img-shape-2"><img src="@/assets/img/business-4/team/shape-2.png" alt=""></span>
-							<img src="@/assets/img/business-4/team/01.jpg" alt="">
+							<img :src="slide.MemberPhoto" alt="">
 						</div>
 						
 						<div class="apbc-member-content">
 							<div class="apbc-headline">
-								<a href="#"><h6>Biles Posture</h6></a>
+								<a href="#"><h6>{{ slide.MemberNames }}</h6></a>
 							</div>
 							<div class="apbc-designation">
-								<span>Business Developer</span>
+								<span>{{ slide.MemberPosition }}</span>
 							</div>
 						</div>
 					</div>
 
-					<div class="apbc-team-single card">
-						<div class="apbc-img-wrapper">
-							<span class="apbc-img-shape-1"><img src="@/assets/img/business-4/team/shape-1.png" alt=""></span>
-							<span class="apbc-img-shape-2"><img src="@/assets/img/business-4/team/shape-2.png" alt=""></span>
-							<img src="@/assets/img/business-4/team/02.jpg" alt="">
-						</div>
-						<div class="apbc-social-icons">
-							<a href="#"><i class="fab fa-facebook"></i></a>
-							<a href="#"><i class="fab fa-twitter"></i></a>
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-						<div class="apbc-member-content">
-							<div class="apbc-headline">
-								<a href="#"><h6>Brain Cumin</h6></a>
-							</div>
-							<div class="apbc-designation">
-								<span>Business Developer</span>
-							</div>
-						</div>
-					</div>
+					
 
-					<div class="apbc-team-single card">
-						<div class="apbc-img-wrapper">
-							<span class="apbc-img-shape-1"><img src="@/assets/img/business-4/team/shape-1.png" alt=""></span>
-							<span class="apbc-img-shape-2"><img src="@/assets/img/business-4/team/shape-2.png" alt=""></span>
-							<img src="@/assets/img/business-4/team/03.jpg" alt="">
-						</div>
-						<div class="apbc-social-icons">
-							<a href="#"><i class="fab fa-facebook"></i></a>
-							<a href="#"><i class="fab fa-twitter"></i></a>
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-						<div class="apbc-member-content">
-							<div class="apbc-headline">
-								<a href="#"><h6>Jhon N.Holmes</h6></a>
-							</div>
-							<div class="apbc-designation">
-								<span>Business Developer</span>
-							</div>
-						</div>
-					</div>
-					<div class="apbc-team-single card">
-						<div class="apbc-img-wrapper">
-							<span class="apbc-img-shape-1"><img src="@/assets/img/business-4/team/shape-1.png" alt=""></span>
-							<span class="apbc-img-shape-2"><img src="@/assets/img/business-4/team/shape-2.png" alt=""></span>
-							<img src="@/assets/img/business-4/team/04.jpg" alt="">
-						</div>
-						<div class="apbc-social-icons">
-							<a href="#"><i class="fab fa-facebook"></i></a>
-							<a href="#"><i class="fab fa-twitter"></i></a>
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-						<div class="apbc-member-content">
-							<div class="apbc-headline">
-								<a href="#"><h6>Figg Nelson</h6></a>
-							</div>
-							<div class="apbc-designation">
-								<span>Business Developer</span>
-							</div>
-						</div>
-					</div>
-					<div class="apbc-team-single card">
-						<div class="apbc-img-wrapper">
-							<span class="apbc-img-shape-1"><img src="@/assets/img/business-4/team/shape-1.png" alt=""></span>
-							<span class="apbc-img-shape-2"><img src="@/assets/img/business-4/team/shape-2.png" alt=""></span>
-							<img src="@/assets/img/business-4/team/02.jpg" alt="">
-						</div>
-						<div class="apbc-social-icons">
-							<a href="#"><i class="fab fa-facebook"></i></a>
-							<a href="#"><i class="fab fa-twitter"></i></a>
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-						<div class="apbc-member-content">
-							<div class="apbc-headline">
-								<a href="#"><h6>Brain Cumin</h6></a>
-							</div>
-							<div class="apbc-designation">
-								<span>Business Developer</span>
-							</div>
-						</div>
-					</div>
+					
 				</div>
 			
 		</div>
@@ -306,6 +228,34 @@
 </template>
 <script>
 export default {
+	data(){
+		return{
+		teams: [],
+
+		}
+
+	},
+	mounted(){
+		this.fetchTeams();
+
+	},
+	methods: {
+
+
+async fetchTeams() {
+  try {
+	await this.$store.dispatch('fetchTeams');
+	const teams = JSON.parse(JSON.stringify(this.$store.getters.getTeams));
+	console.log(teams);
+
+	this.teams = teams;
+  } catch (error) {
+	console.error("Erreur lors de la récupération des équipes :", error.message);
+  }
+},
+
+
+},
     
 }
 </script>

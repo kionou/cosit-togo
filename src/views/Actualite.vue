@@ -41,97 +41,118 @@
 					</div>
 				</div>
 			</div>
-			<div class="aplpg-blog-content">
+			<div v-if="paginatedItems.length === 0" class="noresul">
+                      <span> Il n'y a aucune actualité disponible </span>
+                      </div> 
+			<div class="aplpg-blog-content" v-else>
 				<div class="aplpg-blog-slider">
-					<div class="col-lg-3">
+				
+
+					<div class="col-lg-3" v-for="actualite in paginatedItems " :key="actualite.id">
 						<div class="aplpg-blog-column">
 							<div class="aplpg-img-wrapper">
-								<img src="@/assets/img/app-landing-2/blog/01.jpg" alt="">
-							</div>
-							<div class="aplpg-blog-meta">
-							
-								<span><i class="fas fa-calendar-alt"></i>June5,2021</span>
-							</div>
-							<div class="aplg-blog-column-txt">
-								<div class="aplpg-headline">
-									<a href="#"><h6>Aerial Photograhpy of Snowy Mountain Ranges</h6></a>
-								</div>
-								<div class="aplpg-pera-txt">
-									<p>iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-								</div>
-							</div>
-							
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="aplpg-blog-column">
-							<div class="aplpg-img-wrapper">
-								<img src="@/assets/img/app-landing-2/blog/02.jpg" alt="">
+								<img :src="actualite.images" alt="">
 							</div>
 							<div class="aplpg-blog-meta">
 								
-								<span><i class="fas fa-calendar-alt"></i>June5,2021</span>
+								<span><i class="fas fa-calendar-alt"></i>{{ formatDate(actualite.created_at) }}</span>
 							</div>
 							<div class="aplg-blog-column-txt">
 								<div class="aplpg-headline">
-									<a href="#"><h6>Journeys are Best Measured in New Friends</h6></a>
+									<router-link :to="'/actualites/' + actualite.id"><h6>{{ actualite.titre }}</h6></router-link>
 								</div>
 								<div class="aplpg-pera-txt">
-									<p>iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<p> {{ truncateText(actualite.content, 14) }} </p>
 								</div>
 							</div>
 							
 						</div>
 					</div>
-					<div class="col-lg-3">
-						<div class="aplpg-blog-column">
-							<div class="aplpg-img-wrapper">
-								<img src="@/assets/img/app-landing-2/blog/03.jpg" alt="">
-							</div>
-							<div class="aplpg-blog-meta">
-								
-								<span><i class="fas fa-calendar-alt"></i>June5,2021</span>
-							</div>
-							<div class="aplg-blog-column-txt">
-								<div class="aplpg-headline">
-									<a href="#"><h6>Assorted Color Buildings and Sea in Riomaggiore</h6></a>
-								</div>
-								<div class="aplpg-pera-txt">
-									<p>iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-								</div>
-							</div>
-							
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="aplpg-blog-column">
-							<div class="aplpg-img-wrapper">
-								<img src="@/assets/img/app-landing-2/blog/03.jpg" alt="">
-							</div>
-							<div class="aplpg-blog-meta">
-							
-								<span><i class="fas fa-calendar-alt"></i>June5,2021</span>
-							</div>
-							<div class="aplg-blog-column-txt">
-								<div class="aplpg-headline">
-									<a href="#"><h6>Aerial Photograhpy of Snowy Mountain Ranges</h6></a>
-								</div>
-								<div class="aplpg-pera-txt">
-									<p>iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-								</div>
-							</div>
-						
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- Blog Section End --> 
+
+	<div class="container_pagination">
+  <Pag :current-page="currentPage" :total-pages="totalPages" @page-change="updateCurrentPage" />
+</div>
     </div>
 </template>
 <script>
+import Loading from '@/components/others/loading.vue';
+import Pag from '@/components/others/pagination.vue';
 export default {
+	components: {
+         Loading ,  Pag,
+
+    },
+	data() {
+    return {
+      actualites: [],
+	  loading:true,
+      currentPage: 1,
+      itemsPerPage: 12,
+      totalPageArray: [], 
+    };
+  },
+  computed: {
+
+
+totalPages() {
+return Math.ceil(this.actualites.length / this.itemsPerPage);
+},
+paginatedItems() {
+  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  const endIndex = startIndex + this.itemsPerPage;
+  return this.actualites.slice(startIndex, endIndex);
+},
+},
+  mounted() {
+    this.fetchActualites();
+  },
+  methods: {
+    async fetchActualites() {
+      try {
+        await this.$store.dispatch('fetchActualites');
+        const actualites = JSON.parse(JSON.stringify(this.$store.getters.getActualites));
+		    console.log(actualites);
+        this.actualites = actualites.filter(offre => offre.publish === 1);
+        
+      } catch (error) {
+        console.error("Erreur lors de la récupération des actualités :", error.message);
+      }
+    },
+
+	updateCurrentPage(pageNumber) {
+      this.currentPage = pageNumber;
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth', // Utilisez 'auto' pour un défilement instantané
+      });
+    },
+    updatePaginatedItems() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+     
+      const endIndex = startIndex + this.itemsPerPage;
+      return  this.actualites.slice(startIndex, endIndex);
+    },
+	truncateText(text, maxWords) {
+      const words = text.split(' ');
+      console.log(words);
+      if (words.length > maxWords) {
+        return words.slice(0, maxWords).join(' ') + '...';
+      }
+      return text;
+    },
+	formatDate(dateString) {
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const dateObject = new Date(dateString);
+        return dateObject.toLocaleDateString('fr-FR', options);
+    },
+  },
+ 
     
 }
 </script>

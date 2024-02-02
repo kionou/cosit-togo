@@ -44,7 +44,7 @@ export default {
         state.alertMessage = 'Cette formation est déjà dans le panier.';
       } else {
         state.items.push(payload);
-        state.alertMessage = null;
+        // state.alertMessage = null;
       }
 
       localStorage.setItem('cart', JSON.stringify(state.items));

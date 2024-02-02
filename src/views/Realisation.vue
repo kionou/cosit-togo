@@ -43,9 +43,11 @@
 					</div>
 				</div>
 				<!-- Section Heading End -->
-
-				<div class="row">
-					<div v-for="project in projects" :key="project.id" class="col-xl-3 col-md-4">
+				<div v-if="paginatedItems.length === 0" class="noresul">
+                      <span> Il n'y a aucun projet disponible </span>
+                      </div> 
+				<div class="row justify-content-center" v-else>
+					<div v-for="project in paginatedItems" :key="project.id" class="col-xl-3 col-md-4">
 						<div class="applghu-single-service wow fadeInUp" data-wow-delay="0.2s">
 							<div class="applghu-service-icon-box">
 								<img :src="project.Images" alt="">
@@ -73,21 +75,41 @@
 			</div>
 		</section>
 		<!-- Service End -->
+
+		<div class="container_pagination">
+  <Pag :current-page="currentPage" :total-pages="totalPages" @page-change="updateCurrentPage" />
+</div>
     </div>
 </template>
 <script>
 import Loading from '@/components/others/loading.vue';
+import Pag from '@/components/others/pagination.vue';
 export default {
 	components: {
-         Loading
+         Loading , Pag,
 
     },
   data() {
     return {
       projects: [],
 	  loading:true,
+	  currentPage: 1,
+      itemsPerPage: 12,
+      totalPageArray: [], 
     };
   },
+  computed: {
+
+
+totalPages() {
+return Math.ceil(this.projects.length / this.itemsPerPage);
+},
+paginatedItems() {
+  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  const endIndex = startIndex + this.itemsPerPage;
+  return this.projects.slice(startIndex, endIndex);
+},
+},
   mounted() {
     this.fetchProjects();
   },
@@ -96,12 +118,26 @@ export default {
       try {
         await this.$store.dispatch('fetchProjects');
         const projects = JSON.parse(JSON.stringify(this.$store.getters.getProjects));
-		console.log(projects);
-        this.projects = projects;
-		this.loading = false
+	      	console.log(projects);
+       
+        this.projects = projects.filter(offre => offre.Publish === 1);
+	      this.loading = false
       } catch (error) {
         console.error("Erreur lors de la récupération des projets :", error.message);
       }
+    },
+	updateCurrentPage(pageNumber) {
+      this.currentPage = pageNumber;
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth', // Utilisez 'auto' pour un défilement instantané
+      });
+    },
+    updatePaginatedItems() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+     
+      const endIndex = startIndex + this.itemsPerPage;
+      return  this.projects.slice(startIndex, endIndex);
     },
   },
 

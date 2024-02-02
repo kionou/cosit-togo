@@ -9840,7 +9840,7 @@ Sticky Menu
 
 .s2-pricing_section .s2-pricing_item .s2-pricing_list li {
   border-bottom: 1px solid #e6e8e9;
-  padding: 12px;
+  padding:6px 12px;
   font-family: "Poppins";
   font-weight: 500;
   font-size: 13px;
@@ -15908,6 +15908,7 @@ div#preloader {
   font-size: 24px;
   font-weight: 700;
   padding-bottom: 30px;
+  margin-top: 10px;
 }
 .side-bar-widget .search-widget input {
   height: 50px;
@@ -15946,6 +15947,7 @@ div#preloader {
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #e8d8d8;
+  display: flex;
 }
 .recent-post-img-text:last-child {
   border-bottom: none;

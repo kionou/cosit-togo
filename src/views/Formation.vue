@@ -42,9 +42,12 @@
 
 					
         			</div>
+                    <div v-if="paginatedItems.length === 0" class="noresul">
+                      <span> Il n'y a aucune formation disponible </span>
+                      </div> 
         			<!-- /section title -->
-					<div class="class1">
-						<div class="s2-pricing_content" v-for="course in courses" :key="course.id">
+					<div class="class1" v-else>
+						<div class="s2-pricing_content" v-for="course in paginatedItems" :key="course.id">
                            
 
         				<div class="row justify-content-md-center">
@@ -71,21 +74,17 @@
                                                     <span style="font-weight: bolder;" >{{course.EndDate }}</span>
                                                 </p>
                                             </div>
-        								<ul>
-        									<li>
-        										<div class="s2-pricing_list_icon s2-checked float-left text-center"></div>
-        										Up to 5 Web Pages
-        									</li>
-        									<li>
-        										<div class="s2-pricing_list_icon s2-checked  float-left text-center"></div>
-        										Meta Description Optimization
-        									</li>
-        									
-        								</ul>
+                                            <ul v-if="course.Prerequires && course.Prerequires.length > 0">
+                                                <li v-for="prerequisite in parsePrerequisites(course.Prerequires)" :key="prerequisite">
+                                                    <div class="s2-pricing_list_icon s2-checked float-left text-center"></div>
+                                                    {{ prerequisite }}
+                                                </li>
+                                            </ul>
+                                            <p v-else class="text-center">Aucun prérequis requis</p>
         							</div>
-									<p  @click="handleCodeQr(course.Photo)" class="codeQR">Plus de detail</p>
+									<p  @click="handleCodeQr(course.FichierInfo)" class="codeQR">Plus de detail</p>
         							<div class="nws-button  text-capitalize">
-                                        <button class="hover-btn"> S'inscrir</button>
+                                        <button class="hover-btn" @click="ajouterAuPanier(course.id)" > S'inscrir</button>
                                     </div>
         						</div>
         					</div>
@@ -106,18 +105,22 @@
         	</section>
         <!-- End of pricing section   
         	============================================= -->
+            <div class="container_pagination">
+  <Pag :current-page="currentPage" :total-pages="totalPages" @page-change="updateCurrentPage" />
+</div>
     </div>
 	
 </template>
 <script>
 import MazDialog from 'maz-ui/components/MazDialog'
 import Loading from '@/components/others/loading.vue';
+import Pag from '@/components/others/pagination.vue';
 import QrcodeVue from 'qrcode.vue';
 
 export default {
 props:['id'],
 	components: {
-        MazDialog , Loading ,QrcodeVue,
+        MazDialog , Loading ,QrcodeVue,Pag
 
     },
 
@@ -129,6 +132,9 @@ props:['id'],
             alertMessage: null,
             selectedCourseId: null,
             name:'',
+            currentPage: 1,
+            itemsPerPage: 12,
+            totalPageArray: [], 
 
 			
 		}
@@ -143,29 +149,45 @@ props:['id'],
       }, 3000);
     },
   },
+
+  computed: {
+
+
+totalPages() {
+return Math.ceil(this.courses.length / this.itemsPerPage);
+},
+paginatedItems() {
+  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  const endIndex = startIndex + this.itemsPerPage;
+  return this.courses.slice(startIndex, endIndex);
+},
+},
     mounted() {
         this.fetchCourses();  
         },
 
 	methods: {
 
-    async fetchCourses() {
-      try {
-        await this.$store.dispatch('fetchPublishedCourses');
-        const courses = JSON.parse(JSON.stringify(this.$store.getters.getPublishedCourses));
-        console.log(courses);
-        
-        const filteredCourses = courses.filter(course => course.category.id === parseInt(this.id) );
-       
+        async fetchCourses() {
+  try {
+    await this.$store.dispatch('fetchPublishedCourses');
+    const courses = JSON.parse(JSON.stringify(this.$store.getters.getPublishedCourses));
+    console.log(courses);
 
-      console.log(filteredCourses);
-      this.courses = filteredCourses;
-      this.name = filteredCourses[0].category.Name
-      this.loading = false
-      } catch (error) {
-        console.error("Erreur lors de la récupération des cours :", error.message);
-      }
-    },
+    const filteredCourses = courses.filter(course => {
+      // Vérifiez si l'identifiant de la catégorie correspond et si isActive est égal à 1
+      return course.category.id === parseInt(this.id) && course.IsActive === 1;
+    });
+
+    console.log(filteredCourses);
+    this.courses = filteredCourses;
+    
+    this.loading = false;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des cours :", error.message);
+  }
+},
+
     ajouterAuPanier(courseId) {
       const course = this.courses.find((c) => c.id === courseId);
       this.$store.dispatch('panier/addToCart', course);
@@ -184,7 +206,33 @@ props:['id'],
         console.log(courseId);
         this.isOpen = true;
         this.selectedCourseId = courseId;
-    }
+    },
+
+    updateCurrentPage(pageNumber) {
+      this.currentPage = pageNumber;
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth', // Utilisez 'auto' pour un défilement instantané
+      });
+    },
+    updatePaginatedItems() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+     
+      const endIndex = startIndex + this.itemsPerPage;
+      return this.courses.slice(startIndex, endIndex);
+    },
+
+    parsePrerequisites(prerequiresString) {
+        try {
+            // Convertir la chaîne JSON en tableau JavaScript
+            const prerequisitesArray = JSON.parse(prerequiresString);
+            return Array.isArray(prerequisitesArray) ? prerequisitesArray : [];
+        } catch (error) {
+            console.error("Erreur lors de la conversion des prérequis :", error.message);
+            return [];
+        }
+    },
+    
         }
        
     

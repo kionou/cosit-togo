@@ -6,7 +6,9 @@ import store from '../store'
 import Accueil from '@/views/Accueil.vue'
 import Apropos from '@/views/Apropos.vue'
 import Service from '@/views/Service.vue'
+import ServiceDetail from '@/views/ServiceDetail.vue'
 import Actualite from '@/views/Actualite.vue'
+import ActualiteDetail from '@/views/ActualiteDetail.vue'
 import Formation from '@/views/Formation.vue'
 import Realisation from '@/views/Realisation.vue'
 import Contact from '@/views/Contact.vue'
@@ -16,6 +18,7 @@ import SignUp  from '@/views/SignUp.vue'
 
 import EspaceAccueil  from '@/views/Espace/accueil.vue'
 import Cours  from '@/views/Espace/mesFormations.vue'
+import Profil  from '@/views/Espace/profil.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,7 +31,9 @@ const router = createRouter({
         { path: '/', name: 'accueil', component: Accueil},
         { path: '/apropos', name: 'apropos', component: Apropos},
         { path: '/services', name: 'services', component: Service},
+        { path: '/services/:id', name: 'services-detail', component: ServiceDetail , props:true},
         { path: '/actualites', name: 'actualites', component: Actualite},
+        { path: '/actualites/:id', name: 'actualites-detail', component: ActualiteDetail , props:true},
         { path: '/formations/:id', name: 'formations', component: Formation , props:true},
         { path: '/nos-realisations', name: 'nos-realisations', component: Realisation},
         { path: '/contact', name: 'contact', component: Contact},
@@ -38,6 +43,7 @@ const router = createRouter({
 
         { path: '/mon-espace', name: 'mon-espace', component: EspaceAccueil ,  meta: { requiresAuth: true }},
         { path: '/mon-espace/mes-formations', name: 'mes-formations', component: Cours ,  meta: { requiresAuth: true }},
+        { path: '/mon-espace/profil', name: 'profil', component: Profil ,  meta: { requiresAuth: true }},
 
       ]
     },

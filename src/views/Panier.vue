@@ -146,6 +146,11 @@ export default {
 }
 </script>
 <style lang="css" scoped>
+
+.banner-area {
+   
+   background-image: url('@/assets/site/banner2.jpg'); 
+}
 .nws-button {
     text-align: left !important;
 }

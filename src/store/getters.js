@@ -5,5 +5,6 @@ export default{
     getProjects: state => state.projects,
     getTestimonials: state => state.testimonials,
     getTeams: state => state.teams,
+    getActualites: state => state.actualites,
       
 }
