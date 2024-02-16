@@ -11,6 +11,30 @@
     --linear:linear-gradient(81deg, #e02b29 0%, #ff0303ed 75%, #ff3505 100%);
   }
 
+
+  .container-general{
+
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .supp {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    border-radius: 45px;
+    z-index: 3;
+    cursor: pointer;
+    outline: none;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
   .noresul {
     border: 1px solid var(--color-primary);
     max-width: 1140px;
@@ -34,7 +58,7 @@
     text-align: center;
   
   }
-  .nws-button button {
+  .nws-button button  , .nws-button .hover-btn{
     color: #fff;
     height: 50px;
     width: 140px;
@@ -45,7 +69,20 @@
       margin: 10px;
     background-image: linear-gradient(81deg, #e02b29 0%, #ff0303ed 75%, #ff3505 100%);
   }
-  .nws-button button:hover{
+.nws-button .hover-btn{
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    font-weight: 700;
+    border-radius: 5px;
+    font-family: "Poppins";
+      margin: 10px;
+    background-image: linear-gradient(81deg, #e02b29 0%, #ff0303ed 75%, #ff3505 100%);
+  }
+
+
+ 
+  .nws-button button:hover , .nws-button .hover-btn:hover{
 
     color: var(--color-blanc);
     background-image: linear-gradient(81deg, #fff 0%, #fff 75%, #fff 100%);
@@ -57,17 +94,16 @@
     padding: 1em 3em;
     font-size: 13px;
     font-weight: 500;
-    color: #fff;
+    color: #fff !important;
     background-image: var(--linear);
     border: none;
     border-radius: 45px;
-
     cursor: pointer;
     outline: none;
 }
 
 .btnLogin:hover {
-    color: var(--color-primary);
+    color: var(--color-primary) !important;
     background-image: linear-gradient(81deg, #fff 0%, #fff 75%, #fff 100%);
     border: 1px solid var(--color-primary);
 
@@ -87,6 +123,7 @@
     background-color: #266486;
     height: 50vh;
     box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 10%);
+    margin-top: 91px;
 
 }
 

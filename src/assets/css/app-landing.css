@@ -2159,6 +2159,8 @@ a.aplpg-secondary-btn:hover .aplpg-gradient-border {
   text-align: center;
   position: relative;
   margin: 15px 15px 0 0;
+  height: 350px;
+  width: 260px;
 }
 
 .aplpg-blog-content .aplpg-blog-column .aplpg-img-wrapper {
@@ -2204,7 +2206,7 @@ a.aplpg-secondary-btn:hover .aplpg-gradient-border {
 } */
 
 .aplpg-blog-content .aplpg-blog-column .aplpg-blog-meta span {
-  color: #002b56;
+
   font-weight: 700;
 }
 

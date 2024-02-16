@@ -2,7 +2,7 @@
     <div>
        
         <Navbar />
-        <div class="haut"></div>
+        <!-- <div  class="haut"></div> -->
 
         <RouterView />
         <footer v-if="!isPageConnexion && !isPageInscription" id="footer" class="footer  ">
@@ -36,6 +36,10 @@ export default {
         },
     },
     mounted() {
+        window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
         this.isPageConnexion = this.$route.name === 'connexion';
         this.isPageInscription = this.$route.name === 'inscription';
     },
@@ -50,4 +54,5 @@ export default {
 .haut{
 
     margin-bottom: 80px;
-}</style>
+}
+</style>

@@ -1,4 +1,6 @@
 <template >
+   <Loading v-if="loading" style="z-index: 999999;"></Loading>
+
     <div>
       <!-- Start of breadcurmb section
     	============================================= -->
@@ -62,7 +64,7 @@
 									<router-link :to="'/actualites/' + actualite.id"><h6>{{ actualite.titre }}</h6></router-link>
 								</div>
 								<div class="aplpg-pera-txt">
-									<p> {{ truncateText(actualite.content, 14) }} </p>
+                  <p v-html="truncateText(actualite.content, 14)"></p>
 								</div>
 							</div>
 							
@@ -91,7 +93,7 @@ export default {
 	data() {
     return {
       actualites: [],
-	  loading:true,
+	    loading:true,
       currentPage: 1,
       itemsPerPage: 12,
       totalPageArray: [], 
@@ -110,6 +112,10 @@ paginatedItems() {
 },
 },
   mounted() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     this.fetchActualites();
   },
   methods: {
@@ -119,6 +125,7 @@ paginatedItems() {
         const actualites = JSON.parse(JSON.stringify(this.$store.getters.getActualites));
 		    console.log(actualites);
         this.actualites = actualites.filter(offre => offre.publish === 1);
+        this.loading =false
         
       } catch (error) {
         console.error("Erreur lors de la récupération des actualités :", error.message);

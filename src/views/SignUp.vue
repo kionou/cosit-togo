@@ -1,5 +1,7 @@
 <template >
     <Loading v-if="loading"></Loading>
+    <div class="haut"></div>
+
     <div>
         <div id="main-wrapper" class="oxyy-login-register">
     <div class="hero-wrap d-flex align-items-center h-100">
@@ -442,6 +444,11 @@ border: 1px solid var(--color-secondary);
 color: var(--color-secondary);
 background-color: white;
 
+}
+
+.haut{
+
+margin-bottom: 80px;
 }
     
 </style>

@@ -1710,6 +1710,12 @@ button {
   font-family: "Poppins", sans-serif;
   margin-bottom: 15px;
 }
+.applghu-service-area .applghu-single-service p span {
+
+  color: #171366;
+  font-weight: 700;
+
+}
 
 .applghu-service-area .applghu-single-service p {
   font-size: 14px;

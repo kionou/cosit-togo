@@ -1,4 +1,5 @@
 <template >
+     <Loading v-if="loading" style="z-index: 999999;"></Loading>
     <div>
          <!-- Start of breadcurmb section
     	============================================= -->
@@ -94,7 +95,7 @@
                             </div>
                            
                             <div class="nws-button  text-capitalize">
-                            <button class="hover-btn" @click="$router.push({ path: '/mon-espace/mes-formations', })">Procéder au paiement </button>
+                            <button class="hover-btn" @click="handleOrderClick()">Procéder au paiement </button>
                                                             
                             </div>
                         </div>
@@ -105,13 +106,34 @@
             </div>
         </div>
         <!-- Cart Page End -->
+        <MazDialog v-model="isdeletedoc" title="souscription succès">
+      <p>
+        Souscription validée avec succès ! Voulez-vous voir la souscription ?
+      </p>
+      <template #footer="{ close }">
+
+        <div class="supp" @click="close" style="background-color: red; "> Non</div>
+
+        <div class="supp" @click="confirmDeletedoc" style="background-color: rgb(5, 197, 5)"> Oui</div>
+
+      </template>
+    </MazDialog>
     </div>
 </template>
 <script>
+import store from '@/store';
+import axios from '../lib/axiosConfig.js'
+import MazDialog from 'maz-ui/components/MazDialog'
+import Loading from '@/components/others/loading.vue';
 
 export default {
+ components: {
+       Loading , MazDialog ,
+  }, 
     data() {
         return {
+            isdeletedoc:false,
+            loading:false
             
         };
     },
@@ -123,17 +145,36 @@ export default {
       // Calculer la somme totale des prix des articles dans le panier
       return this.cartItems.reduce((total, item) => total + item.Cost, 0);
     },
+  
+    loggedInUser() {
+    return this.$store.getters['user/loggedInUser'];
+  
   },
+},
  
   
     mounted() {
- 
+        console.log("datadossiers", this.loggedInUser);
 },
     methods: {
         removeFromCart(index) {
       this.$store.dispatch('panier/removeFromCart', index);
     },
 
+    handleOrderClick(){
+        const isLoggedIn = store.getters['user/isLoggedIn'];
+        console.log('isLoggedIn',isLoggedIn);
+        if (isLoggedIn) {
+           
+            this.SendSubscriptions()
+        } else {
+            console.log('non');
+            this.$router.push({ name: 'connexion', query: { fromCart: true } });
+          
+            
+        }
+
+    },
     formatCurrency(amount) {
       // Formater le montant comme devise avec le symbole F CFA
       return new Intl.NumberFormat('fr-FR', {
@@ -142,6 +183,42 @@ export default {
         minimumFractionDigits: 0,
       }).format(amount);
     },
+ async SendSubscriptions(){
+    this.loading = true
+        const storedIds = JSON.parse(localStorage.getItem('formationIds')) || [];
+        console.log('Identifiants stockés dans le panier :', storedIds);
+              let DataSubscriptions = {
+                  courses: storedIds,
+             };
+            console.log('dataMpme',DataSubscriptions);
+
+    try {
+        const response = await axios.post('/orders', DataSubscriptions, {
+          headers: {
+            Authorization: `Bearer ${this.loggedInUser.token}`,
+          
+          }
+        });
+        console.log('Réponse du téléversement :', response);
+        if (response.data.status === 'success') {
+            this.$store.dispatch('panier/clearCart');
+            this.isdeletedoc = true
+            this.loading= false
+        }else{
+          
+        }
+      } catch (error) {
+        console.error('Erreur lors du téléversement :', error);
+                        if (error.response.data.message==="Vous n'êtes pas autorisé." || error.response.status === 401) {
+            await this.$store.dispatch('user/clearLoggedInUser');
+              this.$router.push("/connexion");  //a revoir
+            }
+    }
+    },
+    confirmDeletedoc(){
+        this.isdeletedoc = false
+        this.$router.push({ path: '/mon-espace/mes-formations',  });
+    }
     },
 }
 </script>

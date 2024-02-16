@@ -102,6 +102,13 @@
       cartSize() {
       return this.$store.getters['panier/cartItems'].length;
     },
+
+    formattedUserName() {
+      if (this.loggedInUser) {
+        return `${this.capitalizeFirstLetterOfEachWord(this.loggedInUser.prenom)} ${this.capitalizeFirstLetterOfEachWord(this.loggedInUser.nom)}`;
+      }
+      return '';
+    }
     },
     
     watch: {
@@ -124,18 +131,10 @@
   
    async mounted() {
    console.log("navbarrrr",this.loggedInUser);
+  await  this.fetchUserData();
   await  this.fetchCategories()
-  if (this.loggedInUser) {
-    this.prenom = this.capitalizeFirstLetterOfEachWord(this.loggedInUser.prenom)
-   this.nom = this.capitalizeFirstLetterOfEachWord(this.loggedInUser.nom)
-   console.log( this.prenom ,  this.nom);
 
-  }
    
-   
-
-
-  
       document.querySelectorAll('.dropdown-toggle').forEach(item => {
     item.addEventListener('click', event => {
    
@@ -287,7 +286,21 @@ async logout() {
     } catch (error) {
       console.error('Erreur lors de la déconnexion :', error);
     }
-  }
+  },
+
+  async fetchUserData() {
+      await this.$store.dispatch('user/loadLoggedInUser');
+      // Récupérer les informations de l'utilisateur ici
+      if (this.isLoggedIn) {
+        this.prenom = this.capitalizeFirstLetterOfEachWord(this.loggedInUser.prenom);
+        this.nom = this.capitalizeFirstLetterOfEachWord(this.loggedInUser.nom);
+      }
+    },
+    // capitalizeFirstLetterOfEachWord(string) {
+    //   console.log(string.charAt(0).toUpperCase() + string.slice(1));
+    //   // Fonction pour mettre en majuscule la première lettre de chaque mot
+    //   return string.charAt(0).toUpperCase() + string.slice(1);
+    // },
     
   
     },
@@ -365,7 +378,7 @@ height: 100%;
     top: 6px;
     left: 5px;
     display: flex;
-    width: 40px;
+    width: 10px;
     height: 23px;
     flex-direction: column;
     align-items: center;

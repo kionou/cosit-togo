@@ -82,7 +82,7 @@
 </template>
 
 <script>
- 
+ import axios from '@/lib/axiosConfig.js'
  export default {
      name: 'CositEspace',
      components: {
@@ -93,7 +93,13 @@
     
      loggedInUser() {
        return this.$store.getters['user/loggedInUser'];
+         
      },
+
+     fromCart() {
+        return this.$store.state.user.fromCart;
+    },
+     
    },
  
      data() {
@@ -103,13 +109,47 @@
          };
      },
  
-     mounted() {
+  async mounted() {
          console.log("dataespace", this.loggedInUser);
+        
+
          window.scrollTo({
                  top: 0,
                  behavior: 'smooth',
              });
- 
+             if (this.fromCart) {
+                console.log(this.fromCart);
+        const storedIds = JSON.parse(localStorage.getItem('formationIds')) || [];
+        console.log('Identifiants stockés dans le panier :', storedIds);
+              let DataSubscriptions = {
+                  courses: storedIds,
+             };
+            console.log('dataMpme',DataSubscriptions);
+
+    try {
+        const response = await axios.post('/orders', DataSubscriptions, {
+          headers: {
+            Authorization: `Bearer ${this.loggedInUser.token}`,
+          
+          }
+        });
+        console.log('Réponse du téléversement :', response);
+        if (response.data.status === 'success') {
+            this.$store.dispatch('panier/clearCart');
+            this.$store.commit('user/setFromCart', false);
+            this.loading= false
+        }else{
+          
+        }
+      } catch (error) {
+        console.error('Erreur lors du téléversement :', error);
+        if (error.response.data.message==="Vous n'êtes pas autorisé." || error.response.status === 401) {
+            await this.$store.dispatch('user/clearLoggedInUser');
+        this.$router.push("/connexion");  //a revoir
+        }
+         
+    }
+    }
      },
  
      methods: {

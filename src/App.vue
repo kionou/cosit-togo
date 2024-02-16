@@ -60,10 +60,16 @@ import "aos/dist/aos.css"
       const title = name 
         // ? `${name} (${to.href.split('/')[2].toLowerCase()})`
         // : name
-      document.title = `cosit-Togo - ${title}`
+      document.title = `Cosit-Togo - ${title}`
 
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
+  },
+  mounted() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
   },
   
 }

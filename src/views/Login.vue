@@ -1,6 +1,7 @@
 <template >
     <Loading v-if="loading" style="z-index: 999999;"></Loading>
     <div>
+        <div class="haut"></div>
         <div id="main-wrapper" class="oxyy-login-register">
     <div class="hero-wrap d-flex align-items-center h-100">
         <div class="hero-mask opacity-4 bg-secondary">
@@ -148,6 +149,15 @@ export default {
     
   },
   mounted() {
+        // Après une connexion réussie
+        const fromCart = this.$route.query.fromCart;
+
+        if (fromCart) {
+            console.log('fromCart',fromCart);
+            this.$store.commit('user/setFromCart', true);
+        }
+
+       
     
   },
   methods: {
@@ -225,6 +235,7 @@ export default {
         }
       console.log("eeeee",DataUser);
       this.setLoggedInUser(this.InfoUser);
+      this.responseEmail = false
             this.$router.push('/mon-espace');
            this.loading = false
       try {
@@ -393,6 +404,11 @@ form {
     font-weight: 500;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
+}
+
+.haut{
+
+margin-bottom: 80px;
 }
     
 </style>

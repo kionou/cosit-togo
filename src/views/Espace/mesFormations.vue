@@ -2,7 +2,7 @@
      <div class="page-header">
             <div class="container">
                 <div class="page-header__inner">
-                    <h1 class="display-2">Bienvenue Prenom Nom</h1>
+                    <h1 class="display-2">Bienvenue {{ loggedInUser.prenom }} {{ loggedInUser.nom }}</h1>
                     <p>
                       
                     </p>
@@ -47,7 +47,7 @@
 
 <script>
 import Payer from '../../components/Formation.vue/payer.vue';
-import Souscrir from '../../components/Formation.vue/souscrir.vue';
+import Souscrir from '../../components/Formation.vue/accueilSouscrir.vue';
 
 export default {
     name: 'DNPMECLFormulaire',
@@ -58,8 +58,18 @@ export default {
         };
     },
 
+    computed: {
+    
+    loggedInUser() {
+      return this.$store.getters['user/loggedInUser'];
+    },
+  },
+
     mounted() {
-        
+        window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
   const selectHeader = document.querySelector('.class1');
 
 

@@ -49,6 +49,7 @@
                         <div v-for="service in paginatedItems" :key="service.id" class="col-lg-4 col-md-6  wow fadeFromUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="service_content_box relative-position">
                                 <div class="service_icon_box relative-position">
+                                  
                                         <img :src="service.Photos" alt="">
                                 </div>
                                 <div class="service_text_box saas2-headline pera-content">
@@ -143,6 +144,7 @@ paginatedItems() {
       const endIndex = startIndex + this.itemsPerPage;
       return  this.services.slice(startIndex, endIndex);
     },
+   
     
   },
   

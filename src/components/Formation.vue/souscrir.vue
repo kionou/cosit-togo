@@ -91,8 +91,45 @@
     </div>
 </template>
 <script>
+import axios from '@/lib/axiosConfig';
 export default {
+    data() {
+		return {
+			
+		}
+	},
+	computed: {
     
+    loggedInUser() {
+      return this.$store.getters['user/loggedInUser'];
+    },
+  },
+	async mounted() {
+	  await	 this.fetchCourse();
+	  console.log('eeee',this.loggedInUser.id);
+	},
+	methods: {
+		async fetchCourse(){
+
+			try {
+				const response = await axios.get('/orders', {
+				params: {  auth_user: this.loggedInUser.id,},
+				headers: { Authorization: `Bearer ${this.loggedInUser.token}` },
+				});
+      			  console.log('Réponse du téléversement :', response);
+					const allUserData = response.data.data.data;
+                   console.log(allUserData);
+        
+      } catch (error) {
+        console.error('Erreur lors du téléversement :', error);
+		if (error.response.data.message==="Vous n'êtes pas autorisé." || error.response.status === 401) {
+			await this.$store.dispatch('user/clearLoggedInUser');
+			this.$router.push("/connexion");  //a revoir
+			}
+         
+    }
+		}
+	},
 }
 </script>
 <style lang="css" scoped>

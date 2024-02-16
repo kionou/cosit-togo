@@ -50,7 +50,9 @@
 					<div v-for="project in paginatedItems" :key="project.id" class="col-xl-3 col-md-4">
 						<div class="applghu-single-service wow fadeInUp" data-wow-delay="0.2s">
 							<div class="applghu-service-icon-box">
-								<img :src="project.Images" alt="">
+								<!-- <img :src="project.Images" alt=""> -->
+                <img v-if="isValidImage(project.Images)" :src="project.Images" alt="">
+                <img v-else src="@/assets/site/logo1.jpeg" alt="">
 							</div>
 							<h3>{{ project.Name }}</h3>
 							<p> {{ project.Description }} </p>
@@ -138,6 +140,11 @@ paginatedItems() {
      
       const endIndex = startIndex + this.itemsPerPage;
       return  this.projects.slice(startIndex, endIndex);
+    },
+    isValidImage(src) {
+      console.log(src);
+      
+      return src && src.indexOf('.') !== -1;
     },
   },
 

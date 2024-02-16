@@ -19,6 +19,7 @@ import SignUp  from '@/views/SignUp.vue'
 import EspaceAccueil  from '@/views/Espace/accueil.vue'
 import Cours  from '@/views/Espace/mesFormations.vue'
 import Profil  from '@/views/Espace/profil.vue'
+import DetailFormation  from '@/views/Espace/detailFormation.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,7 @@ const router = createRouter({
         { path: '/mon-espace', name: 'mon-espace', component: EspaceAccueil ,  meta: { requiresAuth: true }},
         { path: '/mon-espace/mes-formations', name: 'mes-formations', component: Cours ,  meta: { requiresAuth: true }},
         { path: '/mon-espace/profil', name: 'profil', component: Profil ,  meta: { requiresAuth: true }},
+        { path: '/mon-espace/mes-formations/:id', name: 'formation-detail', component: DetailFormation , props:true, meta: { requiresAuth: true }},
 
       ]
     },

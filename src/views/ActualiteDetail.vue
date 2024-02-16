@@ -43,9 +43,9 @@
                                     </div>
                                 </div>
                                    
-                                   
-                                   <article>
-                                       {{  selectedActualites.content}}
+                               
+                                   <article v-html="selectedActualites.content">
+                                      
                                    </article>
                                </div>
                            </div>
@@ -112,6 +112,10 @@ export default {
    },
 
    mounted() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
        console.log(this.id);
        this.fetchActualites();
        this.fetchServices();

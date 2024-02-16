@@ -8,6 +8,7 @@ const state = {
   const getters = {
     loggedInUser: (state) => state.loggedInUser,
     isLoggedIn: (state) => state.loggedInUser !== null,
+    fromCart: (state) => state.fromCart, 
   };  
   
   const mutations = {
@@ -17,6 +18,9 @@ const state = {
     CLEAR_LOGGED_IN_USER(state) {
       state.loggedInUser = null;
     },
+    setFromCart(state, value) {
+      state.fromCart = value;
+  },
   };
   
   const actions = {
@@ -24,7 +28,7 @@ const state = {
       const now = Math.floor(Date.now() / 1000); // Timestamp actuel en secondes
       const tokenExpiration = now + user.expires_in; // Calcul de l'expiration du token
       const userSessionData = {
-        id: user.user.Entreprises || user.user.Identifiant ,
+        id: user.user.id ,
         nom:user.user.Nom,
         prenom:user.user.Prenoms,
         email:user.user.email,

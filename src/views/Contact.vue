@@ -146,6 +146,12 @@ export default {
 		msg:''
 	}
   },
+  mounted() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+  },
     
 }
 </script>

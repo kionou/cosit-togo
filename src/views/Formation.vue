@@ -97,10 +97,15 @@
         			
         		</div>
 
-                <MazDialog v-model="isOpen" v-if="isOpen && selectedCourseId !== null"  :key="selectedCourseId" title="Détails du cours">
+                <MazDialog v-model="isOpen" v-if="isOpen && selectedCourseId !== null"  :key="selectedCourseId" title="Télécharger le pdf" height="400px">
                 <div class="qr">
                     <qrcode-vue :value="selectedCourseId" :size ="170" />
+                   
+
                 </div>
+                <div class="nws-button  text-capitalize">
+                        <a :href="selectedCourseId" class="hover-btn" > Télécharger pdf</a>
+                    </div>
             </MazDialog>
         	</section>
         <!-- End of pricing section   
@@ -163,7 +168,12 @@ paginatedItems() {
 },
 },
     mounted() {
+        window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
         this.fetchCourses();  
+        
         },
 
 	methods: {
