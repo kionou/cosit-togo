@@ -107,6 +107,12 @@
                         <a :href="selectedCourseId" class="hover-btn" > Télécharger pdf</a>
                     </div>
             </MazDialog>
+
+            <MazDialog v-model="showModale"  v-if="showModale && cartSize"   title="Télécharger le pdf" height="400px">
+               <p>hhhhh</p>
+            </MazDialog>
+
+         
         	</section>
         <!-- End of pricing section   
         	============================================= -->
@@ -134,12 +140,14 @@ props:['id'],
 			isOpen:false,
             loading:true,
 			courses:[],
+            showModale:false,
             alertMessage: null,
             selectedCourseId: null,
             name:'',
             currentPage: 1,
             itemsPerPage: 12,
             totalPageArray: [], 
+            previousCartSize: 0,
 
 			
 		}
@@ -166,6 +174,26 @@ paginatedItems() {
   const endIndex = startIndex + this.itemsPerPage;
   return this.courses.slice(startIndex, endIndex);
 },
+showModal() {
+    console.log('modal',this.$store.getters['panier/showModal'])
+    return this.$store.getters['panier/showModal'];
+    },
+
+    cartSize() {
+    console.log('modal2',this.$store.getters['panier/cartItems'].length)
+
+    const currentCartSize = this.$store.getters['panier/cartItems'].length;
+    if (currentCartSize > this.previousCartSize) {
+        this.handleCartSizeChange()
+    
+      console.log('La taille du panier a augmenté !');
+      
+    } else {
+      // La taille du panier n'a pas changé ou a diminué
+      console.log('La taille du panier n\'a pas changé ou a diminué.');
+    }
+
+    },
 },
     mounted() {
         window.scrollTo({
@@ -177,6 +205,22 @@ paginatedItems() {
         },
 
 	methods: {
+
+        handleCartSizeChange() {
+            console.log('bonjour');
+    //   const currentCartSize = this.$store.getters['panier/cartItems'].length;
+
+    //   if (currentCartSize > this.previousCartSize) {
+    //     this.showModale = true;
+    //     console.log('La taille du panier a augmenté !');
+    //   } else {
+    //     // La taille du panier n'a pas changé ou a diminué
+    //     console.log('La taille du panier n\'a pas changé ou a diminué.');
+    //   }
+
+    //   // Mettre à jour la valeur précédente
+    //   this.previousCartSize = currentCartSize;
+    },
 
         async fetchCourses() {
   try {
@@ -201,7 +245,7 @@ paginatedItems() {
     ajouterAuPanier(courseId) {
       const course = this.courses.find((c) => c.id === courseId);
       this.$store.dispatch('panier/addToCart', course);
-      // Optionally, you can show a notification or update the UI to reflect the cart change
+     
     },
     formatCurrency(amount) {
       // Formater le montant comme devise avec le symbole F CFA
@@ -241,6 +285,9 @@ paginatedItems() {
             console.error("Erreur lors de la conversion des prérequis :", error.message);
             return [];
         }
+    },
+    hideModal() {
+      this.$store.commit('panier/hideModal');
     },
     
         }

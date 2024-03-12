@@ -2,8 +2,8 @@
     <div>
       <section id="dia-footer" class="dia-footer-section position-relative">
         <div class="container">
-          <div class="row">
-            <div class="col-lg-4 offset-2">
+          <div class="class0">
+            <div class="col-lg-4 ">
               <div class="dia-footer-widget pera-content dia-headline clearfix">
                 <div class="dia-footer-logo">
                   <img src="/src/assets/site/logo1.png" alt="" />
@@ -19,7 +19,7 @@
                 </div>
                 <div>
                   <i class="fas fa-phone"></i>
-                  <b>Rue : Lomé, Qt Agoè-Fiovi, proche du CCL ; Camp FIR </b>
+                  <b>Rue : Lomé, Qt Agoè-Fiovi, <br> proche du CCL ;  Camp FIR </b>
                 </div>
                 <div>
                   <i class="fas fa-phone"></i>
@@ -78,4 +78,34 @@
   <script>
   export default {};
   </script>
-  <style lang="css" scoped></style>
+  <style lang="css" scoped>
+.class0{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+@media screen and (max-width: 991px) {
+
+  .class0{
+    flex-direction: column;
+
+  }
+.dia-footer-widget {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dia-footer-widget .dia-footer-logo {
+    margin-bottom: 0;
+    width: 50%;
+}
+
+
+}
+
+</style>

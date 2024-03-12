@@ -180,9 +180,10 @@ export default {
       console.log('response.login', response.data); 
       if (response.data.status === "success") {
         this.InfoUser = response.data.data
+         this.setLoggedInUser(this.InfoUser);
         this.loading = false
-         this.saveVerificationCode(this.InfoUser);
-         this.SendOtp()
+        this.$router.push('/mon-espace');
+        //  this.SendOtp()
         
       } else {
         
@@ -194,11 +195,11 @@ export default {
       console.log('response.login', error); 
 
       this.loading = false
-      if (error.response.data.status === 'error') {
-       return this.error = "L'authentification a échoué"
+      if (error.response.data.message === "Accès refusé vous n'êtes pas autorisé.") {
+       return this.error = "Accès refusé vous n'êtes pas autorisé."
         
       } else {
-        
+        return this.error = "L'authentification a échoué"
       }
     }
             }else{

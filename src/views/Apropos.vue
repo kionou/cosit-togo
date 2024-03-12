@@ -31,14 +31,16 @@
 				<div class="col-lg-6 col-md-8">
 					<div class="apbc-about-left">
 						<div class="apbc-img-wrapper wow fadeInLeft">
-							<img src="@/assets/img/business-4/about/01.png" alt="">
+							<img src="@/assets/site/apropo1.jpeg" alt="">
 						</div>
 						<div class="apbc-countarea wow fadeInUp">
 							<div class="apbc-headline">
 								<h2><span class="apbc-counterup">18</span><sup>+</sup></h2>
 							</div>
 							<div class="apbc-exp">
-								<span>YEARS OF EXPERIENCE <br>We Just Achived</span>
+								<span>ANNÉES D'EXPÉRIENCEE <br>Nous venons de réaliser</span>
+								
+
 							</div>
 						</div>
 					</div>
@@ -155,7 +157,7 @@
 					<div class="col-lg-6 col-md-8">
 					<div class="apbc-about-left">
 						<div class="apbc-img-wrapper wow fadeInLeft">
-							<img src="@/assets/img/business-4/about/01.png" alt="">
+							<img src="@/assets/site/apropos2.jpg" alt="">
 						</div>
 					
 					</div>

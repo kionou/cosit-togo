@@ -28,10 +28,11 @@
                               <li class="dropdown">
                                     <router-link to="#">Formations <i class="bi bi-chevron-down dropdown-indicator"></i></router-link>
                                           <ul  class="dropdown-menu">
-                                            <li v-for="item in Categories" :key="item.id">
-                                              <router-link :to="'/formations/' + item.id">{{ item.Name }}</router-link>
+                                            <li v-for="item in Categories" :key="item.id" @click="redirection(item.id)">
+                                             
+                                              <h3><a href="#">{{ item.Name }}</a></h3>
+                                              
                                             </li>
-                                               
                                               </ul>
                                 </li>
                               <li>  <router-link to="/nos-realisations" class="nav-item nav-link">Nos realisations</router-link> </li>
@@ -296,14 +297,13 @@ async logout() {
         this.nom = this.capitalizeFirstLetterOfEachWord(this.loggedInUser.nom);
       }
     },
-    // capitalizeFirstLetterOfEachWord(string) {
-    //   console.log(string.charAt(0).toUpperCase() + string.slice(1));
-    //   // Fonction pour mettre en majuscule la première lettre de chaque mot
-    //   return string.charAt(0).toUpperCase() + string.slice(1);
-    // },
-    
+    redirection(id){
+      location.href = '/formations/'+ id;
+    } 
   
     },
+
+   
   };
   </script>
   

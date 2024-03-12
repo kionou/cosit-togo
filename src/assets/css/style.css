@@ -15497,7 +15497,7 @@ div#preloader {
   }
 
   .dia-banner-section .dia-banner-content {
-    padding: 150px 0px 0px;
+    padding: 0px 0px;
   }
 
   .dia-testimonial_indicator-dot .carousel-indicators2 {
@@ -15564,11 +15564,11 @@ div#preloader {
   }
 
   .dia-banner-section .dia-banner-content h1 {
-    font-size: 40px;
+    font-size: 36px;
   }
 
   .dia-banner-section .dia-banner-content {
-    padding: 130px 0px 0px;
+    padding:  0px 0px;
   }
 
   .dia-banner-section {
@@ -15749,7 +15749,7 @@ div#preloader {
 }
 @media screen and (max-width: 380px) {
   .dia-banner-section .dia-banner-content h1 {
-    font-size: 36px;
+    font-size: 30px;
     padding: 10px 0px 15px;
   }
 

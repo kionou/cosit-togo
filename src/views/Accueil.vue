@@ -186,7 +186,7 @@
                         </div>
                         <div class="col-lg-6 col-md-12 wow fadeFromRight" data-wow-delay="300ms" data-wow-duration="1500ms">
                             <div class="dia-about-img position-relative">
-                                <img src="@/assets/img/d-agency/about/ab1.png" alt="">
+                                <img src="@/assets/site/img5.png" alt="">
                                 <div class="ab-shape1 position-absolute" data-parallax='{"x" : -30}'> <img src="@/assets/img/d-agency/shape/as1.png" alt=""></div>
                                 <div class="ab-shape2 position-absolute" data-parallax='{"x" : 30}'> <img src="@/assets/img/d-agency/shape/as1.png" alt=""></div>
                             </div>
@@ -357,8 +357,7 @@
                         <div class="dia-team-img position-relative">
                             <div class="team-mem-img-ei text-center position-relative">
                                 <img :src="slide.MemberPhoto" alt="">
-                                <span class="mshape-bg shape-bg1"><img src="@/assets/img/d-agency/team/msbg1.png" alt=""></span>
-                                <span class="mshape-bg shape-bg2"><img src="@/assets/img/d-agency/team/msbg2.png" alt=""></span>
+                              
                             </div>
                             <!-- <div class="dia-team-social">
                                 <a href="#"><i class="fab fa-facebook-f "></i></a>

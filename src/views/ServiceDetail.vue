@@ -41,9 +41,8 @@
     									<a href="#"><i class="fas fa-calendar-alt"></i> September 12, 2021</a>
     									<a href="#"><i class="fas fa-user"></i> Admin</a>
     								</div> -->
-    								<article>
-                                        {{  selectedService.Description}}
-    								</article>
+    								
+                                    <article v-html="selectedService.Description"></article>
     							</div>
     						</div>
     					</div>

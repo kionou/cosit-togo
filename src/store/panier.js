@@ -52,6 +52,8 @@ export default {
     items: JSON.parse(localStorage.getItem('cart')) || [],
     formationIds: JSON.parse(localStorage.getItem('formationIds')) || [],
     alertMessage: '',
+    showModal: false,
+    prevCartLength: 0,
   },
   mutations: {
     addToCart(state, payload) {
@@ -61,8 +63,12 @@ export default {
       if (existingItem) {
         state.alertMessage = 'Cette formation est déjà dans le panier.';
       } else {
+        console.log('eee')
         state.items.push(payload);
         state.formationIds.push(payload.id);
+        state.prevCartLength = state.items.length - 1;
+
+        state.showModal = state.items.length > state.prevCartLength;
 
         // Stocker les identifiants des formations dans le local storage
         localStorage.setItem('formationIds', JSON.stringify(state.formationIds));
@@ -97,6 +103,9 @@ export default {
       state.items = [];
       state.formationIds = [];
     },
+    hideModal(state) {
+      state.showModal = false;
+    }
     // Ajouter d'autres mutations comme removeItem, clearCart, etc. si nécessaire
   },
   actions: {
@@ -118,6 +127,9 @@ export default {
     },
     formationIds(state) {
       return state.formationIds;
+    },
+    showModal(state) {
+      return state.showModal;
     },
     // Ajouter d'autres getters au besoin
   },

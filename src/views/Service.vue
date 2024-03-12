@@ -54,7 +54,8 @@
                                 </div>
                                 <div class="service_text_box saas2-headline pera-content">
                                     <h3><router-link :to="'/services/' + service.id">{{ service.Name }}</router-link></h3>
-                                    <p>{{ truncateText(service.Description, 14) }}.</p>
+                                    
+                                    <p v-html="truncateText(service.Description, 14)"></p>
                                 </div>
                             </div>
                         </div>
